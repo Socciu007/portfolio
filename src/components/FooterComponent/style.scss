@@ -1,0 +1,26 @@
+.footer {
+    min-height: 182px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__container {
+        &-left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+            &-connect {
+                display: flex;
+                gap: 20px;
+                align-items: center;
+                a {
+                    img {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+            }
+        }
+    }
+}

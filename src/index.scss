@@ -1,18 +1,40 @@
 /* Root Variables for Theming */
 :root {
-  --primary-color: #646cff;
-  --secondary-color: #535bf2;
-  --text-color: rgba(255, 255, 255, 0.87);
+  --primary-color: #FF6464;
+  --secondary-color: #00A8CC;
+  --text-color: #000;
   --bg-color: #242424;
   --button-bg: #1a1a1a;
   --button-hover: #646cff;
   --font-family: 'Poppins', sans-serif;
+  --font-size-base: 14px;
+  --font-size-small: 12px;
+  --font-size-medium: 16px;
+  --font-size-large: 20px;
+  --font-size-xlarge: 24px;
+  --font-size-xxlarge: 32px;
+}
+
+@supports (height: 100dvh) {
+  ::before,
+  ::after,
+  :root {
+    --vh: 1dvh;
+  }
+}
+
+@supports (width: 100dvw) {
+  ::before,
+  ::after,
+  :root {
+    --vw: 1dvw;
+  }
 }
 
 /* Light Mode Variables */
 @media (prefers-color-scheme: light) {
   :root {
-    --text-color: #213547;
+    --text-color: #000;
     --bg-color: #ffffff;
     --button-bg: #f9f9f9;
   }
@@ -30,6 +52,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  font-size: var(--font-size-base);
 }
 
 *,

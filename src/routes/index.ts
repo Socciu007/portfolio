@@ -5,6 +5,6 @@ const HomePage = lazy(() => import('../pages/HomePage'))
 export const routes = [
   {
     path: '/',
-    component: HomePage,
+    page: HomePage,
   },
 ]
