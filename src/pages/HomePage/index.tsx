@@ -32,7 +32,7 @@ const HomePage = () => {
                     <div className="home-page-section2__container-title-text">
                       <p>Recent projects</p>
                     </div>
-                    <div className="home-page-section2__container-title-more">
+                    <div className="home-page-section2__container-title-more smartphone">
                       <span>View all</span>
                     </div>
                   </div>
