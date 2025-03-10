@@ -1,9 +1,24 @@
 import ItemProjectComponent from '../../components/ItemProjectComponent'
 import ItemWorkComponent from '../../components/ItemWorkComponent'
+import SlideComponent from '../../components/SlideComponent'
 import './style.scss'
-
+import { useState } from 'react'
+import arrowLeft from '/assets/icon/arrowLeft.svg'
+import arrowRight from '/assets/icon/arrowRight.svg'
 import avatar from '/assets/image/me.jpg'
+import { AnimatePresence, motion, wrap } from 'motion/react'
+
 const HomePage = () => {
+  const items = [1, 2, 3, 4, 5, 6]
+  const [selectedItem, setSelectedItem] = useState(items[0])
+  const [direction, setDirection] = useState<1 | -1>(1)
+
+  function setSlide(newDirection: 1 | -1) {
+    const nextItem = wrap(1, items.length, selectedItem + newDirection)
+    setSelectedItem(nextItem)
+    setDirection(newDirection)
+  }
+  const color = `var(--hue-${selectedItem})`
   return (
     <div className="home-page">
         <div className="home-page__container">
@@ -37,8 +52,48 @@ const HomePage = () => {
                     </div>
                   </div>
                   <div className="home-page-section2__container-detail">
-                    <ItemProjectComponent />
-                    <ItemProjectComponent />
+                    {/* <ItemProjectComponent />
+                    <ItemProjectComponent /> */}
+                    <motion.button
+                      initial={false}
+                      animate={{ backgroundColor: color }}
+                      aria-label="Previous"
+                      className='motion-button'
+                      onClick={() => setSlide(-1)}
+                      whileFocus={{ outline: `2px solid ${color}` }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <img src={arrowLeft} alt='arrow left' />
+                    </motion.button>
+                    <AnimatePresence
+                      custom={direction}
+                      initial={false}
+                      mode="popLayout"
+                    >
+                      <SlideComponent key={selectedItem} color="#fff" >
+                        <ItemProjectComponent />
+                      </SlideComponent>
+                    </AnimatePresence>
+                    <AnimatePresence
+                      custom={direction}
+                      initial={false}
+                      mode="popLayout"
+                    >
+                      <SlideComponent key={selectedItem + 1} color="#fff" >
+                        <ItemProjectComponent />
+                      </SlideComponent>
+                    </AnimatePresence>
+                    <motion.button
+                      initial={false}
+                      animate={{ backgroundColor: color }}
+                      aria-label="Next"
+                      className='motion-button'
+                      onClick={() => setSlide(1)}
+                      whileFocus={{ outline: `2px solid ${color}` }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <img src={arrowRight} alt='arrow right' />
+                    </motion.button>
                   </div>
                 </div>
             </section>

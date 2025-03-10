@@ -101,6 +101,7 @@
       &-detail {
         display: flex;
         justify-content: center;
+        align-items: center;
         gap: 20px;
         height: calc(100% - 37px);
       }
@@ -261,4 +262,17 @@
       }
     }
   }
+}
+
+.motion-button {
+  background-color: #0cdcf7;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  outline-offset: 2;
 }
