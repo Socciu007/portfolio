@@ -1,8 +1,8 @@
-import ItemWorkComponent from "../../components/ItemWorkComponent";
-import SlideComponent from "../../components/SlideComponent";
-import "./style.scss";
-import avatar from "/assets/image/me.jpg";
-import { mockData } from "../../../mock/mock-data";
+import ItemWorkComponent from '../../components/ItemWorkComponent'
+import SlideComponent from '../../components/SlideComponent'
+import './style.scss'
+import avatar from '/assets/image/me.jpg'
+import { mockData } from '../../../mock/mock-data'
 
 const HomePage = () => {
   return (
@@ -59,7 +59,7 @@ const HomePage = () => {
         </section>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default HomePage;
+export default HomePage

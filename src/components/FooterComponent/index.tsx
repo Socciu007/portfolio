@@ -8,12 +8,12 @@ const FooterComponent = () => {
     <footer className="footer">
       <div className="footer__container">
         <div className="footer__container-left">
-            <div className="footer__container-left-connect">
-                <a href="#"><img src={fbIcon} alt="logo-facebook" /></a>
-                <a href="#"><img src={igIcon} alt="logo-instagram" /></a>
-                <a href="#"><img src={linkedinIcon} alt="logo-linkedin" /></a>
-            </div>
-            <p>Copyright ©2025 All rights reserved</p>
+          <div className="footer__container-left-connect">
+            <a href="#"><img src={fbIcon} alt="logo-facebook" /></a>
+            <a href="#"><img src={igIcon} alt="logo-instagram" /></a>
+            <a href="#"><img src={linkedinIcon} alt="logo-linkedin" /></a>
+          </div>
+          <p>Copyright ©2025 All rights reserved</p>
         </div>
       </div>
     </footer>

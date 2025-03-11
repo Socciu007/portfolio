@@ -6,10 +6,10 @@ const ProjectDetailPage = lazy(() => import('../pages/ProjectDetailPage'))
 export const routes = [
   {
     path: '/',
-    page: HomePage,
+    page: HomePage
   },
   {
     path: '/projects/:id',
-    page: ProjectDetailPage,
+    page: ProjectDetailPage
   },
 ]
