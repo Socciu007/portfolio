@@ -1,33 +1,49 @@
-import { usePresenceData, motion } from "motion/react"
-import { forwardRef } from "react"
-import "./style.scss"
+import {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  Autoplay,
+} from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import ItemProjectComponent from "../ItemProjectComponent";
+import "./style.scss";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
-const SlideComponent = forwardRef(function SlideComponent(
-    { color, children }: { color: string, children: React.ReactNode },
-    ref: React.Ref<HTMLDivElement>
-) {
-    const direction = usePresenceData()
-    return (
-        <motion.div
-            ref={ref}
-            initial={{ opacity: 0, x: direction * 50 }}
-            animate={{
-                opacity: 1,
-                x: 0,
-                transition: {
-                    delay: 0.2,
-                    type: "spring",
-                    visualDuration: 0.3,
-                    bounce: 0.4,
-                },
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const SlideComponent = ({ arrSlide }: { arrSlide: any[] }) => {
+  return (
+    <Swiper
+      modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+      spaceBetween={20}
+      slidesPerView={2}
+      navigation
+      pagination={false}
+      scrollbar={false}
+      className="slide-component"
+      autoplay={{
+        delay: 3000,
+        disableOnInteraction: false,
+      }}
+    >
+      {arrSlide.map((item, index) => (
+        <SwiperSlide key={index}>
+          <ItemProjectComponent
+            item={{
+              name: item.name,
+              createdAt: item.createdAt,
+              technologies: item.technologies,
+              description: item.description,
             }}
-            exit={{ opacity: 0, x: direction * -50 }}
-            className="slide-component"
-            style={{ backgroundColor: color }}
-        >
-            {children}
-        </motion.div>
-    )
-})
+          />
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  );
+};
 
-export default SlideComponent
+export default SlideComponent;

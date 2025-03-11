@@ -1,5 +1,4 @@
 .header {
-  margin-bottom: 140px;
   width: 100%;
   z-index: 100;
   // min-height: 65px;
@@ -21,9 +20,13 @@
       gap: 32px;
       align-items: center;
       justify-content: flex-end;
-      p {
+      a {
+        color: #000;
         font-size: var(--font-size-medium);
         cursor: pointer;
+      }
+      .active {
+        color:#00a8cc;
       }
     }
   }

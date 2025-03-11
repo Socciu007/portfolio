@@ -1,5 +1,33 @@
 .item-project-component {
-    flex: 1;
-    background-color: #fff;
-    border-radius: 4px;
+  background-color: #fff;
+  border-radius: 4px;
+  height: 100%;
+  &__item {
+    padding: 25px;
+    text-align: left;
+    &-title {
+      margin-bottom: 17px;
+      h3 {
+        cursor: pointer;
+        font-size: 26px;
+        font-weight: 600;
+        line-height: 38px;
+      }
+    }
+    &-time {
+      margin-bottom: 9px;
+      display: flex;
+      align-items: center;
+      span {
+        font-size: 18px;
+        line-height: 26px;
+      }
+    }
+    &-description {
+      p {
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+  }
 }
