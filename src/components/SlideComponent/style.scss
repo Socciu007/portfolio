@@ -3,7 +3,7 @@
   .swiper-button-prev:after,
   .swiper-button-next:after {
     color: #00a8cc;
-    font-size: 20px;
+    font-size: var(--font-size-medium);
     font-weight: 600;
   }
   .swiper-button-prev,

@@ -13,7 +13,7 @@ const FooterComponent = () => {
             <a href="#"><img src={igIcon} alt="logo-instagram" /></a>
             <a href="#"><img src={linkedinIcon} alt="logo-linkedin" /></a>
           </div>
-          <p>Copyright ©2025 All rights reserved</p>
+          <p>©Vu Tien 2025, All rights reserved</p>
         </div>
       </div>
     </footer>

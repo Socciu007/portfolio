@@ -13,7 +13,7 @@
     &__detail {
         flex: 591;
         &-title {
-            font-size: 30px;
+            font-size: var(--font-size-xlarge);
             font-weight: 600;
             color: #000;
             line-height: 24px;
