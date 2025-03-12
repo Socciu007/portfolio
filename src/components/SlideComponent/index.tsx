@@ -9,10 +9,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import ItemProjectComponent from '../ItemProjectComponent'
 import './style.scss'
 // Import Swiper styles
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
-import 'swiper/css/scrollbar'
+import 'swiper/swiper-bundle.css'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const SlideComponent = ({ arrSlide }: { arrSlide: any[] }) => {
