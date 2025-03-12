@@ -7,8 +7,8 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
-    },
+      '@': path.resolve(__dirname, './src')
+    }
   },
   build: {
     outDir: 'dist',
@@ -19,27 +19,27 @@ export default defineConfig({
       output: {
         manualChunks: {
           react: ['react', 'react-dom'],
-          vendor: ['react-router-dom', 'react-icons'],
-        },
-      },
+          vendor: ['react-router-dom']
+        }
+      }
     },
     minify: 'terser', // Minify the code
     terserOptions: {
       compress: {
         drop_console: true, // Drop console.log
         drop_debugger: true, // Drop debugger
-        ecma: 2020, // Optimize the code for the ECMAScript standard
-      },
+        ecma: 2020 // Optimize the code for the ECMAScript standard
+      }
     },
     cssCodeSplit: true, // Split the CSS code
-    target: 'esnext', // Target the latest ECMAScript standard
+    target: 'esnext' // Target the latest ECMAScript standard
   },
   optimizeDeps: {
-    include: ['lodash'], // Pre-bundle the package
+    include: [] // Pre-bundle the package
   },
   server: {
     port: 3000,
     host: true,
     open: true
-  },
+  }
 })
