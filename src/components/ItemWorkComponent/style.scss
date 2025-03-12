@@ -1,34 +1,44 @@
 .item-work-component {
-    margin: 0 auto;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #E0E0E0;
-    display: flex;
-    gap: 18px;
-    &__image {
-        flex: 246;
-        height: 180px;
-        background-color: #E0E0E0;
-        border-radius: 6px;
+  margin: 0 auto;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  gap: 18px;
+  &__image {
+    flex: 246;
+    width: 246px;
+    height: 180px;
+    background-color: #e0e0e0;
+    border-radius: 6px;
+    &-logo {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      img {
+        width: 100%;
+        object-fit: fill;
+      }
     }
-    &__detail {
-        flex: 591;
-        &-title {
-            font-size: var(--font-size-xlarge);
-            font-weight: 600;
-            color: #000;
-            line-height: 24px;
-        }
-        &-button {
-            display: flex;
-            gap: 10px;
-            margin: 24px 0;
-            span {
-                font-size: var(--font-size-medium);
-                color: #000;
-            }
-        }
-        &-description {
-            color: #21243D;
-        }
+  }
+  &__detail {
+    flex: 591;
+    &-title {
+      font-size: var(--font-size-large);
+      font-weight: 600;
+      color: #000;
+      line-height: 24px;
     }
+    &-button {
+      display: flex;
+      gap: 10px;
+      margin: 24px 0;
+      span {
+        font-size: var(--font-size-medium);
+        color: #000;
+      }
+    }
+    &-description {
+      color: #21243d;
+    }
+  }
 }

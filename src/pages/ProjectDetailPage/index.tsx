@@ -19,8 +19,32 @@ const ProjectDetailPage = () => {
           </div>
           <div className="wrapper-description">
             <p>{project?.description}</p>
+            <div className="wrapper-description-image">
+              <img src={project?.image} alt="img-project" />
+            </div>
           </div>
-          <div className="wrapper-tag"></div>
+          <div className="wrapper-responsibilities">
+            {project?.responsibilities?.map((item) => (
+              <div className="wrapper-responsibilities-list" key={item.id}>
+                <div className="wrapper-responsibilities-list-item">
+                  <div className="wrapper-responsibilities-list-item-title">
+                    <h1>{item.title}</h1>
+                  </div>
+                  <div className="wrapper-responsibilities-list-item-image">
+                    {item?.image && <img src={item.image} alt="img-project" />}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="wrapper-tag">
+            <div className="wrapper-tag-item">
+              Tags:
+              {project?.technologies?.map((item) => (
+                <span key={item}>{item}</span>
+              ))}
+            </div>
+          </div>
           <div className="wrapper-url">
             <div className="wrapper-url-btn">
               <motion.button
@@ -28,10 +52,10 @@ const ProjectDetailPage = () => {
                   scale: 1.1,
                   transition: { duration: 0.8 }
                 }}
-                // whileTap={{ scale: 0.8 }}
+                whileTap={{ scale: 1 }}
                 className="motion-button"
               >
-                <a href="#" target="_blank">
+                <a href={project?.linkGithub} target="_blank">
                   Github Repository
                 </a>
                 <img src={redirect} alt="img-redirect" />
@@ -44,7 +68,7 @@ const ProjectDetailPage = () => {
                 // whileTap={{ scale: 0.9 }}
                 className="motion-button"
               >
-                <a href="#" target="_blank">
+                <a href={project?.link} target="_blank">
                   See Live
                 </a>
                 <img src={redirect} alt="img-redirect" />

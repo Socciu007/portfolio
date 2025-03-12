@@ -52,14 +52,15 @@ const HomePage = () => {
               </div>
             </div>
             <div className="home-page-section3__container-detail">
-              <ItemWorkComponent />
-              <ItemWorkComponent />
+              {mockData?.workExperience?.map((item) => (
+                <ItemWorkComponent key={item.id} item={item} />
+              ))}
             </div>
           </div>
         </section>
       </div>
     </div>
-  )
+  );
 }
 
 export default HomePage

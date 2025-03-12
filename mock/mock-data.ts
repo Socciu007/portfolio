@@ -4,7 +4,31 @@ export const mockData = {
       id: 1,
       name: 'E-commerce website for electronic devices.',
       description: 'Designed and developed a scalable e-commerce system tailored for the electrical equipment industry, integrating product catalog management, secure payment processing, and real-time inventory tracking.',
-      responsibilities: 'Built RESTful APIs using Express.js to manager user, manage orders, product listings, and inventory tracking./n Developed a responsive and dynamic UI with ReactJS & Ant Design, ensuring a seamless user experience./n Integrated secure payment gateways like PayPal for safe and convenient transactions./n Implemented JWT authentication for secure user login and role-based access control./n Vietnamese-English language switching feature for the website.',
+      image: '/assets/image/ecommerce-web.png',
+      responsibilities: [
+        {
+          id: 1,
+          title: 'Built RESTful APIs using Express.js to manager user, manage orders, product listings, and inventory tracking.',
+          image: '/assets/image/ecommerce-db.png'
+        },
+        {
+          id: 2,
+          title: 'Developed a responsive and dynamic UI with ReactJS & Ant Design, ensuring a seamless user experience.'
+        },
+        {
+          id: 3,
+          title: 'Integrated secure payment gateways like PayPal for safe and convenient transactions.'
+        },
+        {
+          id: 4,
+          title: 'Implemented JWT authentication for secure user login and role-based access control.'
+        },
+        {
+          id: 5,
+          title: 'Vietnamese-English language switching feature for the website.',
+          image: '/assets/image/ecommerce-vi.png'
+        }
+      ],
       status: 'active',
       link: 'https://e-commerce-web-ten-rosy.vercel.app/',
       linkGithub: 'https://github.com/Socciu007/e-commerce-frontend.git',
@@ -15,7 +39,24 @@ export const mockData = {
       id: 2,
       name: 'A work and task management website similar to Trello.',
       description: 'A task management software that allows users to add, drag, and drop tasks seamlessly for better workflow organization.',
-      responsibilities: 'The system includes work management, and task management./n The system includes a light/dark mode switching feature./ A drag-and-drop task management function.',
+      image: '/assets/image/trello-web.png',
+      responsibilities: [
+        {
+          id: 1,
+          title: 'The system includes work management, and task management.',
+          image: '/assets/image/trello-db.png'
+        },
+        {
+          id: 2,
+          title: 'The system includes a light/dark mode switching feature.',
+          image: '/assets/image/trello-mode.png'
+        },
+        {
+          id: 3,
+          title: 'A drag-and-drop task management function.',
+          image: '/assets/image/trello-feat.png'
+        }
+      ],
       status: 'active',
       link: 'https://trello-web-fawn.vercel.app/',
       linkGithub: 'https://github.com/Socciu007/trello-web.git',
@@ -26,7 +67,42 @@ export const mockData = {
       id: 3,
       name: 'Real-time Aquaculture Monitoring & Alert System.',
       description: 'Designed and developed a real-time alert system for aquaculture, monitoring water quality parameters and sending automated warnings for critical conditions.',
-      responsibilities: 'The system includes user management, geographic area management, environmental parameter management, environmental test management, and notification management./n Developed RESTful APIs using Express.js to manage device data, alerts, and user notifications efficiently./n Implemented role-based access control (RBAC) with JWT authentication to ensure secure system access./n Designed an automated alert system leveraging Nodemailer to send real-time email notifications based on predefined triggers./n Integrated Leaflet.js to provide interactive real-time location-based alerts on a dynamic map interface./n Integrating the Fuzzy Set algorithm for environmental assessment and warning./n Vietnamese-English language switching feature for the website.',
+      image: '/assets/image/aqua-web.png',
+      responsibilities: [
+        {
+          id: 1,
+          title: 'The system includes user management, geographic area management, environmental parameter management, environmental test management, and notification management.',
+          image: '/assets/image/aqua-system.png'
+        },
+        {
+          id: 2,
+          title: 'Developed RESTful APIs using Express.js to manage device data, alerts, and user notifications efficiently.',
+          image: '/assets/image/aqua-db.png'
+        },
+        {
+          id: 3,
+          title: 'Improved role-based access control (RBAC) with JWT authentication to ensure secure system access.'
+        },
+        {
+          id: 4,
+          title: 'Designed an automated alert system leveraging Nodemailer to send real-time email notifications based on predefined triggers.',
+          image: '/assets/image/aqua-mail.png'
+        },
+        {
+          id: 5,
+          title: 'Integrated Leaflet.js to provide interactive real-time location-based alerts on a dynamic map interface.',
+          image: '/assets/image/aqua-leaflet.png'
+        },
+        {
+          id: 6,
+          title: 'Integrating the Fuzzy Set algorithm for environmental assessment and warning.'
+        },
+        {
+          id: 7,
+          title: 'Vietnamese-English language switching feature for the website.',
+          image: '/assets/image/aqua-vi.png'
+        }
+      ],
       status: 'active',
       link: 'https://warning-web.vercel.app/',
       linkGithub: 'https://github.com/Socciu007/warning-web.git',
@@ -37,7 +113,19 @@ export const mockData = {
       id: 4,
       name: 'Developing an Online Fashion Website.',
       description: 'Developing a user-friendly and visually appealing online fashion store with seamless shopping experience, and responsive design for all devices.',
-      responsibilities: 'Developed a responsive and dynamic UI with ReactJS + Vite, ensuring a seamless user experience./n Developing mock data for product management.',
+      image: '/assets/image/fashion-web.png',
+      responsibilities: [
+        {
+          id: 1,
+          title: 'Developed a responsive and dynamic UI with ReactJS + Vite, ensuring a seamless user experience.',
+          image: '/assets/image/fashion-ui.png'
+        },
+        {
+          id: 2,
+          title: 'Developing mock data for product management.',
+          // image: '/assets/image/fashion-web.png'
+        }
+      ],
       status: 'active',
       link: 'https://fashion-web-x3tr.vercel.app/',
       linkGithub: 'https://github.com/Socciu007/fashion-web.git',
@@ -50,6 +138,7 @@ export const mockData = {
       id: 1,
       company: 'ABI Game Studio',
       position: 'Data Analyst Intern',
+      logo: '/assets/image/abi-logo.png',
       startDate: 'Jun 2023',
       endDate: 'Sep 2023',
       description: 'Research and present game metrics that need to be analyzed. Analyze key game metrics, including retention, session time, engagement, and daily active users, and create visualizations to provide data-driven insights. Build a server that receives casual game data.',
@@ -59,15 +148,17 @@ export const mockData = {
       id: 2,
       company: 'ONEADX CO., LTD',
       position: 'Fullstack Developer',
+      logo: '/assets/image/oneadx-logo.png',
       startDate: 'Oct 2023',
       endDate: 'Apr 2024',
-      description: 'Developing automation features for interactions on Facebook, Instagram, X (Twitter), and Trustpilot, integrating with Hidemyacc – a platform for managing multiple online accounts. Additionally, building a desktop application to automate key functionalities on Facebook and Instagram, along with developing a marketing website for the application.',
+      description: 'Developing automation features for interactions on Facebook, Instagram, Twitter, and Trustpilot, integrating with Hidemyacc – a platform for managing multiple online accounts. Additionally, building a desktop application to automate key functionalities on Facebook and Instagram, along with developing a marketing website for the application.',
       technologies: ['ReactJS', 'EJS', 'Puppeteer', 'Node.js', 'ExpressJS']
     },
     {
       id: 3,
-      company: 'AIFREIGHT CO., LTD',
+      company: 'AIFREIGHT CO., LTD (FANYUAN International Logistics)',
       position: 'Fullstack Developer',
+      logo: '/assets/image/fanyuan-logo.png',
       startDate: 'May 2024',
       endDate: 'Present',
       description: 'Developing API interfaces for collecting shipping line data, building Chrome extensions to automate activities on shipping company websites, researching the LLaMA 3 natural language model and SeamlessM4T for speech translation. Additionally, developing a Windows application using Electron to gather logistics data from Facebook and integrating ChatGPT or Gemini to process and transform raw data into valuable insights.',
