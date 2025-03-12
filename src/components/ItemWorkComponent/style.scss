@@ -13,9 +13,10 @@
     &-logo {
       display: flex;
       align-items: center;
+      justify-content: center;
       height: 100%;
       img {
-        width: 100%;
+        width: 90%;
         object-fit: fill;
       }
     }
@@ -39,6 +40,7 @@
     }
     &-description {
       color: #21243d;
+      text-align: justify;
     }
   }
 }

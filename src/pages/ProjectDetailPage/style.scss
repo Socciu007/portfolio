@@ -63,12 +63,13 @@
           font-size: var(--font-size-base);
           line-height: 24px;
           font-weight: 500;
+          align-items: center;
           display: flex;
           gap: 10px;
           span {
             width: fit-content;
-            padding: 7.5px 15px;
-            border-radius: 16px;
+            padding: 4px 10px;
+            border-radius: 20px;
             background: #ff6464;
             color: #fff;
             display: inline;

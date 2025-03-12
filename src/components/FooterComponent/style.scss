@@ -15,10 +15,17 @@
                 gap: 20px;
                 align-items: center;
                 a {
+                    height: 30px;
                     img {
                         width: 30px;
                         height: 30px;
+                        transition: 0.5s;
                     }
+                    // img:hover {
+                    //     box-shadow: #00a8cc 0px 0px 25px;
+                    //     color: #00a8cc;
+                    //     text-shadow: #00a8cc 0px 0px 2px;
+                    // }
                 }
             }
         }

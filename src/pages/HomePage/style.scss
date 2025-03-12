@@ -19,6 +19,13 @@
           font-size: var(--font-size-xxlarge);
           font-weight: 700;
           line-height: 60px;
+          .Typewriter {
+            display: inline-block;
+            color: #00a8cc;
+            .Typewriter__cursor {
+              display: none;
+            }
+          }
         }
       }
       p {
@@ -103,10 +110,6 @@
           }
         }
         &-detail {
-          // display: flex;
-          // justify-content: center;
-          // align-items: center;
-          // gap: 20px;
           height: calc(100% - 37px);
         }
       }

@@ -7,9 +7,9 @@ const ItemProjectComponent = ({ item }: { item: any }) => {
   const navigate = useNavigate()
   return (
     <div className="item-project-component">
-      <div className="item-project-component__item">
+      <div onClick={() => navigate(`/projects/${item.id}`)} className="item-project-component__item">
         <div className="item-project-component__item-title">
-          <h3 onClick={() => navigate(`/projects/${item.id}`)}>{item.name}</h3>
+          <h3>{item.name}</h3>
         </div>
         <div className="item-project-component__item-time">
           <span>{item.createdAt}</span>

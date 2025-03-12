@@ -1,17 +1,28 @@
+import { useState } from 'react'
 import ItemWorkComponent from '../../components/ItemWorkComponent'
 import SlideComponent from '../../components/SlideComponent'
 import './style.scss'
 import avatar from '/assets/image/me.jpg'
 import { mockData } from '../../../mock/mock-data'
+import Typewriter from 'typewriter-effect'
+import { Zoom } from 'react-awesome-reveal'
 
 const HomePage = () => {
+  const [hoverButton, setHoverButton] = useState(false)
   return (
     <div className="home-page">
       <div className="home-page__container">
         <section className="home-page-section1" id="home">
           <div className="home-page-section1__left">
             <div className="home-page-section1__left-title">
-              <h1>Hi, I'm Tien, </h1>
+              <h1>Hi, <Typewriter
+                options={{
+                  strings: ['I\'m Tien,'],
+                  autoStart: true,
+                  loop: true,
+                  deleteSpeed: 50
+                }}
+              /> </h1>
               <h1>Fullstack Developer</h1>
             </div>
             <p>
@@ -20,7 +31,7 @@ const HomePage = () => {
               senior developer.
             </p>
             <div className="home-page-section1__left-button">
-              <button>Download Resume</button>
+              <button onMouseEnter={() => setHoverButton(true)} onAnimationEnd={() => setHoverButton(false)} className={`${hoverButton ? 'animate__animated animate__pulse' : ''}`}>Download Resume</button>
             </div>
           </div>
           <div className="home-page-section1__right">
@@ -35,7 +46,9 @@ const HomePage = () => {
             <div className="home-page-section2__container__wrapper">
               <div className="home-page-section2__container__wrapper-title">
                 <div className="home-page-section2__container__wrapper-title-text">
-                  <p>Recent projects</p>
+                  <Zoom cascade direction='right' duration={1000}>
+                    <p>Recent projects</p>
+                  </Zoom>
                 </div>
               </div>
               <div className="home-page-section2__container__wrapper-detail">
@@ -48,7 +61,9 @@ const HomePage = () => {
           <div className="home-page-section3__container">
             <div className="home-page-section3__container-title">
               <div className="home-page-section3__container-title-text">
-                <p>Featured works</p>
+                <Zoom cascade direction='right' duration={1000}>
+                  <p>Featured works</p>
+                </Zoom>
               </div>
             </div>
             <div className="home-page-section3__container-detail">
@@ -60,7 +75,7 @@ const HomePage = () => {
         </section>
       </div>
     </div>
-  );
+  )
 }
 
 export default HomePage

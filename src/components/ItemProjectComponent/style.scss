@@ -3,12 +3,12 @@
   border-radius: 4px;
   height: 100%;
   &__item {
+    cursor: pointer;
     padding: 25px;
     text-align: left;
     &-title {
       margin-bottom: 17px;
       h3 {
-        cursor: pointer;
         font-size: var(--font-size-large);
         font-weight: 600;
         line-height: 38px;

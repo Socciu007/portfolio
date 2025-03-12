@@ -32,7 +32,7 @@ export const mockData = {
       status: 'active',
       link: 'https://e-commerce-web-ten-rosy.vercel.app/',
       linkGithub: 'https://github.com/Socciu007/e-commerce-frontend.git',
-      technologies: ['ReactJS', 'Ant Design', 'MongoDB', 'ExpressJS', 'Node.js', 'JavaScript', 'Redux', 'i18n'],
+      technologies: ['ReactJS', 'AntDesign', 'MongoDB', 'ExpressJS', 'Node.js', 'JavaScript', 'Redux', 'i18n'],
       createdAt: '30 Jun 2024'
     },
     {
@@ -60,7 +60,7 @@ export const mockData = {
       status: 'active',
       link: 'https://trello-web-fawn.vercel.app/',
       linkGithub: 'https://github.com/Socciu007/trello-web.git',
-      technologies: ['Material UI', 'DndKit', 'ReactJS', 'JavaScript', 'Material UI', 'DndKit'],
+      technologies: ['Material UI', 'DndKit', 'ReactJS', 'JavaScript', 'DndKit'],
       createdAt: '21 Aug 2024'
     },
     {
@@ -106,7 +106,7 @@ export const mockData = {
       status: 'active',
       link: 'https://warning-web.vercel.app/',
       linkGithub: 'https://github.com/Socciu007/warning-web.git',
-      technologies: ['ReactJS', 'Leaflet', 'MongoDB', 'ExpressJS', 'Node.js', 'JavaScript', 'Ant Design', 'i18n'],
+      technologies: ['ReactJS', 'Leaflet', 'MongoDB', 'ExpressJS', 'Node.js', 'JavaScript', 'AntDesign', 'i18n'],
       createdAt: '19 Dec 2024'
     },
     {
@@ -122,7 +122,7 @@ export const mockData = {
         },
         {
           id: 2,
-          title: 'Developing mock data for product management.',
+          title: 'Developing mock data for product management.'
           // image: '/assets/image/fashion-web.png'
         }
       ],
