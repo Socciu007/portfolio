@@ -1,0 +1,34 @@
+.loading-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  height: 100px;
+  width: 100%;
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+  }
+  .Typewriter {
+    flex: 3;
+    font-size: var(--font-size-xxlarge);
+    font-family: "Agustina";
+    font-weight: 700;
+    color: #00a8cc;
+    .Typewriter__cursor {
+      display: none;
+    }
+  }
+}
+
+.dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #00a8cc;
+  will-change: transform;
+}

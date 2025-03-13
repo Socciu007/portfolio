@@ -1,5 +1,5 @@
 import './style.scss'
-import vector from '/assets/icon/vector.svg'
+import vector from '/assets/icons/vector.svg'
 import { useNavigate } from 'react-router-dom'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

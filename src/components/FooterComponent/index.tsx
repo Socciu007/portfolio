@@ -1,7 +1,7 @@
-import fbIcon from '/assets/icon/fb.svg'
-import igIcon from '/assets/icon/insta.svg'
-import linkedinIcon from '/assets/icon/Linkedin.svg'
-import githubIcon from '/assets/icon/github.svg'
+import fbIcon from '/assets/icons/fb.svg'
+import igIcon from '/assets/icons/insta.svg'
+import linkedinIcon from '/assets/icons/Linkedin.svg'
+import githubIcon from '/assets/icons/github.svg'
 import './style.scss'
 
 const FooterComponent = () => {

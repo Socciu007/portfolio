@@ -1,5 +1,5 @@
 import './style.scss'
-import vector from '/assets/icon/vector.svg'
+import vector from '/assets/icons/vector.svg'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ItemWorkComponent = ({ item }: { item: any }) => {

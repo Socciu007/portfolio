@@ -4,12 +4,12 @@ export const mockData = {
       id: 1,
       name: 'E-commerce website for electronic devices.',
       description: 'Designed and developed a scalable e-commerce system tailored for the electrical equipment industry, integrating product catalog management, secure payment processing, and real-time inventory tracking.',
-      image: '/assets/image/ecommerce-web.png',
+      image: '/assets/images/ecommerce-web.png',
       responsibilities: [
         {
           id: 1,
           title: 'Built RESTful APIs using Express.js to manager user, manage orders, product listings, and inventory tracking.',
-          image: '/assets/image/ecommerce-db.png'
+          image: '/assets/images/ecommerce-db.png'
         },
         {
           id: 2,
@@ -26,7 +26,7 @@ export const mockData = {
         {
           id: 5,
           title: 'Vietnamese-English language switching feature for the website.',
-          image: '/assets/image/ecommerce-vi.png'
+          image: '/assets/images/ecommerce-vi.png'
         }
       ],
       status: 'active',
@@ -39,22 +39,22 @@ export const mockData = {
       id: 2,
       name: 'A work and task management website similar to Trello.',
       description: 'A task management software that allows users to add, drag, and drop tasks seamlessly for better workflow organization.',
-      image: '/assets/image/trello-web.png',
+      image: '/assets/images/trello-web.png',
       responsibilities: [
         {
           id: 1,
           title: 'The system includes work management, and task management.',
-          image: '/assets/image/trello-db.png'
+          image: '/assets/images/trello-db.png'
         },
         {
           id: 2,
           title: 'The system includes a light/dark mode switching feature.',
-          image: '/assets/image/trello-mode.png'
+          image: '/assets/images/trello-mode.png'
         },
         {
           id: 3,
           title: 'A drag-and-drop task management function.',
-          image: '/assets/image/trello-feat.png'
+          image: '/assets/images/trello-feat.png'
         }
       ],
       status: 'active',
@@ -67,17 +67,17 @@ export const mockData = {
       id: 3,
       name: 'Real-time Aquaculture Monitoring & Alert System.',
       description: 'Designed and developed a real-time alert system for aquaculture, monitoring water quality parameters and sending automated warnings for critical conditions.',
-      image: '/assets/image/aqua-web.png',
+      image: '/assets/images/aqua-web.png',
       responsibilities: [
         {
           id: 1,
           title: 'The system includes user management, geographic area management, environmental parameter management, environmental test management, and notification management.',
-          image: '/assets/image/aqua-system.png'
+          image: '/assets/images/aqua-system.png'
         },
         {
           id: 2,
           title: 'Developed RESTful APIs using Express.js to manage device data, alerts, and user notifications efficiently.',
-          image: '/assets/image/aqua-db.png'
+          image: '/assets/images/aqua-db.png'
         },
         {
           id: 3,
@@ -86,12 +86,12 @@ export const mockData = {
         {
           id: 4,
           title: 'Designed an automated alert system leveraging Nodemailer to send real-time email notifications based on predefined triggers.',
-          image: '/assets/image/aqua-mail.png'
+          image: '/assets/images/aqua-mail.png'
         },
         {
           id: 5,
           title: 'Integrated Leaflet.js to provide interactive real-time location-based alerts on a dynamic map interface.',
-          image: '/assets/image/aqua-leaflet.png'
+          image: '/assets/images/aqua-leaflet.png'
         },
         {
           id: 6,
@@ -100,7 +100,7 @@ export const mockData = {
         {
           id: 7,
           title: 'Vietnamese-English language switching feature for the website.',
-          image: '/assets/image/aqua-vi.png'
+          image: '/assets/images/aqua-vi.png'
         }
       ],
       status: 'active',
@@ -113,17 +113,17 @@ export const mockData = {
       id: 4,
       name: 'Developing an Online Fashion Website.',
       description: 'Developing a user-friendly and visually appealing online fashion store with seamless shopping experience, and responsive design for all devices.',
-      image: '/assets/image/fashion-web.png',
+      image: '/assets/images/fashion-web.png',
       responsibilities: [
         {
           id: 1,
           title: 'Developed a responsive and dynamic UI with ReactJS + Vite, ensuring a seamless user experience.',
-          image: '/assets/image/fashion-ui.png'
+          image: '/assets/images/fashion-ui.png'
         },
         {
           id: 2,
           title: 'Developing mock data for product management.'
-          // image: '/assets/image/fashion-web.png'
+          // image: '/assets/images/fashion-web.png'
         }
       ],
       status: 'active',
@@ -138,7 +138,7 @@ export const mockData = {
       id: 1,
       company: 'ABI Game Studio',
       position: 'Data Analyst Intern',
-      logo: '/assets/image/abi-logo.png',
+      logo: '/assets/images/abi-logo.png',
       startDate: 'Jun 2023',
       endDate: 'Sep 2023',
       description: 'Research and present game metrics that need to be analyzed. Analyze key game metrics, including retention, session time, engagement, and daily active users, and create visualizations to provide data-driven insights. Build a server that receives casual game data.',
@@ -148,7 +148,7 @@ export const mockData = {
       id: 2,
       company: 'ONEADX CO., LTD',
       position: 'Fullstack Developer',
-      logo: '/assets/image/oneadx-logo.png',
+      logo: '/assets/images/oneadx-logo.png',
       startDate: 'Oct 2023',
       endDate: 'Apr 2024',
       description: 'Developing automation features for interactions on Facebook, Instagram, Twitter, and Trustpilot, integrating with Hidemyacc – a platform for managing multiple online accounts. Additionally, building a desktop application to automate key functionalities on Facebook and Instagram, along with developing a marketing website for the application.',
@@ -158,7 +158,7 @@ export const mockData = {
       id: 3,
       company: 'AIFREIGHT CO., LTD (FANYUAN International Logistics)',
       position: 'Fullstack Developer',
-      logo: '/assets/image/fanyuan-logo.png',
+      logo: '/assets/images/fanyuan-logo.png',
       startDate: 'May 2024',
       endDate: 'Present',
       description: 'Developing API interfaces for collecting shipping line data, building Chrome extensions to automate activities on shipping company websites, researching the LLaMA 3 natural language model and SeamlessM4T for speech translation. Additionally, developing a Windows application using Electron to gather logistics data from Facebook and integrating ChatGPT or Gemini to process and transform raw data into valuable insights.',

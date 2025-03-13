@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { motion } from 'motion/react'
 import { mockData } from '../../../mock/mock-data'
-import redirect from '/assets/image/redirect.png'
+import redirect from '/assets/images/redirect.png'
 import './style.scss'
 
 const ProjectDetailPage = () => {
