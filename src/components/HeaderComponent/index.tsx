@@ -57,7 +57,7 @@ const HeaderComponent = ({ isHidden }: { isHidden: boolean }) => {
               className={activeSection === 'contact' ? 'active' : ''}
               onClick={() => setActiveSection('contact')}
             >
-              Contact
+              About Me
             </a>
           </div>
         )}
