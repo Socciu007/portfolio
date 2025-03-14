@@ -7,7 +7,7 @@ const HeaderComponent = ({ isHidden }: { isHidden: boolean }) => {
   const [activeSection, setActiveSection] = useState('home')
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'works', 'projects', 'contact']
+      const sections = ['home', 'works', 'projects', 'about']
       const currentSection = sections.find((section) => {
         const element = document.getElementById(section)
         if (!element) return false
@@ -53,11 +53,11 @@ const HeaderComponent = ({ isHidden }: { isHidden: boolean }) => {
               Works
             </a>
             <a
-              href="#contact"
-              className={activeSection === 'contact' ? 'active' : ''}
-              onClick={() => setActiveSection('contact')}
+              href="#about"
+              className={activeSection === 'about' ? 'active' : ''}
+              onClick={() => setActiveSection('about')}
             >
-              About Me
+              About
             </a>
           </div>
         )}
