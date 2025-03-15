@@ -1,14 +1,22 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import ItemWorkComponent from '../../components/ItemWorkComponent'
 import SlideComponent from '../../components/SlideComponent'
 import './style.scss'
 import avatar from '/assets/images/me.jpg'
+import award from '/assets/icons/award.svg'
+import support from '/assets/images/support.png'
+import project from '/assets/icons/work.svg'
 import { mockData } from '../../../mock/mock-data'
 import Typewriter from 'typewriter-effect'
 import { Zoom } from 'react-awesome-reveal'
+import { motion, useScroll } from 'motion/react'
 
 const HomePage = () => {
   const [hoverButton, setHoverButton] = useState(false)
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({
+    container: ref
+  })
   return (
     <div className="home-page">
       <div className="home-page__container">
@@ -96,12 +104,25 @@ const HomePage = () => {
             </div>
             <div className="wrapper">
               <div className="wrapper-left">
-                <div className="wrapper-left-content">
+                <div ref={ref} className="wrapper-left-content">
+                  <motion.div
+                    id="scroll-indicator"
+                    style={{
+                      scaleX: scrollYProgress,
+                      position: 'sticky',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      height: 6,
+                      originX: 0,
+                      backgroundColor: '#00A8CC'
+                    }}
+                  />
                   <p>
-                    My name is Tien. I am a fullstack developer with a passion
+                    Hi, I'm Tien. I am a fullstack developer with a passion
                     for building innovative and efficient applications. I
-                    studied Management Information Systems at Hanoi
-                    University of Science and Technology, where I developed
+                    studied Management Information Systems at <span><a href="https://hust.edu.vn/" target="_blank" rel="noreferrer">Hanoi
+                    University of Science and Technology</a></span>, where I developed
                     strong knowledge of algorithms and programming. <br />
                     Beyond coding, I am always eager to explore new technologies
                     and stay updated with the latest trends in the industry. I
@@ -114,6 +135,29 @@ const HomePage = () => {
                     continuous learning and adaptability are key to success in
                     are key to success in the ever-evolving world of technology.
                   </p>
+                </div>
+                <div className="wrapper-left-info">
+                  <div className="wrapper-left-info-item">
+                    <div className="wrapper-left-info-item-icon">
+                      <img src={award} alt="img-award" />
+                    </div>
+                    <p>Experience</p>
+                    <span>2 years</span>
+                  </div>
+                  <div className="wrapper-left-info-item">
+                    <div className="wrapper-left-info-item-icon">
+                      <img src={project} alt="img-project" />
+                    </div>
+                    <p>Projects</p>
+                    <span>4+</span>
+                  </div>
+                  <div className="wrapper-left-info-item">
+                    <div className="wrapper-left-info-item-icon">
+                      <img src={support} alt="img-support" />
+                    </div>
+                    <p>Support</p>
+                    <span>24/24</span>
+                  </div>
                 </div>
               </div>
               <div className="wrapper-right">

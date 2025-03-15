@@ -40,9 +40,14 @@ const ProjectDetailPage = () => {
           <div className="wrapper-tag">
             <div className="wrapper-tag-item">
               Tags:
-              {project?.technologies?.map((item) => (
-                <span key={item}>{item}</span>
-              ))}
+              <p className="wrapper-tag-item-list">
+                {project?.technologies?.flatMap((tech, index) => [
+                  index > 0 && ' • ',
+                  <span key={index} className={`background-gradient background-${index}`}>
+                    {tech}
+                  </span>
+                ])}
+              </p>
             </div>
           </div>
           <div className="wrapper-url">
