@@ -10,6 +10,12 @@ import { mockData } from '../../../mock/mock-data'
 import Typewriter from 'typewriter-effect'
 import { Zoom } from 'react-awesome-reveal'
 import { motion, useScroll } from 'motion/react'
+import pic1 from '/assets/images/anh1.jpg'
+import pic2 from '/assets/images/anh2.jpg'
+import pic3 from '/assets/images/anh3.jpg'
+import pic4 from '/assets/images/anh4.jpg'
+import pic5 from '/assets/images/anh5.jpg'
+import pic6 from '/assets/images/anh6.jpg'
 
 const HomePage = () => {
   const [hoverButton, setHoverButton] = useState(false)
@@ -132,8 +138,7 @@ const HomePage = () => {
                     discovering new things. Exploring different cultures,
                     experiencing new adventures, and staying active help me
                     maintain a balanced and creative mindset. I believe that
-                    continuous learning and adaptability are key to success in
-                    are key to success in the ever-evolving world of technology.
+                    continuous learning and adaptability are key to success in the ever-evolving world of technology.
                   </p>
                 </div>
                 <div className="wrapper-left-info">
@@ -161,7 +166,30 @@ const HomePage = () => {
                 </div>
               </div>
               <div className="wrapper-right">
-                <div className="wrapper-right-image"></div>
+                <div className="wrapper-right-image">
+                  <div className="circular-slider">
+                    <div className="slider-content">
+                      <div className="slider-item">
+                        <img src={pic1} alt='img-1' />
+                      </div>
+                      <div className="slider-item">
+                        <img src={pic2} alt='img-2' />
+                      </div>
+                      <div className="slider-item">
+                        <img src={pic3} alt='img-3' />
+                      </div>
+                      <div className="slider-item">
+                        <img src={pic4} alt='img-4' />
+                      </div>
+                      <div className="slider-item">
+                        <img src={pic5} alt='img-5' />
+                      </div>
+                      <div className="slider-item">
+                        <img src={pic6} alt='img-6' />
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
