@@ -4,8 +4,17 @@ import { routes } from './routes'
 // import { Suspense } from 'react'
 import FooterComponent from './components/FooterComponent'
 import HeaderComponent from './components/HeaderComponent'
+import { useTheme } from './ThemeContext'
+import { useEffect } from 'react'
 
 function App() {
+  const { darkMode } = useTheme()
+
+  // Add a data-theme attribute to the body element
+  useEffect(() => {
+    document.body.setAttribute('data-theme', darkMode ? 'dark' : 'light')
+  }, [darkMode])
+
   return (
     <Router>
       <Routes>
