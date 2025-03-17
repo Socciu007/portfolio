@@ -55,7 +55,6 @@ const FooterComponent = () => {
                   <div className="item-info">
                     <p>Website:</p>
                     <Link
-                      style={{ textDecoration: 'none', color: '#000' }}
                       to="https://portfolio-jade-eight-35.vercel.app/"
                       target="_blank"
                       rel="noreferrer"

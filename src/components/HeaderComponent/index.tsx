@@ -2,9 +2,12 @@ import { NavLink } from 'react-router-dom'
 import './style.scss'
 import menu from '/assets/icons/menu.svg'
 import { useState, useEffect } from 'react'
+import { useTheme } from '../../ThemeContext'
 
 const HeaderComponent = ({ isHidden }: { isHidden: boolean }) => {
   const [activeSection, setActiveSection] = useState('home')
+  const { darkMode, toggleDarkMode } = useTheme()
+ 
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['home', 'works', 'projects', 'about']
@@ -61,6 +64,9 @@ const HeaderComponent = ({ isHidden }: { isHidden: boolean }) => {
             </a>
           </div>
         )}
+        <button onClick={toggleDarkMode}>
+          {darkMode ? 'Light Mode' : 'Dark Mode'}
+        </button>
         <div className="header__container-nav display-smartphone">
           <img src={menu} alt="img-menu" />
         </div>

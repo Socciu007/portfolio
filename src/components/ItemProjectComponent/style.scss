@@ -1,5 +1,5 @@
 .item-project-component {
-  background-color: #fff;
+  background-color: var(--bg-color);
   border-radius: 4px;
   height: 100%;
   &__item {
@@ -34,6 +34,7 @@
 
 @media only screen and (max-width: 420px) {
   .item-project-component {
+    height: 100%;
     &__item {
       &-title {
         h3 {

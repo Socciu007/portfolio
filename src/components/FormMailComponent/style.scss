@@ -1,6 +1,5 @@
 .form {
-  // background-color: #f0f0f0;
-  background-color: var(--secondary-color);
+  background-color: #EDF7FA;
   height: 100%;
   padding: 30px;
   box-shadow: 0 0 20px var(--secondary-color);
@@ -11,6 +10,7 @@
     margin-top: 1.5rem;
     label {
       padding-bottom: 0.5rem !important;
+      color: #000;
     }
     input,
     textarea {
