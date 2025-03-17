@@ -44,3 +44,37 @@
     }
   }
 }
+
+@media only screen and (max-width: 420px) {
+  .item-work-component {
+    display: inline-block;
+    padding-bottom: 17px;
+    &__image {
+      width: 100%;
+      height: 230px;
+      margin-bottom: 17px;
+    }
+    &__detail {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      &-title {
+        font-size: var(--font-size-medium);
+        line-height: 30px;
+        text-align: start;
+      }
+      &-button {
+        margin: 16px 0 24px;
+        span {
+          text-align: start;
+          font-size: var(--font-size-small);
+        }
+      }
+      &-description {
+        font-size: var(--font-size-small);
+        line-height: 24px;
+        text-align: left;
+      }
+    }
+  }
+}

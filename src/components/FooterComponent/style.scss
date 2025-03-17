@@ -1,33 +1,159 @@
 .footer {
-    min-height: 182px;
+  min-height: 182px;
+  border-top: 1px solid color-mix(in srgb, #000, transparent 90%);
+  &__container {
+    padding: 26px 0 26px 0;
+    flex-direction: column;
     display: flex;
     align-items: center;
     justify-content: center;
-    &__container {
-        &-left {
+    gap: 10px;
+    max-width: 1152px;
+    margin: 0 auto;
+    &-contact {
+      width: 100%;
+      &-title {
+        text-align: start;
+        p {
+          font-weight: 600;
+          font-size: var(--font-size-large);
+          line-height: 30px;
+        }
+        span {
+          line-height: 30px;
+        }
+      }
+      .wrapper {
+        display: flex;
+        align-items: flex-start;
+        gap: 38px;
+        width: 100%;
+        &-info {
+          flex: 5;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          gap: 10px;
+          &-item {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
+            gap: 10px;
             justify-content: center;
             flex-direction: column;
-            gap: 20px;
-            &-connect {
+            .item {
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: flex-start;
+              gap: 10px;
+              &-icon {
+                background: color-mix(in srgb, #00a8cc, transparent 92%);
+                width: 36px;
+                height: 36px;
                 display: flex;
-                gap: 20px;
+                justify-content: center;
                 align-items: center;
-                a {
-                    height: 30px;
-                    img {
-                        width: 30px;
-                        height: 30px;
-                        transition: 0.5s;
-                    }
-                    // img:hover {
-                    //     box-shadow: #00a8cc 0px 0px 25px;
-                    //     color: #00a8cc;
-                    //     text-shadow: #00a8cc 0px 0px 2px;
-                    // }
+                border-radius: 50px;
+                transition: all 0.3s ease-in-out;
+                img {
+                  width: 18px;
+                  height: 18px;
                 }
+              }
+              &-info {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                p {
+                  font-weight: 600;
+                  width: 75px;
+                  text-align: start;
+                }
+                span {
+                  text-align: start;
+                }
+              }
             }
+          }
         }
+        &-form {
+          flex: 6;
+        }
+      }
     }
+    &-left {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin-top: 26px;
+      &-connect {
+        padding: 20px;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+        a {
+          height: 30px;
+          img {
+            width: 30px;
+            height: 30px;
+            transition: 0.5s;
+          }
+        }
+      }
+      &-copyright {
+        line-height: 30px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .footer {
+    &__container {
+      &-contact {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .wrapper {
+          max-width: 344px;
+          flex-direction: column;
+          &-info {
+            justify-content: center;
+            align-items: center;
+            padding: 0 10px;
+            gap: 32px;
+            .footer__container-contact-title {
+              text-align: center;
+              p {
+                font-size: var(--font-size-medium);
+              }
+            }
+            &-item {
+              width: 100%;
+              .item {
+                &-info {
+                  font-size: var(--font-size-small);
+                  display: inline;
+                  width: 100%;
+                  text-align: start;
+                  a {
+                    text-align: center;
+                  }
+                }
+              }
+            }
+          }
+          &-form {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
 }

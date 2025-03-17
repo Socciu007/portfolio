@@ -1,0 +1,47 @@
+.form {
+  // background-color: #f0f0f0;
+  background-color: var(--secondary-color);
+  height: 100%;
+  padding: 30px;
+  box-shadow: 0 0 20px var(--secondary-color);
+  &-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 1.5rem;
+    label {
+      padding-bottom: 0.5rem !important;
+    }
+    input,
+    textarea {
+      max-width: 100%;
+      min-height: 40px;
+      max-height: 200px;
+      display: block;
+      width: 100% !important;
+      line-height: 1.5;
+      padding: 10px 15px;
+      border: 1px solid #ccc;
+      outline: none;
+      color: #333;
+      &:focus {
+        border-color: #00a8cc;
+      }
+    }
+  }
+  .btn-send {
+    margin-top: 1.5rem;
+    padding: 7.5px 15px;
+    border-radius: 4px;
+    background-color: #00a8cc;
+    color: #fff;
+    &:hover {
+      border: none;
+    }
+    img {
+      margin-right: 5px;
+      width: 12px;
+      height: 12px;
+    }
+  }
+}

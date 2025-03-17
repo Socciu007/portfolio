@@ -22,9 +22,19 @@ const SlideComponent = ({ arrSlide }: { arrSlide: any[] }) => {
       pagination={false}
       scrollbar={false}
       className="slide-component"
-      autoplay={{
-        delay: 3000,
-        disableOnInteraction: false
+      // autoplay={{
+      //   delay: 3000,
+      //   disableOnInteraction: false
+      // }}
+      breakpoints={{
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 10
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        }
       }}
     >
       {arrSlide.map((item, index) => (
@@ -35,13 +45,13 @@ const SlideComponent = ({ arrSlide }: { arrSlide: any[] }) => {
               createdAt: item.createdAt,
               technologies: item.technologies,
               description: item.description,
-              id: item.id
+              id: item.id,
             }}
           />
         </SwiperSlide>
       ))}
     </Swiper>
-  )
+  );
 }
 
 export default SlideComponent

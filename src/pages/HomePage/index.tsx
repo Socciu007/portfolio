@@ -161,7 +161,7 @@ const HomePage = () => {
                       <img src={support} alt="img-support" />
                     </div>
                     <p>Support</p>
-                    <span>24/24</span>
+                    <span>24/7</span>
                   </div>
                 </div>
               </div>

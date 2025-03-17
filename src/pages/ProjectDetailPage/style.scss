@@ -128,3 +128,15 @@
     }
   }
 }
+
+@media only screen and (max-width: 420px) {
+  .project-detail-page {
+    width: 100%;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    &__container {
+      max-width: 90%;
+      margin: 0 auto;
+    }
+  }
+}
