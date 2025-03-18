@@ -3,6 +3,8 @@ import './style.scss'
 import menu from '/assets/icons/menu.svg'
 import { useState, useEffect } from 'react'
 import { useTheme } from '../../ThemeContext'
+import sun from '/assets/icons/sun-light.svg'
+import moon from '/assets/icons/moon-star.svg'
 
 const HeaderComponent = ({ isHidden }: { isHidden: boolean }) => {
   const [activeSection, setActiveSection] = useState('home')
@@ -32,41 +34,43 @@ const HeaderComponent = ({ isHidden }: { isHidden: boolean }) => {
           </span>
           <span style={{ color: '#00a8cc' }}>/&gt;</span>
         </NavLink>
-        {!isHidden && (
-          <div className="header__container-nav display-desktop">
-            <a
-              href="#home"
-              className={activeSection === 'home' ? 'active' : ''}
-              onClick={() => setActiveSection('home')}
-            >
-              Home
-            </a>
-            <a
-              href="#projects"
-              className={activeSection === 'projects' ? 'active' : ''}
-              onClick={() => setActiveSection('projects')}
-            >
-              Projects
-            </a>
-            <a
-              href="#works"
-              className={activeSection === 'works' ? 'active' : ''}
-              onClick={() => setActiveSection('works')}
-            >
-              Works
-            </a>
-            <a
-              href="#about"
-              className={activeSection === 'about' ? 'active' : ''}
-              onClick={() => setActiveSection('about')}
-            >
-              About
-            </a>
+        <div className='wrapper'>
+          {!isHidden && (
+            <div className="header__container-nav display-desktop">
+              <a
+                href="#home"
+                className={activeSection === 'home' ? 'active' : ''}
+                onClick={() => setActiveSection('home')}
+              >
+                Home
+              </a>
+              <a
+                href="#projects"
+                className={activeSection === 'projects' ? 'active' : ''}
+                onClick={() => setActiveSection('projects')}
+              >
+                Projects
+              </a>
+              <a
+                href="#works"
+                className={activeSection === 'works' ? 'active' : ''}
+                onClick={() => setActiveSection('works')}
+              >
+                Works
+              </a>
+              <a
+                href="#about"
+                className={activeSection === 'about' ? 'active' : ''}
+                onClick={() => setActiveSection('about')}
+              >
+                About
+              </a>
+            </div>
+          )}
+          <div className='wrapper-mode'>
+            {darkMode ? <img onClick={toggleDarkMode} src={moon} alt="moon" /> : <img onClick={toggleDarkMode} src={sun} alt="sun" />}
           </div>
-        )}
-        <button onClick={toggleDarkMode}>
-          {darkMode ? 'Light Mode' : 'Dark Mode'}
-        </button>
+        </div>
         <div className="header__container-nav display-smartphone">
           <img src={menu} alt="img-menu" />
         </div>
