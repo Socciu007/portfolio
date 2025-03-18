@@ -1,8 +1,8 @@
 .footer {
   min-height: 182px;
-  border-top: 1px solid var(--secondary-color);
+  background-color: var(--primary-color);
   &__container {
-    padding: 80px 60px 26px 60px;
+    padding: 26px 60px 26px 60px;
     flex-direction: column;
     display: flex;
     align-items: center;

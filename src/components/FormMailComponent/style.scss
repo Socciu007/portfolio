@@ -1,8 +1,8 @@
 .form {
-  background-color: #EDF7FA;
+  background-color: var(--primary-color);
   height: 100%;
   padding: 30px;
-  box-shadow: 0 0 20px var(--secondary-color);
+  // box-shadow: 0 0 20px var(--secondary-color);
   &-group {
     display: flex;
     flex-direction: column;
@@ -10,7 +10,7 @@
     margin-top: 1.5rem;
     label {
       padding-bottom: 0.5rem !important;
-      color: #000;
+      color: var(--text-color);
     }
     input,
     textarea {

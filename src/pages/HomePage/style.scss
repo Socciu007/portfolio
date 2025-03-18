@@ -38,7 +38,7 @@
         button {
           height: 47px;
           width: 208px;
-          background-color: var(--primary-color);
+          background-color: #00a8cc;
           color: #fff;
           border-radius: 0px;
           font-weight: 500;
@@ -171,6 +171,7 @@
         &-left {
           flex: 1;
           &-content {
+            color: var(--text-color-secondary);
             text-align: justify;
             font-size: var(--font-size-small);
             line-height: 24px;

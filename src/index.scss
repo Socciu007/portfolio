@@ -1,19 +1,19 @@
 @font-face {
-  font-family: 'Agustina';
-  src: url('/assets/fonts/Agustina-Signature.otf') format('opentype');
+  font-family: "Agustina";
+  src: url("/assets/fonts/Agustina-Signature.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 /* Root Variables for Theming */
 :root {
-  --primary-color: #FF6464;
-  --secondary-color: #EDF7FA;
+  --primary-color: #edf7fa;
+  --secondary-color: #edf7fa;
   --text-color: #000;
   --bg-color: #242424;
   --button-bg: #1a1a1a;
   --button-hover: #646cff;
-  --font-family: 'Heebo', sans-serif;
+  --font-family: "Heebo", sans-serif;
   --font-size-base: 16px;
   --font-size-small: 14px;
   --font-size-medium: 20px;
@@ -41,18 +41,22 @@
 /* Light Mode Variables */
 @media (prefers-color-scheme: light) {
   :root {
-    --text-color: #000;
     --bg-color: #ffffff;
-    --primary-color: #00a8cc;
+    --text-color: #000;
+    --text-color-secondary: #000;
+    --primary-color: #edf7fa;
     --button-bg: #f9f9f9;
+    --third-color: #212f3c;
   }
 }
 
-[data-theme='dark'] {
-  --bg-color: #1a1a1a;
+[data-theme="dark"] {
+  --bg-color: #2d3b48;
   --text-color: #ffffff;
-  --primary-color: #00a8cc;
-  --secondary-color: #00a8cc;
+  --text-color-secondary: #899098;
+  --primary-color: #212f3c;
+  --secondary-color: #00a8cc91;
+  --third-color: #edf7fa;
 }
 
 /* Global Styles */
