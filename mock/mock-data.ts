@@ -146,16 +146,26 @@ export const mockData = {
     },
     {
       id: 2,
+      company: 'VPBank',
+      position: 'Fullstack Developer',
+      logo: '/assets/images/vp-logo.png',
+      startDate: 'Oct 2023',
+      endDate: 'Nov 2023',
+      description: 'Learn about the bank\'s business processes and process data on risk and financial reporting & Implementation of business process automation.',
+      technologies: ['Excel', 'VBA', 'Power Automate']
+    },
+    {
+      id: 3,
       company: 'ONEADX CO., LTD',
       position: 'Fullstack Developer',
       logo: '/assets/images/oneadx-logo.png',
-      startDate: 'Oct 2023',
+      startDate: 'Dec 2023',
       endDate: 'Apr 2024',
       description: 'Developing automation features for interactions on Facebook, Instagram, Twitter, and Trustpilot, integrating with Hidemyacc – a platform for managing multiple online accounts. Additionally, building a desktop application to automate key functionalities on Facebook and Instagram, along with developing a marketing website for the application.',
       technologies: ['ReactJS', 'EJS', 'Puppeteer', 'Node.js', 'ExpressJS']
     },
     {
-      id: 3,
+      id: 4,
       company: 'AIFREIGHT CO., LTD (FANYUAN International Logistics)',
       position: 'Fullstack Developer',
       logo: '/assets/images/fanyuan-logo.png',
