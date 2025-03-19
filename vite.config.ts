@@ -38,7 +38,7 @@ export default defineConfig({
     include: [] // Pre-bundle the package
   },
   server: {
-    port: 3000,
+    port: 6767,
     host: true,
     open: true
   }

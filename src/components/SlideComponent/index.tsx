@@ -22,10 +22,10 @@ const SlideComponent = ({ arrSlide }: { arrSlide: any[] }) => {
       pagination={false}
       scrollbar={false}
       className="slide-component"
-      // autoplay={{
-      //   delay: 3000,
-      //   disableOnInteraction: false
-      // }}
+      autoplay={{
+        delay: 3000,
+        disableOnInteraction: false
+      }}
       breakpoints={{
         320: {
           slidesPerView: 1,

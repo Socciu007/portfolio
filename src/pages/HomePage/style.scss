@@ -90,7 +90,7 @@
       height: 100%;
       &__wrapper {
         padding: 32px 50px;
-        width: 955px;
+        max-width: 955px;
         height: 100%;
         margin: 0 auto;
         &-title {
@@ -395,6 +395,7 @@
           height: 100%;
           margin: 0 auto;
           &-title {
+            justify-content: center;
             &-text {
               p {
                 font-size: var(--font-size-medium);

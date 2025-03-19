@@ -9,7 +9,7 @@ import moon from '/assets/icons/moon-star.svg'
 const HeaderComponent = ({ isHidden }: { isHidden: boolean }) => {
   const [activeSection, setActiveSection] = useState('home')
   const { darkMode, toggleDarkMode } = useTheme()
- 
+
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['home', 'works', 'projects', 'about']

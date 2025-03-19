@@ -17,6 +17,7 @@
     "react-awesome-reveal": "^4.3.1",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.3.0",
+    "react-toastify": "^11.0.5",
     "sass": "^1.85.1",
     "swiper": "^11.2.5",
     "typewriter-effect": "^2.21.0"

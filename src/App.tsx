@@ -6,7 +6,7 @@ import FooterComponent from './components/FooterComponent'
 import HeaderComponent from './components/HeaderComponent'
 import { useTheme } from './ThemeContext'
 import { useEffect } from 'react'
-
+import CustomNotification from './components/CustomNotification'
 function App() {
   const { darkMode } = useTheme()
 
@@ -25,6 +25,7 @@ function App() {
               {!route.isHidden && <HeaderComponent isHidden={route.isHiddenHeader || false} />}
               <Page />
               {!route.isHidden && <FooterComponent />}
+              <CustomNotification theme={darkMode ? 'dark' : 'light'} />
             </div>
           )
           return (
