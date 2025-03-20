@@ -27,11 +27,11 @@ const SlideComponent = ({ arrSlide }: { arrSlide: any[] }) => {
         disableOnInteraction: false
       }}
       breakpoints={{
-        320: {
+        0: {
           slidesPerView: 1,
           spaceBetween: 10
         },
-        768: {
+        620: {
           slidesPerView: 2,
           spaceBetween: 20
         }
@@ -45,13 +45,13 @@ const SlideComponent = ({ arrSlide }: { arrSlide: any[] }) => {
               createdAt: item.createdAt,
               technologies: item.technologies,
               description: item.description,
-              id: item.id,
+              id: item.id
             }}
           />
         </SwiperSlide>
       ))}
     </Swiper>
-  );
+  )
 }
 
 export default SlideComponent
