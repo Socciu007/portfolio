@@ -20,7 +20,7 @@ const ProjectDetailPage = () => {
           <div className="wrapper-description">
             <p>{project?.description}</p>
             <div className="wrapper-description-image">
-              <img src={project?.image} alt="img-project" />
+              <img src={project?.image} loading='lazy' alt="img-project" />
             </div>
           </div>
           <div className="wrapper-responsibilities">
@@ -31,7 +31,7 @@ const ProjectDetailPage = () => {
                     <h1>{item.title}</h1>
                   </div>
                   <div className="wrapper-responsibilities-list-item-image">
-                    {item?.image && <img src={item.image} alt="img-project" />}
+                    {item?.image && <img src={item.image} loading='lazy' alt="img-project" />}
                   </div>
                 </div>
               </div>
@@ -63,7 +63,7 @@ const ProjectDetailPage = () => {
                 <a href={project?.linkGithub} target="_blank">
                   Github Repository
                 </a>
-                <img src={redirect} alt="img-redirect" />
+                <img src={redirect} loading='lazy' alt="img-redirect" />
               </motion.button>
               <motion.button
                 whileHover={{
@@ -76,7 +76,7 @@ const ProjectDetailPage = () => {
                 <a href={project?.link} target="_blank">
                   See Live
                 </a>
-                <img src={redirect} alt="img-redirect" />
+                <img src={redirect} loading='lazy' alt="img-redirect" />
               </motion.button>
             </div>
           </div>

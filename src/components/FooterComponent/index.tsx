@@ -23,7 +23,7 @@ const FooterComponent = () => {
               <div className="wrapper-info-item">
                 <div className="address item">
                   <div className="item-icon">
-                    <img src={addressIcon} alt="logo-address" />
+                    <img src={addressIcon} loading='lazy' alt="logo-address" />
                   </div>
                   <div className="item-info">
                     <p>Address:</p>
@@ -32,7 +32,7 @@ const FooterComponent = () => {
                 </div>
                 <div className="email item">
                   <div className="item-icon">
-                    <img src={emailIcon} alt="logo-email" />
+                    <img src={emailIcon} loading='lazy' alt="logo-email" />
                   </div>
                   <div className="item-info">
                     <p>Email:</p>
@@ -41,7 +41,7 @@ const FooterComponent = () => {
                 </div>
                 <div className="phone item">
                   <div className="item-icon">
-                    <img src={phoneIcon} alt="logo-phone" />
+                    <img src={phoneIcon} loading='lazy' alt="logo-phone" />
                   </div>
                   <div className="item-info">
                     <p>Phone:</p>
@@ -50,14 +50,14 @@ const FooterComponent = () => {
                 </div>
                 <div className="websiste item">
                   <div className="item-icon">
-                    <img src={websiteIcon} alt="logo-website" />
+                    <img src={websiteIcon} loading='lazy' alt="logo-website" />
                   </div>
                   <div className="item-info">
                     <p>Website:</p>
                     <Link
                       to="https://portfolio-jade-eight-35.vercel.app/"
                       target="_blank"
-                      rel="noreferrer"
+                      rel="prefetch"
                     >
                       https://portfolio-jade-eight-35.vercel.app
                     </Link>
@@ -75,30 +75,30 @@ const FooterComponent = () => {
             <a
               href="https://www.facebook.com/manh.tien.1865904/"
               target="_blank"
-              rel="noreferrer"
+              rel="prefetch"
             >
-              <img src={fbIcon} alt="logo-facebook" />
+              <img src={fbIcon} loading='lazy' alt="logo-facebook" />
             </a>
             <a
               href="https://www.instagram.com/manhtien.007/"
               target="_blank"
-              rel="noreferrer"
+              rel="prefetch"
             >
-              <img src={igIcon} alt="logo-instagram" />
+              <img src={igIcon} loading='lazy' alt="logo-instagram" />
             </a>
             <a
               href="https://github.com/Socciu007"
               target="_blank"
-              rel="noreferrer"
+              rel="prefetch"
             >
-              <img src={githubIcon} alt="logo-github" />
+              <img src={githubIcon} loading='lazy' alt="logo-github" />
             </a>
             <a
               href="https://www.linkedin.com/in/tien-manh-88474120b"
               target="_blank"
-              rel="noreferrer"
+              rel="prefetch"
             >
-              <img src={linkedinIcon} alt="logo-linkedin" />
+              <img src={linkedinIcon} loading='lazy' alt="logo-linkedin" />
             </a>
           </div>
           <p className="footer__container-left-copyright">

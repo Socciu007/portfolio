@@ -61,7 +61,7 @@ const HomePage = () => {
           </div>
           <div className="home-page-section1__right">
             <div className="home-page-section1__right-avatar">
-              <img src={avatar} alt="Manh Tien" />
+              <img src={avatar} loading='lazy' alt="Manh Tien" />
               <div className="circle-avatar"></div>
             </div>
           </div>
@@ -144,21 +144,21 @@ const HomePage = () => {
                 <div className="wrapper-left-info">
                   <div className="wrapper-left-info-item">
                     <div className="wrapper-left-info-item-icon">
-                      <img src={award} alt="img-award" />
+                      <img src={award} loading='lazy' alt="img-award" />
                     </div>
                     <p>Experience</p>
                     <span>2 years</span>
                   </div>
                   <div className="wrapper-left-info-item">
                     <div className="wrapper-left-info-item-icon">
-                      <img src={project} alt="img-project" />
+                      <img src={project} loading='lazy' alt="img-project" />
                     </div>
                     <p>Projects</p>
                     <span>4+</span>
                   </div>
                   <div className="wrapper-left-info-item">
                     <div className="wrapper-left-info-item-icon">
-                      <img src={support} alt="img-support" />
+                      <img src={support} loading='lazy' alt="img-support" />
                     </div>
                     <p>Support</p>
                     <span>24/7</span>
@@ -170,22 +170,22 @@ const HomePage = () => {
                   <div className="circular-slider">
                     <div className="slider-content">
                       <div className="slider-item">
-                        <img src={pic1} alt='img-1' />
+                        <img src={pic1} loading='lazy' alt='img-1' />
                       </div>
                       <div className="slider-item">
-                        <img src={pic2} alt='img-2' />
+                        <img src={pic2} loading='lazy' alt='img-2' />
                       </div>
                       <div className="slider-item">
-                        <img src={pic3} alt='img-3' />
+                        <img src={pic3} loading='lazy' alt='img-3' />
                       </div>
                       <div className="slider-item">
-                        <img src={pic4} alt='img-4' />
+                        <img src={pic4} loading='lazy' alt='img-4' />
                       </div>
                       <div className="slider-item">
-                        <img src={pic5} alt='img-5' />
+                        <img src={pic5} loading='lazy' alt='img-5' />
                       </div>
                       <div className="slider-item">
-                        <img src={pic6} alt='img-6' />
+                        <img src={pic6} loading='lazy' alt='img-6' />
                       </div>
                     </div>
                   </div>

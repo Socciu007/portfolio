@@ -13,7 +13,7 @@ const ItemProjectComponent = ({ item }: { item: any }) => {
         </div>
         <div className="item-project-component__item-time">
           <span>{item.createdAt}</span>
-          <img style={{ margin: '0 18px' }} src={vector} alt="vector" />
+          <img style={{ margin: '0 18px' }} src={vector} loading='lazy' alt="vector" />
           <span>{item.technologies.slice(0, 2).join(', ')}</span>
         </div>
         <div className="item-project-component__item-description">

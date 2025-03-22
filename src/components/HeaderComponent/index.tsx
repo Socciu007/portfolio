@@ -68,11 +68,11 @@ const HeaderComponent = ({ isHidden }: { isHidden: boolean }) => {
             </div>
           )}
           <div className='wrapper-mode'>
-            {darkMode ? <img onClick={toggleDarkMode} src={moon} alt="moon" /> : <img onClick={toggleDarkMode} src={sun} alt="sun" />}
+            {darkMode ? <img onClick={toggleDarkMode} src={moon} loading='lazy' alt="moon" /> : <img onClick={toggleDarkMode} src={sun} loading='lazy' alt="sun" />}
           </div>
         </div>
         <div className="header__container-nav display-smartphone">
-          <img src={menu} alt="img-menu" />
+          <img src={menu} loading='lazy' alt="img-menu" />
         </div>
       </div>
     </header>

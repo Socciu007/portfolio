@@ -52,7 +52,7 @@ const FormMailComponent = () => {
         ></textarea>
       </div>
       <button type="submit" className="btn-send">
-        <img src={sendIcon} alt="icon send" />
+        <img src={sendIcon} loading='lazy' alt="icon send" />
         Send Message
       </button>
     </form>
