@@ -15,7 +15,8 @@ import pic2 from '/assets/images/anh2.jpg'
 import pic3 from '/assets/images/anh3.jpg'
 import pic4 from '/assets/images/anh4.jpg'
 import pic5 from '/assets/images/anh5.jpg'
-import pic6 from '/assets/images/anh6.jpg'
+// import pic6 from '/assets/images/anh6.jpg'
+import pic7 from '/assets/images/anh7.jpg'
 
 const HomePage = () => {
   const [hoverButton, setHoverButton] = useState(false)
@@ -125,11 +126,20 @@ const HomePage = () => {
                     }}
                   />
                   <p>
-                    Hi, I'm Tien. I am a fullstack developer with a passion
-                    for building innovative and efficient applications. I
-                    studied Management Information Systems at <span><a href="https://hust.edu.vn/" target="_blank" rel="noreferrer">Hanoi
-                    University of Science and Technology</a></span>, where I developed
-                    strong knowledge of algorithms and programming. <br />
+                    Hi, I'm Tien. I am a fullstack developer with a passion for
+                    building innovative and efficient applications. I studied
+                    Management Information Systems at{' '}
+                    <span>
+                      <a
+                        href="https://hust.edu.vn/"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Hanoi University of Science and Technology
+                      </a>
+                    </span>
+                    , where I developed strong knowledge of algorithms and
+                    programming. <br />
                     Beyond coding, I am always eager to explore new technologies
                     and stay updated with the latest trends in the industry. I
                     enjoy challenging myself to learn and apply new skills to
@@ -138,7 +148,8 @@ const HomePage = () => {
                     discovering new things. Exploring different cultures,
                     experiencing new adventures, and staying active help me
                     maintain a balanced and creative mindset. I believe that
-                    continuous learning and adaptability are key to success in the ever-evolving world of technology.
+                    continuous learning and adaptability are key to success in
+                    the ever-evolving world of technology.
                   </p>
                 </div>
                 <div className="wrapper-left-info">
@@ -184,8 +195,11 @@ const HomePage = () => {
                       <div className="slider-item">
                         <img src={pic5} loading='lazy' alt='img-5' />
                       </div>
+                      {/* <div className="slider-item">
+                        <img src={pic6} alt="img-6" />
+                      </div> */}
                       <div className="slider-item">
-                        <img src={pic6} loading='lazy' alt='img-6' />
+                        <img src={pic7} loading='lazy' alt='img-6' />
                       </div>
                     </div>
                   </div>

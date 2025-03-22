@@ -1,15 +1,19 @@
 import './style.scss'
 import sendIcon from '/assets/icons/send-fill.svg'
 import { toast } from 'react-toastify'
-
 const FormMailComponent = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    const formData = new FormData(e.target as HTMLFormElement)
-    const data = Object.fromEntries(formData)
-    toast('🦄 Sent successfully')
-    console.log(data)
-    ;(e.target as HTMLFormElement).reset()
+    try {
+      e.preventDefault()
+      const formData = new FormData(e.target as HTMLFormElement)
+      const data = Object.fromEntries(formData)
+      toast.success('🦄 Sent successfully')
+      console.log(data)
+      ;(e.target as HTMLFormElement).reset()
+    } catch (error) {
+      console.error(error)
+      toast.error('🦄 Send message failed')
+    }
   }
   return (
     <form action="" className="form" onSubmit={handleSubmit}>
