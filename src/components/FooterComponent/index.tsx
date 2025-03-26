@@ -59,7 +59,7 @@ const FooterComponent = () => {
                       target="_blank"
                       rel="prefetch"
                     >
-                      https://portfolio-jade-eight-35.vercel.app
+                      https://no-money.vercel.app
                     </Link>
                   </div>
                 </div>
