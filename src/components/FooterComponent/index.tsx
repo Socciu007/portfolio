@@ -55,7 +55,7 @@ const FooterComponent = () => {
                   <div className="item-info">
                     <p>Website:</p>
                     <Link
-                      to="https://portfolio-jade-eight-35.vercel.app/"
+                      to="https://no-money.vercel.app/"
                       target="_blank"
                       rel="prefetch"
                     >
