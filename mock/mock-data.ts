@@ -178,123 +178,465 @@ export const mockData = {
   blogs: [
     {
       id: 1,
+      category: 'Machine Learning',
       title: 'Linear Regression',
       header: 'Linear Regression is one of the most fundamental and classic algorithms in machine learning and the starting point for many complex models.It\'s easy to understand, but it solves many practical problems, such us forecasting house prices, anlyzing sales trends, or studying the relationship between variables. This article will take you from scratch to comprehensively analyze the principle, mathematical basis, loss function, optimization function, and practical application scenarios of linear regression.',
-      body: `<div>1. The principle of linear regression</div>
-      The core of linear regresssion is to establish linear relationships between variables through data, which is used to predict or explain phenomena. It's the foundation of supervised learning and is widely used in various fields.
-      <div>1.1 What is linear regression</div>
-      <div>1.1.1 Definitions and Intuitive Understanding</div>
-      Linear regression is a statistical method designed to model a linear relationship between the independent variable (the input feature) and the dependent variable (the output target). In simple terms, it tries to find a straight line (or high-dimensional hyperplane) so that the line is as close to all the date points as possible. </br>
-      For example, if we want to predict house prices, we can use the size of the house as the independent variable and the house price as the dependent variable. Linear regression finds a straight line that allows us to predict house prices as accurately as possible by area.
-      <div>1.1.2 Basic Assumtions</div>
-      The effectiveness of linear regression relies on several key assumptions:
-      <ul>
-        <li><b>Linear relationship:</b> There is a linear relationship between the independent variable and the dependent variable (which can be preliminarily vefified with a scatter plot).</li>
-        <li><b>Independence:</b> Data points are independent if each other and are not affected by other data points.</li>
-        <li><b>Homoscedasticity:</b> The variable of the error is consistent across all data points (e.g. the error is evenly distributed).</li>
-        <li><b>Normality:</b> Errors obey a normal distribution (although in practice it's not necessarily strictly required).</li>
-        <li><b>No multicollinearity (when multivariate):</b> The independent variables are not highly correlated with each other.</li>
-      </ul>
-      These assumptions may not fully hold true in the real world, but linear regression can still provide meaningful predictions.
-      <div>1.2 Mathematical representation of linear regression</div>
-      <div>1.2.1 Univariate linear regression</div>
-      For the case where there is only one independent variable, the mathematical formula for linear regression is:
-      <span style="text-align: center;">y = β0 + β1x + ε</span>
-      where:
-      <ul>
-        <li>y: Dependent variable (forecast target, e.g. house price)</li>
-        <li>x: Independent variable (input feature, e.g. house area)</li>
-        <li>β0: Intercept (the intersection of the line and the y-axis)</li>
-        <li>β1: Slope (indicates the magnitude of the effect of x on y)</li>
-        <li>ε: Error term (random noise, part of the model that cannot be interpreted)</li>
-      </ul>
-      Our goal is to learn the best values of β0 and β1 from data.
-      <div>1.2.2 Multivariate linear regression</div>
-      When there are multiple independent variables, the formula expands to:
-      <span style="text-align: center;">y = β0 + β1x1 + β2x2 + ... + βpxp + ε</span>
-      where:
-      <ul>
-        <li>x1, x2, ..., xp: Multiple independent variables (e.g. area, number of rooms, floors)</li>
-        <li>β1, β2, ..., βp: The weight of each independent variable</li>
-      </ul>
-      For example, forecasting a house price may require a combination of factors such us size, location, and year of construction.
-      <div>1.2.3 Matrix form</div>
-      For ease of calcution, multivariate linear regression is often represented as a matrix:
-      <span style="text-align: center;">y = Xβ + ε</span>
-      where:
-      <ul>
-        <li>y: Vector of dependent variables</li>
-        <li>X: Feature matrix (each row is a sample, each column is a feature)</li>
-        <li>β: parameter vector</li>
-        <li>ε: Error vector</li>
-      </ul>
-      This form is very common in programming implementations such as NumPy, or scikit-learn.
-      <div>1.3 Visual Understanding</div>
-      Let's say we have the following data:
-      <table>
-        <thead>
-          <tr>
-            <th>House Area (x)</th>
-            <th>Rate (y)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>50</td>
-            <td>100</td>
-          </tr>
-          <tr>
-            <td>70</td>
-            <td>130</td>
-          </tr>
-          <tr>
-            <td>90</td>
-            <td>160</td>
-          </tr>
-        </tbody>
-      </table>
-      Linear regression fits a straight line (e.g. y = 1.5x + 25) as shown below:
-      <img src="/assets/images/linear-regression-0.png" alt="Linear Regression" style="width: 50%; height: auto;">
-      This line is as close as possible to all points, and the error (e.g. the distance from the point to the line) is minimized.
-      <div>1.4 Application Scenarios</div>
-      Linear regression can be used for a variety of purposes, such as:
-      <ul>
-        <li><b>Economics</b>: Forecasting the relationship between inflation and interest rates.</li>
-        <li><b>Medical</b>: To study the association between weight and blood pressure.</li>
-        <li><b>Bussiness</b>: Analyze the link between advertising investment and sales.</li>
-        <li><b>Engineering</b>: Predict the strength of a material as a function of temperature.</li>
-      </ul>
-      <div>2. Loss function: Mean Squared Error (MSE)</div>
-      The loss function is the core indicator to measure the prediction effect of the model, and the mean square error (MSE) is the most commonly used choice in linear regression.
-      <div>2.1 Why do you need a loss function?</div>
-      The predicted value of the model cannot be exactly equal to the true value, and there will always be errors. The role of the loss function is to quantify these errors, help us evaluate how good the model is, and guide parameter adjustments. For example, if the predicted house price deviates too much from the actual value, we need a "standard" to measure this deviation.
-      <div>2.2 Definition of MSE</div>
-      The Mean Squared Error (MSE) is calculated as the average of the squares of the difference between the predicted value and the true value by the formula:
-      <span style="text-align: center;">
-        MSE = \\(\\frac{ 1}{ n } \\sum_{ i=1 } ^ { n }(y_i - \\hat{ y }_i) ^ 2\\)
-      </span>
-      where:
-      <ul>
-        <li>n: Number of data points</li>
-        <li>y_i: The true value of data point i</li>
-        <li>\\hat{ y }_i: The predicted value for data point i</li>
-      </ul>
-      <div>2.3 Features of MSE</div>
-      <div>2.3.1 Pros </div>
-      <ul>
-        <li><b>Superior mathematically</b>: MSE is a convex function with a unique global minimum for optimization.</li>
-        <li><b>Penalty large error</b>: The square term amplifies the effect of large error and promts the model to reduce signficant bias.</li>
-        <li><b>Easy derivation</b>: Facilitate subsequent gradient descent optimization.</li>
-      </ul>
-      <div>2.3.2 Limitations</div>
-      <ul>
-        <li><b>Sensitive to outliers</b>: If there are outiliers in the data, such us luxyry homes in house pricr data, the square term can significantly amplify its impact.</li>
-        <li><b>Unit problem</b>: The value of the MSE depends on the unit of the data, ehich is not intuitive enough.</li>
-      </ul>
-      <div>2.4 Visual Explanation</div>
-      The MSE can be thought of as the average of all data points squared by the vertical distance to the fitted line:
-      
-      `,
+      sections: [
+        {
+          id: 1,
+          title: '1. The principle of linear regression',
+          description: 'The core of linear regresssion is to establish linear relationships between variables through data, which is used to predict or explain phenomena. It\'s the foundation of supervised learning and is widely used in various fields.',
+          position: 1,
+          subSections: [
+            {
+              id: 1,
+              title: '1.1 What is linear regression',
+              subSubSections: [
+                {
+                  id: 1,
+                  title: '1.1.1 Definitions and Intuitive Understanding',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Linear regression is a statistical method designed to model a linear relationship between the independent variable (the input feature) and the dependent variable (the output target). In simple terms, it tries to find a straight line (or high-dimensional hyperplane) so that the line is as close to all the date points as possible. </br> For example, if we want to predict house prices, we can use the size of the house as the independent variable and the house price as the dependent variable.Linear regression finds a straight line that allows us to predict house prices as accurately as possible by area.',
+                      position: 1
+                    }
+                  ],
+                  position: 1
+                },
+                {
+                  id: 2,
+                  title: '1.1.2 Basic Assumtions',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'The effectiveness of linear regression relies on several key assumptions:',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'list',
+                      description: '<ul><li> <b>Economics </b>: Forecasting the relationship between inflation and interest rates.</li ><li><b>Medical < /b>: To study the association between weight and blood pressure.</li><li><b>Bussiness </b>: Analyze the link between advertising investment and sales.</li ><li><b>Engineering < /b>: Predict the strength of a material as a function of temperature.</li ></ul>',
+                      position: 2
+                    },
+                    {
+                      id: 3,
+                      type: 'text',
+                      description: 'These assumptions may not fully hold true in the real world, but linear regression can still provide meaningful predictions.',
+                      position: 3
+                    }
+                  ]
+                }
+              ],
+              position: 1
+            },
+            {
+              id: 2,
+              title: '1.2 Mathematical representation of linear regression',
+              subSubSections: [
+                {
+                  id: 1,
+                  title: '1.2.1 Univariate linear regression',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'For the case where there is only one independent variable, the mathematical formula for linear regression is:\n<span style="text-align: center;" > y = β0 + β1x + ε </span>\nwhere:\n',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'list',
+                      description: '<ul><li> y: Dependent variable(forecast target, e.g.house price)</li>< li > x: Independent variable(input feature, e.g.house area) </li>< li > β0: Intercept(the intersection of the line and the y - axis) </li>< li > β1: Slope(indicates the magnitude of the effect of x on y) </li>< li > ε: Error term(random noise, part of the model that cannot be interpreted) </li></ul>',
+                      position: 2
+                    },
+                    {
+                      id: 3,
+                      type: 'text',
+                      description: 'Our goal is to learn the best values of β0 and β1 from data.',
+                      position: 3
+                    }
+                  ],
+                  position: 1
+                },
+                {
+                  id: 2,
+                  title: '1.2.2 Multivariate linear regression',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'When there are multiple independent variables, the formula expands to:\n<span style="text-align: center;">y = β0 + β1x1 + β2x2 + ... + βpxp + ε</span>\nwhere:',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'list',
+                      description: '<ul><li>x1, x2, ..., xp: Multiple independent variables (e.g. area, number of rooms, floors)</li><li>β1, β2, ..., βp: The weight of each independent variable</li></ul>',
+                      position: 2
+                    },
+                    {
+                      id: 3,
+                      type: 'text',
+                      description: 'For example, forecasting a house price may require a combination of factors such us size, location, and year of construction.',
+                      position: 3
+                    }
+                  ],
+                  position: 2
+                },
+                {
+                  id: 3,
+                  title: '1.2.3 Matrix form',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'For ease of calcution, multivariate linear regression is often represented as a matrix:\n<span style="text-align: center;">y = Xβ + ε</span>\n where:',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'list',
+                      description: '<ul><li>y: Vector of dependent variables</li><li>X: Feature matrix (each row is a sample, each column is a feature)</li><li>β: parameter vector</li><li>ε: Error vector</li></ul>',
+                      position: 2
+                    },
+                    {
+                      id: 3,
+                      type: 'text',
+                      description: 'This form is very common in programming implementations such as NumPy, or scikit-learn.',
+                      position: 3
+                    }
+                  ],
+                  position: 3
+                }
+              ],
+              position: 2
+            },
+            {
+              id: 3,
+              title: '1.3 Visual Understanding',
+              subSubSections: [
+                {
+                  id: 1,
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Let\'s say we have the following data:',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'table',
+                      description: '<table><thead ><tr><th>House Area(x)</th>< th > Rate(y) </th></tr></thead>< tbody ><tr><td>50 </td>< td > 100 </td></tr>< tr ><td>70 </td>< td > 130 </td></tr>< tr ><td>90 </td>< td > 160 </td></tr></tbody></table>',
+                      position: 2
+                    },
+                    {
+                      id: 3,
+                      type: 'text',
+                      description: 'Linear regression fits a straight line (e.g. y = 1.5x + 25) as shown below:',
+                      position: 3
+                    },
+                    {
+                      id: 4,
+                      type: 'image',
+                      url_image: '/assets/images/linear-regression-0.png',
+                      position: 4
+                    },
+                    {
+                      id: 5,
+                      type: 'text',
+                      description: 'This line is as close as possible to all points, and the error (e.g. the distance from the point to the line) is minimized.',
+                      position: 5
+                    }
+                  ],
+                  position: 1
+                }
+              ],
+              position: 3
+            },
+            {
+              id: 4,
+              title: '1.4 Application Scenarios',
+              subSubSections: [
+                {
+                  id: 1,
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Linear regression can be used for a variety of purposes, such as:',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'list',
+                      description: '<ul><li><b>Economics</b>: Forecasting the relationship between inflation and interest rates.</li><li><b>Medical</b>: To study the association between weight and blood pressure.</li><li><b>Bussiness</b>: Analyze the link between advertising investment and sales.</li><li><b>Engineering</b>: Predict the strength of a material as a function of temperature.</li></ul>',
+                      position: 2
+                    }
+                  ],
+                  position: 1
+                }
+              ],
+              position: 4
+            }
+          ]
+        },
+        {
+          id: 2,
+          title: '2. Loss function: Mean Squared Error (MSE)',
+          description: 'The loss function is the core indicator to measure the prediction effect of the model, and the mean square error (MSE) is the most commonly used choice in linear regression.',
+          subSections: [
+            {
+              id: 1,
+              title: '2.1 Why do you need a loss function?',
+              subSubSections: [
+                {
+                  id: 1,
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'The predicted value of the model cannot be exactly equal to the true value, and there will always be errors. The role of the loss function is to quantify these errors, help us evaluate how good the model is, and guide parameter adjustments. For example, if the predicted house price deviates too much from the actual value, we need a "standard" to measure this deviation.',
+                      position: 1
+                    }
+                  ],
+                  position: 1
+                }
+              ]
+            },
+            {
+              id: 2,
+              title: '2.2 Definition of MSE',
+              subSubSections: [
+                {
+                  id: 1,
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'The Mean Squared Error (MSE) is calculated as the average of the squares of the difference between the predicted value and the true value by the formula:\n< span style="text-align: center;" >\nMSE = \\(\\frac{ 1}{ n } \\sum_{ i=1 } ^ { n }(y_i - \\hat{ y }_i) ^ 2\\)</span>\nwhere: ',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'list',
+                      description: '<ul><li>n: Number of data points</li><li>y_i: The true value of data point i</li><li>\\hat{ y }_i: The predicted value for data point i</li></ul>',
+                      position: 2
+                    }
+                  ],
+                  position: 1
+                }
+              ],
+              position: 2
+            },
+            {
+              id: 3,
+              title: '2.3 Features of MSE',
+              subSubSections: [
+                {
+                  id: 1,
+                  title: '2.3.1 Pros',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'list',
+                      description: '<ul><li><b>Superior mathematically</b>: MSE is a convex function with a unique global minimum for optimization.</li><li><b>Penalty large error</b>: The square term amplifies the effect of large error and promts the model to reduce signficant bias.</li><li><b>Easy derivation</b>: Facilitate subsequent gradient descent optimization.</li></ul>',
+                      position: 1
+                    }
+                  ],
+                  position: 1
+                },
+                {
+                  id: 2,
+                  title: '2.3.2 Limitations',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'list',
+                      description: '<ul><li><b>Sensitive to outliers</b>: If there are outiliers in the data, such us luxyry homes in house pricr data, the square term can significantly amplify its impact.</li><li><b>Unit problem</b>: The value of the MSE depends on the unit of the data, ehich is not intuitive enough.</li></ul>',
+                      position: 1
+                    }
+                  ],
+                  position: 2
+                },
+                {
+                  id: 3,
+                  title: '2.3.3 Visual Explanation',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'The MSE can be thought of as the average of all data points squared by the vertical distance to the fitted line:',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'code',
+                      description: `
+                      <div class="mermaid">
+                        graph TD
+                            A[data points] --> B(actual value)
+                            A --> C(predicted value)
+                            B --> D[error: y - ŷ]
+                            D --> E[square: (y - ŷ)²]
+                            E --> F[average: MSE]
+                      </div>`,
+                      position: 2
+                    }
+                  ]
+                }
+              ],
+              position: 3
+            },
+            {
+              id: 4,
+              title: '2.4 Other Loss Function Options',
+              subSubSections: [
+                {
+                  id: 1,
+                  title: '2.4.1 Mean Absolute Error (MAE)',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'In addition to MSE, there are other loss fuctions that can be used for linear regression:\n - <b>Root Mean Square Error (RMSE)</b>: \n <span style="text-align: center;">\\[RMSE = \\sqrt{ \\frac{ 1}{ n } \\sum_{ i=1 } ^ { n }(y_i - \\hat{ y }_i) ^ 2}\\]</span>\n The RMSE is the qquare root of the MSE, which is the same unit as the original data and is more intuitive.\n - <b>MEan Absolute Error (MAE)</b>: <span style="text-align: center;">\\[MAE = \\frac{ 1}{ n } \\sum_{ i=1 } ^ { n } |y_i - \\hat{ y }_i|\\]</span>\n MAE is not sensitive to outliers, but is not as smooth as MSE when optimized.\n - <b>Huber loss</b>: Combining the advantages of MSE and MAE, it uses the square for small errors and the absolute value for large errors, which is suiable for noisy data.\n The choice of which loss function to choose depends on the characteristics of the data and the needs of the task.',
+                      position: 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: 3,
+          title: '3. Optimization method: gradient descent method',
+          description: 'The goal of linear regression is to find the parameters that minimizes the loss function, and gradient descent is an efficient optimization method, especially in large-scale data.',
+          subSections: [
+            {
+              id: 1,
+              title: '3.1 Optimize the essence of the problem',
+              subSubSections: [
+                {
+                  id: 1,
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      decription: 'We want to adjust (β0, β1) to minimize the MSE. This is a typical optimization problem. Theoretically, it can be solved directly by least squares (via matrix operations), but when the amount of data is large or there are many features, the computational cost is high, and gradient descent becomes a more practical option.',
+                      position: 1
+
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              id: 2,
+              title: '3.2 Principle of gradient descent',
+              subSubSections: [
+                {
+                  id: 1,
+                  title: '3.2.1 Definition of descent',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'The gradient is the partial derivative of the loss function to the parameters, indicating the direction in which the value of the function increases the fastest. When optimizing, we move in the opposite direction of the gradient to reduce losses. For MSE, the loss function (J(β)) is defined as:\n <span style="text-align: center;">\\[J(\beta) = \frac{ 1}{ n } \\sum_{ i=1 } ^ { n } \\left(y_i - \\left(\beta_0 + \beta_1 x_{ i1 } + \\cdots + \beta_p x_{ ip } \right) \right) ^ 2\\]</span>\n The gradient is:\n <span style="text-align: center;">\\[\nabla J(\beta) = \\left[\frac{ \\partial J } { \\partial \beta_0 }, \frac{ \\partial J } { \\partial \beta_1 }, \\dots, \frac{ \\partial J } { \\partial \beta_p } \right]\\]</span>',
+                      position: 1
+                    }
+                  ],
+                  position: 1
+                },
+                {
+                  id: 2,
+                  title: '3.2.2 Parameter update rules',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: `Gradient descent updates parameters iteratively with the following formula:\n
+                      <span style="text-align: center;">\\[\beta_{ j } = \\beta_{ j } - \\alpha \\frac{ \\partial J } { \\partial \beta_j }\\]</span>\n
+                      where α: learning rate, control step size, \\(\\frac{ \\partial J } { \\partial \beta_j }\\): The partial dericative of the loss function to \\(\\beta_j\\).`,
+                      position: 1
+                    }
+                  ],
+                  position: 2
+                },
+                {
+                  id: 3,
+                  title: '3.2.3 Effect of learning rate',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: `The learning rate (\\(\\alpha\\)) is a key parameter for gradient descent:\n
+                      <ul><li><b>Too small</b>: Convergence is slow and can fall into a local minimum.</li><li><b>Too large</b>: may cross the optimal solution or even diverge.</li></ul>\n
+                      The following diagram illustrates the effect of different learning rate:`,
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'image',
+                      url_image: '/assets/images/linear-regression-1.png',
+                      position: 2
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              id: 3,
+              title: '3.3 Variants of gradient descent',
+              subSubSections: [
+                {
+                  id: 1,
+                  title: '3.3.1 Batch Gradient Descent',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: `Use the entire dataset to calculate the gradient and update the parameters.\n
+                      <ul><li><b>Advantages</b>: The convergence is stable, and the results are close to the global optimum</li><li><b>Disadvantages</b>: Compute and slow.</li></ul>`,
+                      position: 1
+                    }
+                  ]
+                },
+                {
+                  id: 2,
+                  title: '3.3.2 Stochastic Gradient Descent (SGD)',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: `Each iteration randomly selects a data point to calculate the gradient.\n
+                      <ul><li><b>Advantages</b>: Faster speed, suiable for big data.</li><li><b>Disadvantages</b>: The convergence path is fluctuating and can be unstable.</li></ul>`,
+                      position: 1
+                    }
+                  ]
+                },
+                {
+                  id: 3,
+                  title: '3.3.3 Mini-batch Gradient Descent',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: `Gradients are calculated using a small batch of data (e.g. 32 or 64 samples) at a time.\n
+                      <ul><li><b>Advantages</b>: It's a common method in deep learning because of both speed and stability.</li><li><b>Example implementation</b>:</li></ul>`,
+                      position: 1
+                    }
+                  ]
+                }
+              ],
+              position: 3
+            }
+          ]
+        }
+      ],
       createdAt: '2025-03-26'
     }
   ]
