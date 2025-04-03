@@ -628,11 +628,334 @@ export const mockData = {
                       description: `Gradients are calculated using a small batch of data (e.g. 32 or 64 samples) at a time.\n
                       <ul><li><b>Advantages</b>: It's a common method in deep learning because of both speed and stability.</li><li><b>Example implementation</b>:</li></ul>`,
                       position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'code',
+                      description: `
+                      # Mock data
+                      X = np.array([[1, 1], [1, 2], [1, 3], [1, 4]])  # Include bias term
+                      y = np.array([2, 4, 5, 7])
+                      beta = np.zeros(2)  # Initialize parameters
+                      alpha = 0.05  # Learning rate
+                      epochs = 200
+                      batch_size = 2
+
+                      # Mini-batch gradient descent
+                      for epoch in range(epochs):
+                        indices = np.random.permutation(len(y))  # Randomly shuffle data
+                        for start in range(0, len(y), batch_size):
+                          batch_indices = indices[start:start + batch_size]
+                          X_batch = X[batch_indices]
+                          y_batch = y[batch_indices]
+                          y_pred = X_batch.dot(beta)
+                          error = y_pred - y_batch
+                          gradient = X_batch.T.dot(error) / batch_size
+                          beta -= alpha * gradient
+
+                      print("Parameters after training: ", beta)`,
+                      position: 2
                     }
                   ]
                 }
               ],
               position: 3
+            },
+            {
+              id: 4,
+              title: '3.4 Convergence and Improvement',
+              subSubSections: [
+                {
+                  id: 1,
+                  title: '3.4.1 Cessation Conditions',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: `Gradient descent usually stops when: \n
+                      <ul><li>Mazimum number of iterations. e.g. 1000.</li><li>The loss change is less than the threshold: as in (|\\Delta J| < 10^{-6}).</li><li>Gradient close to zero: Indicates that the optimal solution has been reached.</li></ul>`,
+                      position: 1
+                    }
+                  ]
+                },
+                {
+                  id: 2,
+                  title: '3.4.2 Learning rate scheduling',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: `To accelerate convergence, the learning rate can be dynamically adjusted:\n
+                      <ul><li><b>Time decay</b>: (\\alpha = \frac{\\alpha_0}{1 + k \\cdot t}), t is the number of iterations.</li><li><b>Exponential decline</b>: (\\alpha = \\alpha_0 \\cdot e^{-kt})</li><li><b>Adaptive methods</b>: e.g. Adam, RMSProp, adjusted according to gradient history (\\alpha).</li></ul> \n
+                      These methods have signifivantly improved efficiency in practice.`,
+                      position: 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: 4,
+          title: '4. The Practical Application of Linear Regression',
+          description: 'Linear regression has countless applications in reality, and here are two detailed examples.',
+          subSections: [
+            {
+              id: 1,
+              title: '4.1 House Price Forecasts',
+              subSubSections: [
+                {
+                  id: 1,
+                  title: '4.1.1 Background',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Let\'s say we have a housing dataset that includes characteristics such as size, number of rooms, and location, as well as the corresponding house prices. We want to predict the price of a new home.',
+                      position: 1
+                    }
+                  ]
+                },
+                {
+                  id: 2,
+                  title: '4.1.2 Data Preprocessing',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: '<ul><li><b>Feature Selection</b>: Select the area, number of rooms, and location code (single thermal code).</li><li><b>Normalize</b>: Normalize numberical features such as aresa to [0, 1] intervals.</li><li><b>Data Cleaning</b>: Removes missing or outliers.</li></ul>',
+                      position: 1
+                    }
+                  ]
+                },
+                {
+                  id: 3,
+                  title: '4.1.3 Model Implementation',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'code',
+                      description: `
+                      # Using scikit-learn:
+
+                      from sklearn.linear_model import LinearRegression
+                      from sklearn.preprocessing import StandardScaler
+                      import pandas as pd
+                      import numpy as np
+
+                      # Split data into training and testing sets
+                      data = pd.DataFrame({
+                        'area': [50, 70 , 90, 120],
+                        'rooms': [1, 2, 2, 3],
+                        'locations': [1, 2, 1, 3],
+                        'price': [100, 130, 160, 200]
+                      })
+                      X = data[['area', 'rooms', 'locations']]
+                      y = data['price']
+
+                      # Standardize features
+                      scaler = StandardScaler()
+                      X_scaled = scaler.fit_transform(X)
+
+                      # Train the model
+                      model = LinearRegression()
+                      model.fit(X_scaled, y)
+
+                      # Make predictions
+                      new_house = scaler.transform([[100, 2, 1]]) # 100 is the area, 2 is the number of rooms, 1 is the location code
+                      predict_price = model.predict(new_house)
+                      print(f"Predicted price: {predict_price[0]:.2f}")
+                      `,
+                      position: 1
+                    }
+                  ]
+                },
+                {
+                  id: 4,
+                  title: '4.1.4 Analysis of Results',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'The model outputs parameters such as (\\beta) and we can analyze the impact of each feature on house prices. For example, if (\\beta_{\\text{area}}) is larger, the area has a more signigicant impact on the house price.',
+                      position: 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              id: 2,
+              title: '4.2 Stock Price Prediction',
+              subSubSections: [
+                {
+                  id: 1,
+                  title: '4.2.1 Background',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Businesses want to forecast sales in the coming months based on historical sales data.',
+                      position: 1
+                    }
+                  ]
+                },
+                {
+                  id: 2,
+                  title: '4.2.2 Data Preparation',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Let\'s assume that the data is as follows:',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'table',
+                      description: `
+                      | Month(x) | Sales(y) |
+                      |----------|----------|
+                      | 1        | 100      |
+                      | 2        | 150      |
+                      | 3        | 200      |
+                      | 4        | 250      |
+                      `,
+                      position: 2
+                    }
+                  ]
+                },
+                {
+                  id: 3,
+                  title: '4.2.3 Model training and prediction',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'code',
+                      description: `
+                      import numpy as np
+                      from sklearn.linear_model import LinearRegression
+                      import matplotlib.pyplot as plt
+
+                      # Prepare data
+                      X = np.array([1, 2, 3, 4]).reshape(-1, 1)
+                      y = np.array([100, 150, 200, 250])
+
+                      # Train the model
+                      model = LinearRegression()
+                      model.fit(X, y)
+
+                      # Make predictions for future 3 months
+                      future_X = np.array([5, 6, 7]).reshape(-1, 1)
+                      predicted_y = model.predict(future_X)
+                      print(f"Predicted sales: {predicted_y}")
+
+                      # Plot the results
+                      plt.scatter(X, y, color='blue', label='Actual Sales')
+                      plt.plot(np.vstack([X, future_X]), np.hstack([y, predicted_y]), color='red', label='Predicted Sales')
+                      plt.xlabel('Month')
+                      plt.ylabel('Sales')
+                      plt.legend()
+                      plt.show()
+                      `,
+                      position: 1
+                    }
+                  ]
+                },
+                {
+                  id: 4,
+                  title: '4.2.4 Analysis of Results',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'The model assumes that sales increase lenearly over time. If the data is trending non-linearly, polynomial regression of time serias models can be considered.',
+                      position: 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: 5,
+          title: '5. Advanced Topics',
+          subSections: [
+            {
+              id: 1,
+              title: '5.1 Regularization',
+              subSubSections: [
+                {
+                  id: 1,
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: `Regularization can be introduced when there are too many features or when the data is overfitted.
+                      <ul><li><b>Lasso (L1)</b>: Adds a penalty term to promote sparsity.</li><li><b>Ridge (L2)</b>: Adds a penalty term to prevent the parameter from being too large.</li></ul>`,
+                      position: 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              id: 2,
+              title: '5.2 Feature Engineering',
+              subSubSections: [
+                {
+                  id: 1,
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: '<ul><li><b>Polynomical features</b>: Add terms such as (x^2, x^3) to capture non-linear relationships.</li><li><b>Interaction</b>: Combine features to capture complex interactions.</li></ul>',
+                      position: 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              id: 3,
+              title: '5.3 Model Evaluation',
+              subSubSections: [
+                {
+                  id: 1,
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: '<ul><li><b>R-squared score</b>: A measure of the model\'s ability to interpret the data.</li><li><b>Cross-validation</b>: Evalute the generalization performance of the model.</li></ul>',
+                      position: 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: 6,
+          title: '6. Summary',
+          subSections: [
+            {
+              id: 1,
+              subSubSections: [
+                {
+                  id: 1,
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: '<ul><li><b>Principle</b>: Linear regression is simple yet powerful in modeling data through linear relationships.</li><li><b>Loss function</b>: MSE is the core metric, which is easy to optimize but sensitive to outliers.</li><li><b>Gradient Descent</b>: An efficient parameter optimization for various scenarios.</li><li><b>Applications</b>: From house prices to sales forecasts, linear regression is everywhere.</li></ul>',
+                      position: 1
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }

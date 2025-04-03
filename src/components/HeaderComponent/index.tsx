@@ -65,6 +65,13 @@ const HeaderComponent = ({ isHidden }: { isHidden: boolean }) => {
               >
                 About
               </a>
+              <a
+                href="#blogs"
+                className={activeSection === 'blogs' ? 'active' : ''}
+                onClick={() => setActiveSection('blogs')}
+              >
+                Blogs
+              </a>
             </div>
           )}
           <div className='wrapper-mode'>

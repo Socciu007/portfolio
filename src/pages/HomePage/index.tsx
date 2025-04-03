@@ -208,6 +208,7 @@ const HomePage = () => {
             </div>
           </div>
         </section>
+        <section className="home-page-section5" id="blogs"></section>
       </div>
     </div>
   )
