@@ -208,7 +208,23 @@ const HomePage = () => {
             </div>
           </div>
         </section>
-        <section className="home-page-section5" id="blogs"></section>
+        <section className="home-page-section5" id="blogs">
+          <div className='home-page-section5-container'>
+            <div className='home-page-section5-container-title'>
+              <span>Recent Posts</span>
+              <p>View all</p>
+            </div>
+            <div className='home-page-section5-container-detail'>
+              {mockData?.blogs?.slice(0, 2)?.map((item) => (
+                <div className='home-page-section5-container-detail-item'>
+                  <div className='home-page-section5-container-detail-item-title'>
+                    <p>{item.title}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   )

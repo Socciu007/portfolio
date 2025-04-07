@@ -147,7 +147,7 @@ export const mockData = {
     {
       id: 2,
       company: 'VPBank',
-      position: 'Fullstack Developer',
+      position: 'Data Analyst Intern',
       logo: '/assets/images/vp-logo.png',
       startDate: 'Oct 2023',
       endDate: 'Nov 2023',

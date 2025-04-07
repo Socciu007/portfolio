@@ -331,6 +331,40 @@
       }
     }
   }
+  &-section5 {
+    padding-top: 85px;
+    &-container {
+      max-width: 855px;
+      margin: 0 auto;
+      &-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 13px;
+        span {
+          font-size: var(--font-size-large);
+          font-weight: 600;
+          line-height: 24px;
+        }
+        p {
+          font-size: var(--font-size-base);
+          line-height: 24px;
+          cursor: pointer;
+        }
+      }
+      &-detail {
+        display: flex;
+        gap: 20px;
+        justify-content: space-between;
+        &-item {
+          width: 30%;
+          height: 100%;
+          background-color: var(--secondary-color);
+          
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 420px) {
