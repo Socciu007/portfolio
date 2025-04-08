@@ -28,16 +28,16 @@ const BlogDetailPage = () => {
                   {item?.subSections && item?.subSections?.map((subSection) => (
                     <div className='blog-item-subSection'>
                       <div className='blog-item-subSection-title'>
-                        <h2>{subSection?.title}</h2>
+                        <h2>{'title' in subSection && subSection?.title}</h2>
                       </div>
                       {subSection?.subSubSections && subSection?.subSubSections?.map((subSubSection) => (
                         <div className='blog-item-subSection-subSection'>
                           <div className='blog-item-subSection-subSection-title'>
-                            <h2>{subSubSection?.title}</h2>
+                            <h2>{'title' in subSubSection && subSubSection?.title}</h2>
                           </div>
                           {subSubSection?.content && subSubSection?.content?.map((content) => (
                             <div className='blog-item-subSection-subSection-content'>
-                              <p>{content?.description && parse(content?.description)}</p>
+                              <p>{'description' in content && content?.description && parse(content?.description)}</p>
                             </div>
                           ))}
                         </div>
