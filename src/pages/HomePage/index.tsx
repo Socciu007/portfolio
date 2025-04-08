@@ -17,6 +17,7 @@ import pic4 from '/assets/images/anh4.jpg'
 import pic5 from '/assets/images/anh5.jpg'
 // import pic6 from '/assets/images/anh6.jpg'
 import pic7 from '/assets/images/anh7.jpg'
+import { useNavigate } from 'react-router-dom'
 
 const HomePage = () => {
   const [hoverButton, setHoverButton] = useState(false)
@@ -24,6 +25,7 @@ const HomePage = () => {
   const { scrollYProgress } = useScroll({
     container: ref
   })
+  const navigate = useNavigate()
   return (
     <div className="home-page">
       <div className="home-page__container">
@@ -211,14 +213,25 @@ const HomePage = () => {
         <section className="home-page-section5" id="blogs">
           <div className='home-page-section5-container'>
             <div className='home-page-section5-container-title'>
-              <span>Recent Posts</span>
+              <Zoom cascade direction="right" duration={1000}>
+                <span>Recent Posts</span>
+              </Zoom>
               <p>View all</p>
             </div>
             <div className='home-page-section5-container-detail'>
               {mockData?.blogs?.slice(0, 2)?.map((item) => (
                 <div className='home-page-section5-container-detail-item'>
                   <div className='home-page-section5-container-detail-item-title'>
-                    <p>{item.title}</p>
+                    <p>{item?.title}</p>
+                  </div>
+                  <div className='home-page-section5-container-detail-item-createdAt'>
+                    <p>{item?.createdAt}</p>
+                  </div>
+                  <div className='home-page-section5-container-detail-item-description'>
+                    <p>{item?.header} <span onClick={() => navigate(`/blogs/${item?.id}`)} style={{ color: '#00A8CC', cursor: 'pointer' }}>See more...</span></p>
+                  </div>
+                  <div className='home-page-section5-container-detail-item-topic'>
+                    Topic: <span>{item?.category}</span>
                   </div>
                 </div>
               ))}

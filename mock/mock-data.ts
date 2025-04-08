@@ -218,7 +218,7 @@ export const mockData = {
                     {
                       id: 2,
                       type: 'list',
-                      description: '<ul><li> <b>Economics </b>: Forecasting the relationship between inflation and interest rates.</li ><li><b>Medical < /b>: To study the association between weight and blood pressure.</li><li><b>Bussiness </b>: Analyze the link between advertising investment and sales.</li ><li><b>Engineering < /b>: Predict the strength of a material as a function of temperature.</li ></ul>',
+                      description: '<ul><li> <b>Economics </b>: Forecasting the relationship between inflation and interest rates.</li ><li><b>Medical </b>: To study the association between weight and blood pressure.</li><li><b>Bussiness </b>: Analyze the link between advertising investment and sales.</li ><li><b>Engineering </b>: Predict the strength of a material as a function of temperature.</li ></ul>',
                       position: 2
                     },
                     {
@@ -243,13 +243,13 @@ export const mockData = {
                     {
                       id: 1,
                       type: 'text',
-                      description: 'For the case where there is only one independent variable, the mathematical formula for linear regression is:\n<span style="text-align: center;" > y = β0 + β1x + ε </span>\nwhere:\n',
+                      description: 'For the case where there is only one independent variable, the mathematical formula for linear regression is:\n<span style="text-align: center; display: block;"> y = β0 + β1x + ε </span>\nwhere:\n',
                       position: 1
                     },
                     {
                       id: 2,
                       type: 'list',
-                      description: '<ul><li> y: Dependent variable(forecast target, e.g.house price)</li>< li > x: Independent variable(input feature, e.g.house area) </li>< li > β0: Intercept(the intersection of the line and the y - axis) </li>< li > β1: Slope(indicates the magnitude of the effect of x on y) </li>< li > ε: Error term(random noise, part of the model that cannot be interpreted) </li></ul>',
+                      description: '<ul><li> y: Dependent variable(forecast target, e.g. house price)</li><li> x: Independent variable(input feature, e.g. house area) </li><li> β0: Intercept(the intersection of the line and the y - axis) </li><li> β1: Slope(indicates the magnitude of the effect of x on y) </li><li> ε: Error term(random noise, part of the model that cannot be interpreted) </li></ul>',
                       position: 2
                     },
                     {
@@ -268,7 +268,7 @@ export const mockData = {
                     {
                       id: 1,
                       type: 'text',
-                      description: 'When there are multiple independent variables, the formula expands to:\n<span style="text-align: center;">y = β0 + β1x1 + β2x2 + ... + βpxp + ε</span>\nwhere:',
+                      description: 'When there are multiple independent variables, the formula expands to:\n<span style="text-align: center; display: block;">y = β0 + β1x1 + β2x2 + ... + βpxp + ε</span>\nwhere:',
                       position: 1
                     },
                     {
@@ -293,7 +293,7 @@ export const mockData = {
                     {
                       id: 1,
                       type: 'text',
-                      description: 'For ease of calcution, multivariate linear regression is often represented as a matrix:\n<span style="text-align: center;">y = Xβ + ε</span>\n where:',
+                      description: 'For ease of calcution, multivariate linear regression is often represented as a matrix:\n<span style="text-align: center; display: block;">y = Xβ + ε</span>\n where:',
                       position: 1
                     },
                     {
@@ -330,7 +330,7 @@ export const mockData = {
                     {
                       id: 2,
                       type: 'table',
-                      description: '<table><thead ><tr><th>House Area(x)</th>< th > Rate(y) </th></tr></thead>< tbody ><tr><td>50 </td>< td > 100 </td></tr>< tr ><td>70 </td>< td > 130 </td></tr>< tr ><td>90 </td>< td > 160 </td></tr></tbody></table>',
+                      description: '<table><thead><tr><th>House Area(x)</th><th> Rate(y) </th></tr></thead><tbody><tr><td>50 </td><td> 100 </td></tr><tr><td>70 </td><td> 130 </td></tr><tr><td>90 </td><td> 160 </td></tr></tbody></table>',
                       position: 2
                     },
                     {
@@ -417,13 +417,13 @@ export const mockData = {
                     {
                       id: 1,
                       type: 'text',
-                      description: 'The Mean Squared Error (MSE) is calculated as the average of the squares of the difference between the predicted value and the true value by the formula:\n< span style="text-align: center;" >\nMSE = \\(\\frac{ 1}{ n } \\sum_{ i=1 } ^ { n }(y_i - \\hat{ y }_i) ^ 2\\)</span>\nwhere: ',
+                      description: 'The Mean Squared Error (MSE) is calculated as the average of the squares of the difference between the predicted value and the true value by the formula:\n<span style="text-align: center; display: block;">\n\\( MSE = \\frac{ 1}{ n } \\sum_{ i=1 } ^ { n }(y_i - \\hat{ y }_i) ^ 2\\)</span>\nwhere: ',
                       position: 1
                     },
                     {
                       id: 2,
                       type: 'list',
-                      description: '<ul><li>n: Number of data points</li><li>y_i: The true value of data point i</li><li>\\hat{ y }_i: The predicted value for data point i</li></ul>',
+                      description: '<ul><li>n: Number of data points</li><li>y_i: The true value of data point i</li><li>\\hat{y}_i: The predicted value for data point i</li></ul>',
                       position: 2
                     }
                   ],
@@ -478,11 +478,11 @@ export const mockData = {
                       description: `
                       <div class="mermaid">
                         graph TD
-                            A[data points] --> B(actual value)
-                            A --> C(predicted value)
-                            B --> D[error: y - ŷ]
-                            D --> E[square: (y - ŷ)²]
-                            E --> F[average: MSE]
+                          A[data points] --> B(actual value)
+                          A --> C(predicted value)
+                          B --> D[error: y - ŷ]
+                          D --> E[square: (y - ŷ)²]
+                          E --> F[average: MSE]
                       </div>`,
                       position: 2
                     }
@@ -960,7 +960,15 @@ export const mockData = {
           ]
         }
       ],
-      createdAt: '2025-03-26'
+      createdAt: '26 Mar 2025'
+    },
+    {
+      id: 2,
+      title: 'How to use Linear Regression in Python',
+      header: 'Linear Regression is a simple yet powerful machine learning algorithm that is used to predict the relationship between a dependent variable and one or more independent variables. It is a type of supervised learning algorithm that is used to predict the output of a continuous variable based on the input variables.',
+      description: 'Linear Regression is a simple yet powerful machine learning algorithm that is used to predict the relationship between a dependent variable and one or more independent variables. It is a type of supervised learning algorithm that is used to predict the output of a continuous variable based on the input variables.',
+      category: 'Machine Learning',
+      createdAt: '26 Mar 2025'
     }
   ]
 }
