@@ -35,7 +35,7 @@ export default defineConfig({
     target: 'esnext' // Target the latest ECMAScript standard
   },
   optimizeDeps: {
-    include: [] // Pre-bundle the package
+    include: ['react-syntax-highlighter'] // Pre-bundle the package
   },
   server: {
     port: 6767,

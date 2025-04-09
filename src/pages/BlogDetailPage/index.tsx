@@ -2,7 +2,7 @@ import './style.scss'
 import { useParams } from 'react-router-dom'
 import { mockData } from '../../../mock/mock-data'
 import parse from 'html-react-parser'
-import MermaidChart from '../../components/MermaidCode'
+import SyntaxHighligh from '../../components/SyntaxHighligh'
 
 const BlogDetailPage = () => {
   const { id } = useParams()
@@ -39,7 +39,7 @@ const BlogDetailPage = () => {
                           {subSubSection?.content && subSubSection?.content?.map((content) => (
                             <div key={content?.id} className='blog-item-subSection-subSection-content'>
                               <p>{('description' in content && content?.description) && parse(content?.description)}</p>
-                              {(content?.type === 'code' && 'description' in content && content?.description) && <MermaidChart chart={content?.description} />}
+                              {(content?.type === 'code' && 'description' in content && content?.description) && <SyntaxHighligh code={content?.description} language='python' />}
                             </div>
                           ))}
                         </div>
