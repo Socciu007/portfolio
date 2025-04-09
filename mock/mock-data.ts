@@ -475,15 +475,14 @@ export const mockData = {
                     {
                       id: 2,
                       type: 'code',
-                      description: `
-                      <div class="mermaid">
-                        graph TD
-                          A[data points] --> B(actual value)
-                          A --> C(predicted value)
-                          B --> D[error: y - ŷ]
-                          D --> E[square: (y - ŷ)²]
-                          E --> F[average: MSE]
-                      </div>`,
+                      description:
+                      `graph TD
+                        A[data points] --> B(actual value)
+                        A --> C(predicted value)
+                        B --> D[error: y - ŷ]
+                        D --> E[square: (y - ŷ)²]
+                        E --> F[average: MSE]
+                      `,
                       position: 2
                     }
                   ]
