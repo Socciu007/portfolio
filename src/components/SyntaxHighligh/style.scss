@@ -1,0 +1,15 @@
+.code-block {
+  margin: 0.5rem 0;
+  width: 100%;
+  .token-line {
+    width: 100%;
+    .code-block-line-number {
+      min-width: 40px !important;
+      color: #999;
+      padding: 0 0.85rem 0 0.5rem;
+      display: inline-block;
+      text-align: right;
+    }
+  }
+}
+

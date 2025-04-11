@@ -475,14 +475,7 @@ export const mockData = {
                     {
                       id: 2,
                       type: 'code',
-                      description:
-                      `graph TD
-                        A[data points] --> B(actual value)
-                        A --> C(predicted value)
-                        B --> D[error: y - ŷ]
-                        D --> E[square: (y - ŷ)²]
-                        E --> F[average: MSE]
-                      `,
+                      description: 'graph TD\n  A[data points] --> B(actual value)\n  A --> C(predicted value)\n  B --> D[error: y - ŷ]\n  D --> E[square: (y - ŷ)²]\n  E --> F[average: MSE]',
                       position: 2
                     }
                   ]
@@ -631,28 +624,7 @@ export const mockData = {
                     {
                       id: 2,
                       type: 'code',
-                      description: `
-                      # Mock data
-                      X = np.array([[1, 1], [1, 2], [1, 3], [1, 4]])  # Include bias term
-                      y = np.array([2, 4, 5, 7])
-                      beta = np.zeros(2)  # Initialize parameters
-                      alpha = 0.05  # Learning rate
-                      epochs = 200
-                      batch_size = 2
-
-                      # Mini-batch gradient descent
-                      for epoch in range(epochs):
-                        indices = np.random.permutation(len(y))  # Randomly shuffle data
-                        for start in range(0, len(y), batch_size):
-                          batch_indices = indices[start:start + batch_size]
-                          X_batch = X[batch_indices]
-                          y_batch = y[batch_indices]
-                          y_pred = X_batch.dot(beta)
-                          error = y_pred - y_batch
-                          gradient = X_batch.T.dot(error) / batch_size
-                          beta -= alpha * gradient
-
-                      print("Parameters after training: ", beta)`,
+                      description: '# Mock data\nX = np.array([[1, 1], [1, 2], [1, 3], [1, 4]])  # Include bias term\ny = np.array([2, 4, 5, 7])\nbeta = np.zeros(2)  # Initialize parameters\nbeta = np.zeros(2)  # Initialize parameters\nalpha = 0.05  # Learning rate\nepochs = 200\nbatch_size = 2\n\n# Mini-batch gradient descent\nfor epoch in range(epochs):\n  indices = np.random.permutation(len(y))  # Randomly shuffle data\n  for start in range(0, len(y), batch_size):\n    batch_indices = indices[start:start + batch_size]\n    X_batch = X[batch_indices]\n    y_batch = y[batch_indices]\n    y_pred = X_batch.dot(beta)\n    error = y_pred - y_batch\n    gradient = X_batch.T.dot(error) / batch_size\n    beta -= alpha * gradient\n\n    print("Parameters after training: ", beta)',
                       position: 2
                     }
                   ]
@@ -735,37 +707,7 @@ export const mockData = {
                     {
                       id: 1,
                       type: 'code',
-                      description: `
-                      # Using scikit-learn:
-
-                      from sklearn.linear_model import LinearRegression
-                      from sklearn.preprocessing import StandardScaler
-                      import pandas as pd
-                      import numpy as np
-
-                      # Split data into training and testing sets
-                      data = pd.DataFrame({
-                        'area': [50, 70 , 90, 120],
-                        'rooms': [1, 2, 2, 3],
-                        'locations': [1, 2, 1, 3],
-                        'price': [100, 130, 160, 200]
-                      })
-                      X = data[['area', 'rooms', 'locations']]
-                      y = data['price']
-
-                      # Standardize features
-                      scaler = StandardScaler()
-                      X_scaled = scaler.fit_transform(X)
-
-                      # Train the model
-                      model = LinearRegression()
-                      model.fit(X_scaled, y)
-
-                      # Make predictions
-                      new_house = scaler.transform([[100, 2, 1]]) # 100 is the area, 2 is the number of rooms, 1 is the location code
-                      predict_price = model.predict(new_house)
-                      print(f"Predicted price: {predict_price[0]:.2f}")
-                      `,
+                      description: '# Using scikit-learn:\nfrom sklearn.linear_model import LinearRegression\nfrom sklearn.preprocessing import StandardScaler\nimport pandas as pd\nimport numpy as np\n\n# Split data into training and testing sets\ndata = pd.DataFrame({\n  \'area\': [50, 70 , 90, 120],\n  \'rooms\': [1, 2, 2, 3],\n  \'locations\': [1, 2, 1, 3],\n  \'price\': [100, 130, 160, 200]\n})\nX = data[[\'area\', \'rooms\', \'locations\']]\ny = data[\'price\']\n\n# Standardize features\nscaler = StandardScaler()\nX_scaled = scaler.fit_transform(X)\n\n# Train the model\nmodel = LinearRegression()\nmodel.fit(X_scaled, y)\n\n# Make predictions\n# 100 is the area, 2 is the number of rooms, 1 is the location code\nnew_house = scaler.transform([[100, 2, 1]])\npredict_price = model.predict(new_house)\nprint(f"Predicted price: {predict_price[0]:.2f}")',
                       position: 1
                     }
                   ]
@@ -813,14 +755,7 @@ export const mockData = {
                     {
                       id: 2,
                       type: 'table',
-                      description: `
-                      | Month(x) | Sales(y) |
-                      |----------|----------|
-                      | 1        | 100      |
-                      | 2        | 150      |
-                      | 3        | 200      |
-                      | 4        | 250      |
-                      `,
+                      description: '<table><thead><tr><th>Month(x)</th><th>Sales(y)</th></tr></thead><tbody><tr><td>1</td><td>100</td></tr><tr><td>2</td><td>150</td></tr><tr><td>3</td><td>200</td></tr><tr><td>4</td><td>250</td></tr></tbody></table>',
                       position: 2
                     }
                   ]
@@ -832,32 +767,7 @@ export const mockData = {
                     {
                       id: 1,
                       type: 'code',
-                      description: `
-                      import numpy as np
-                      from sklearn.linear_model import LinearRegression
-                      import matplotlib.pyplot as plt
-
-                      # Prepare data
-                      X = np.array([1, 2, 3, 4]).reshape(-1, 1)
-                      y = np.array([100, 150, 200, 250])
-
-                      # Train the model
-                      model = LinearRegression()
-                      model.fit(X, y)
-
-                      # Make predictions for future 3 months
-                      future_X = np.array([5, 6, 7]).reshape(-1, 1)
-                      predicted_y = model.predict(future_X)
-                      print(f"Predicted sales: {predicted_y}")
-
-                      # Plot the results
-                      plt.scatter(X, y, color='blue', label='Actual Sales')
-                      plt.plot(np.vstack([X, future_X]), np.hstack([y, predicted_y]), color='red', label='Predicted Sales')
-                      plt.xlabel('Month')
-                      plt.ylabel('Sales')
-                      plt.legend()
-                      plt.show()
-                      `,
+                      description: 'import numpy as np\nfrom sklearn.linear_model import LinearRegression\nimport matplotlib.pyplot as plt\nimport matplotlib.pyplot as plt\n\n# Prepare data\nX = np.array([1, 2, 3, 4]).reshape(-1, 1)\ny = np.array([100, 150, 200, 250])\n\n# Train the model\nmodel = LinearRegression()\nmodel.fit(X, y)\n\n# Make predictions for future 3 months\nfuture_X = np.array([5, 6, 7]).reshape(-1, 1)\npredicted_y = model.predict(future_X)\nprint(f\'Predicted sales: {predicted_y}\')\n\n# Plot the results\nplt.scatter(X, y, color=\'blue\', label=\'Actual Sales\')\nplt.plot(\n  np.vstack([X, future_X]),\n  np.hstack([y, predicted_y]),\n  color=\'red\',\n  label=\'Predicted Sales\'\n)\nplt.xlabel(\'Month\')\nplt.ylabel(\'Sales\')\nplt.legend()\nplt.show()',
                       position: 1
                     }
                   ]

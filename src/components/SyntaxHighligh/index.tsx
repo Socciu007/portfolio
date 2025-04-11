@@ -1,19 +1,44 @@
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism'
-// import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+import React, { useState } from 'react'
+import { Highlight, themes } from 'prism-react-renderer'
+import './style.scss'
 
-interface SyntaxHighlighProps {
-  code: string
-  language: string
-}
+type HighlightCodeProps = {
+  codeBlock: string;
+  language: string; // 'python' | 'javascript' | 'typescript' | ...
+};
 
-const SyntaxHighligh: React.FC<SyntaxHighlighProps> = ({ code, language }) => {
-  console.log('code', code)
+const HighlightCode: React.FC<HighlightCodeProps> = ({ codeBlock, language }) => {
+  const [showAll, setShowAll] = useState(false)
+  const trimmedCodeBlock = codeBlock.trim()
+  const lines = trimmedCodeBlock.split('\n')
+  const shouldShowButton = lines.length > 10
+  const displayedLines = showAll ? lines : lines.slice(0, 10)
+
   return (
-    <SyntaxHighlighter language={language} style={dark}>
-      {code}
-    </SyntaxHighlighter>
+    <div>
+      <Highlight
+        theme={themes.dracula}
+        code={displayedLines.join('\n')}
+        language={language}
+      >
+        {({ style, tokens, getLineProps, getTokenProps }) => (
+          <pre className="code-block" style={style}>
+            {tokens.map((line, i) => (
+              <div key={i} {...getLineProps({ line })}>
+                <span className="code-block-line-number">{i + 1}</span>
+                {line.map((token, key) => (
+                  <span key={key} {...getTokenProps({ token })} />
+                ))}
+              </div>
+            ))}
+            {shouldShowButton && !showAll && (
+              <button onClick={() => setShowAll(true)}>Show More</button>
+            )}
+          </pre>
+        )}
+      </Highlight>
+    </div>
   )
 }
 
-export default SyntaxHighligh
+export default HighlightCode
