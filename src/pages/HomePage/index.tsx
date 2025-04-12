@@ -220,7 +220,7 @@ const HomePage = () => {
             </div>
             <div className='home-page-section5-container-detail'>
               {mockData?.blogs?.slice(0, 2)?.map((item) => (
-                <div className='home-page-section5-container-detail-item'>
+                <div key={item?.id} className='home-page-section5-container-detail-item'>
                   <div className='home-page-section5-container-detail-item-title'>
                     <p>{item?.title}</p>
                   </div>

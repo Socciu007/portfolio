@@ -2,7 +2,7 @@ import './style.scss'
 import { useParams } from 'react-router-dom'
 import { mockData } from '../../../mock/mock-data'
 import parse from 'html-react-parser'
-import { BlockMath } from 'react-katex'
+import { BlockMath, InlineMath } from 'react-katex'
 import 'katex/dist/katex.min.css'
 import HighlightCode from '../../components/SyntaxHighligh'
 import { parseContent } from '../../utils'
@@ -62,10 +62,10 @@ const BlogDetailPage = () => {
                                         {parseContent(
                                           content?.description
                                         )?.map((item) => {
-                                          if (item.startsWith('(')) {
-                                            return (
-                                              <BlockMath>{item}</BlockMath>
-                                            )
+                                          if (item.startsWith('b\\')) {
+                                            return <BlockMath key={item} math={item.slice(1)}></BlockMath>
+                                          } else if (item.startsWith('i\\')) {
+                                            return <InlineMath key={item} math={item.slice(1)}></InlineMath>
                                           } else {
                                             return <div key={item}>{parse(item)}</div>
                                           }

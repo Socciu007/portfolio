@@ -12,6 +12,7 @@
   "dependencies": {
     "@vitejs/plugin-react-swc": "^3.8.0",
     "html-react-parser": "^5.2.3",
+    "katex": "^0.16.22",
     "motion": "^12.4.10",
     "path": "^0.12.7",
     "prism-react-renderer": "^2.4.1",

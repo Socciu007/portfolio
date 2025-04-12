@@ -243,7 +243,7 @@ export const mockData = {
                     {
                       id: 1,
                       type: 'text',
-                      description: 'For the case where there is only one independent variable, the mathematical formula for linear regression is:\n<span style="text-align: center; display: block;"> y = β0 + β1x + ε </span>\nwhere:\n',
+                      description: 'For the case where there is only one independent variable, the mathematical formula for linear regression is:\n<span style="text-align: center; display: block;"> b\\text{y} = \\beta_0 + \\beta_1 x + \\varepsilon </span>\nwhere:\n',
                       position: 1
                     },
                     {
@@ -268,7 +268,7 @@ export const mockData = {
                     {
                       id: 1,
                       type: 'text',
-                      description: 'When there are multiple independent variables, the formula expands to:\n<span style="text-align: center; display: block;">y = β0 + β1x1 + β2x2 + ... + βpxp + ε</span>\nwhere:',
+                      description: 'When there are multiple independent variables, the formula expands to:\n<span style="text-align: center; display: block;">b\\text{y} = \\beta_0 + \\beta_1 x_1 + \\beta_2 x_2 + \\ldots + \\beta_p x_p + \\varepsilon</span>\nwhere:',
                       position: 1
                     },
                     {
@@ -293,7 +293,7 @@ export const mockData = {
                     {
                       id: 1,
                       type: 'text',
-                      description: 'For ease of calcution, multivariate linear regression is often represented as a matrix:\n<span style="text-align: center; display: block;">y = Xβ + ε</span>\n where:',
+                      description: 'For ease of calcution, multivariate linear regression is often represented as a matrix:\n<span style="text-align: center; display: block;">b\\text{y} = \\text{X} \\beta + \\varepsilon</span>\n where:',
                       position: 1
                     },
                     {
@@ -417,13 +417,13 @@ export const mockData = {
                     {
                       id: 1,
                       type: 'text',
-                      description: 'The Mean Squared Error (MSE) is calculated as the average of the squares of the difference between the predicted value and the true value by the formula:\n<span style="text-align: center; display: block;">\n\\( MSE = \\frac{ 1}{ n } \\sum_{ i=1 } ^ { n }(y_i - \\hat{ y }_i) ^ 2\\)</span>\nwhere: ',
+                      description: 'The Mean Squared Error (MSE) is calculated as the average of the squares of the difference between the predicted value and the true value by the formula:\n<span style="text-align: center; display: block;">b\\text{MSE} = \\frac{1}{n} \\sum_{i=1}^{n} (y_i - \\hat{y}_i)^2</span>\nwhere: ',
                       position: 1
                     },
                     {
                       id: 2,
                       type: 'list',
-                      description: '<ul><li>n: Number of data points</li><li>y_i: The true value of data point i</li><li>\\hat{y}_i: The predicted value for data point i</li></ul>',
+                      description: '<ul><li>n: Number of data points</li><li>y_i: The true value of data point i</li><li><span>i\\hat{y}_i</span>: The predicted value for data point i</li></ul>',
                       position: 2
                     }
                   ],
@@ -537,7 +537,7 @@ export const mockData = {
                     {
                       id: 1,
                       type: 'text',
-                      description: 'The gradient is the partial derivative of the loss function to the parameters, indicating the direction in which the value of the function increases the fastest. When optimizing, we move in the opposite direction of the gradient to reduce losses. For MSE, the loss function (J(β)) is defined as:\n <span style="text-align: center;">\\[J(\beta) = \frac{ 1}{ n } \\sum_{ i=1 } ^ { n } \\left(y_i - \\left(\beta_0 + \beta_1 x_{ i1 } + \\cdots + \beta_p x_{ ip } \right) \right) ^ 2\\]</span>\n The gradient is:\n <span style="text-align: center;">\\[\nabla J(\beta) = \\left[\frac{ \\partial J } { \\partial \beta_0 }, \frac{ \\partial J } { \\partial \beta_1 }, \\dots, \frac{ \\partial J } { \\partial \beta_p } \right]\\]</span>',
+                      description: 'The gradient is the partial derivative of the loss function to the parameters, indicating the direction in which the value of the function increases the fastest. When optimizing, we move in the opposite direction of the gradient to reduce losses. For MSE, the loss function (J(β)) is defined as:\n <span style="text-align: center;">b\\text{J}(\\beta) = \\frac{ 1}{ n } \\sum_{ i=1 } ^ { n } \\left(y_i - \\left(\\beta_0 + \\beta_1 x_{ i1 } + \\cdots + \\beta_p x_{ ip } \\right) \\right) ^ 2</span>\n The gradient is:\n <span style="text-align: center;">b\\nabla\\text{J}(\\beta) = \\left[\\frac{ \\partial J } { \\partial \\beta_0 }, \\frac{ \\partial J } { \\partial \\beta_1 }, \\dots, \\frac{ \\partial J } { \\partial \\beta_p } \\right]</span>',
                       position: 1
                     }
                   ],
@@ -551,8 +551,8 @@ export const mockData = {
                       id: 1,
                       type: 'text',
                       description: `Gradient descent updates parameters iteratively with the following formula:\n
-                      <span style="text-align: center;">\\[\beta_{ j } = \\beta_{ j } - \\alpha \\frac{ \\partial J } { \\partial \beta_j }\\]</span>\n
-                      where α: learning rate, control step size, \\(\\frac{ \\partial J } { \\partial \beta_j }\\): The partial dericative of the loss function to \\(\\beta_j\\).`,
+                      <span style="text-align: center;">b\\beta_{j} = \\beta_{j} - \\alpha \\frac{ \\partial J } { \\partial \\beta_j }</span>\n
+                      where α: learning rate, control step size, \\(\\frac{ \\partial J } { \\partial \\beta_j }\\): The partial dericative of the loss function to \\(\\beta_j\\).`,
                       position: 1
                     }
                   ],
