@@ -1,11 +1,10 @@
 import './style.scss'
 import { useParams } from 'react-router-dom'
 import { mockData } from '../../../mock/mock-data'
-import parse from 'html-react-parser'
-import { BlockMath, InlineMath } from 'react-katex'
 import 'katex/dist/katex.min.css'
 import HighlightCode from '../../components/SyntaxHighligh'
-import { parseContent } from '../../utils'
+import LatexMath from '../../components/LatexMath'
+import MathList from '../../components/LatexMath/MathList'
 
 const BlogDetailPage = () => {
   const { id } = useParams()
@@ -55,31 +54,24 @@ const BlogDetailPage = () => {
                                     key={content?.id}
                                     className="blog-item-subSection-subSection-content"
                                   >
-                                    {content?.type !== 'code' &&
-                                      'description' in content &&
-                                      content?.description && (
-                                      <div>
-                                        {parseContent(
-                                          content?.description
-                                        )?.map((item) => {
-                                          if (item.startsWith('b\\')) {
-                                            return <BlockMath key={item} math={item.slice(1)}></BlockMath>
-                                          } else if (item.startsWith('i\\')) {
-                                            return <InlineMath key={item} math={item.slice(1)}></InlineMath>
-                                          } else {
-                                            return <div key={item}>{parse(item)}</div>
-                                          }
-                                        })}
-                                      </div>
-                                    )}
                                     {content?.type === 'code' &&
                                       'description' in content &&
-                                      content?.description && (
-                                      <HighlightCode
-                                        codeBlock={content?.description}
-                                        language="python"
-                                      />
-                                    )}
+                                      content?.description ? (
+                                        <HighlightCode
+                                          codeBlock={content?.description}
+                                          language="python"
+                                        />
+                                      ) : (
+                                        content.type === 'mathList' ? (
+                                          'mathList' in content &&
+                                          content?.mathList &&
+                                          <MathList mathList={content?.mathList} />
+                                        ) : (
+                                          'description' in content &&
+                                          content?.description &&
+                                          <LatexMath content={content?.description} />
+                                        )
+                                      )}
                                   </div>
                                 ))}
                             </div>

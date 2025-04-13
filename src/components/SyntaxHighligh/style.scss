@@ -11,5 +11,27 @@
       text-align: right;
     }
   }
+  .code-block-show-more {
+    width: 100%;
+    // padding-top: 78px;
+    display: flex;
+    align-items: end;
+    // background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+    button {
+      width: 44px;
+      height: 22px;
+      margin: auto;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      background-color: #555666;
+      cursor: pointer;
+      padding: 5px 1px 5px 1px;
+    }
+    button:hover, button:active {
+      border-color: #555666;
+    }
+  }
 }
 

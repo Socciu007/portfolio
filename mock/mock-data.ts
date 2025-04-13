@@ -248,14 +248,20 @@ export const mockData = {
                     },
                     {
                       id: 2,
-                      type: 'list',
-                      description: '<ul><li> y: Dependent variable(forecast target, e.g. house price)</li><li> x: Independent variable(input feature, e.g. house area) </li><li> β0: Intercept(the intersection of the line and the y - axis) </li><li> β1: Slope(indicates the magnitude of the effect of x on y) </li><li> ε: Error term(random noise, part of the model that cannot be interpreted) </li></ul>',
+                      type: 'mathList',
+                      mathList: [
+                        { latex: 'y', description: 'Dependent variable(forecast target, e.g. house price)' },
+                        { latex: 'x', description: 'Independent variable(input feature, e.g. house area)' },
+                        { latex: '\\beta_0', description: 'Intercept(the intersection of the line and the y - axis)' },
+                        { latex: '\\beta_1', description: 'Slope(indicates the magnitude of the effect of x on y)' },
+                        { latex: '\\varepsilon', description: 'Error term(random noise, part of the model that cannot be interpreted)' }
+                      ],
                       position: 2
                     },
                     {
                       id: 3,
                       type: 'text',
-                      description: 'Our goal is to learn the best values of β0 and β1 from data.',
+                      description: 'Our goal is to learn the best values of <span>i\\beta_0</span> and <span>i\\beta_1</span> from data.',
                       position: 3
                     }
                   ],
@@ -273,8 +279,11 @@ export const mockData = {
                     },
                     {
                       id: 2,
-                      type: 'list',
-                      description: '<ul><li>x1, x2, ..., xp: Multiple independent variables (e.g. area, number of rooms, floors)</li><li>β1, β2, ..., βp: The weight of each independent variable</li></ul>',
+                      type: 'mathList',
+                      mathList: [
+                        { latex: 'x_1, x_2, ..., x_p', description: 'Multiple independent variables (e.g. area, number of rooms, floors)' },
+                        { latex: '\\beta_1, \\beta_2, ..., \\beta_p', description: 'The weight of each independent variable' }
+                      ],
                       position: 2
                     },
                     {
@@ -298,8 +307,13 @@ export const mockData = {
                     },
                     {
                       id: 2,
-                      type: 'list',
-                      description: '<ul><li>y: Vector of dependent variables</li><li>X: Feature matrix (each row is a sample, each column is a feature)</li><li>β: parameter vector</li><li>ε: Error vector</li></ul>',
+                      type: 'mathList',
+                      mathList: [
+                        { latex: 'y', description: 'Vector of dependent variables' },
+                        { latex: 'X', description: 'Feature matrix (each row is a sample, each column is a feature)' },
+                        { latex: '\\beta', description: 'parameter vector' },
+                        { latex: '\\varepsilon', description: 'Error vector' }
+                      ],
                       position: 2
                     },
                     {
@@ -422,8 +436,12 @@ export const mockData = {
                     },
                     {
                       id: 2,
-                      type: 'list',
-                      description: '<ul><li>n: Number of data points</li><li>y_i: The true value of data point i</li><li><span>i\\hat{y}_i</span>: The predicted value for data point i</li></ul>',
+                      type: 'mathList',
+                      mathList: [
+                        { latex: 'n', description: 'Number of data points' },
+                        { latex: 'y_i', description: 'The true value of data point i' },
+                        { latex: '\\hat{y}_i', description: 'The predicted value for data point i' }
+                      ],
                       position: 2
                     }
                   ],
@@ -456,7 +474,7 @@ export const mockData = {
                     {
                       id: 1,
                       type: 'list',
-                      description: '<ul><li><b>Sensitive to outliers</b>: If there are outiliers in the data, such us luxyry homes in house pricr data, the square term can significantly amplify its impact.</li><li><b>Unit problem</b>: The value of the MSE depends on the unit of the data, ehich is not intuitive enough.</li></ul>',
+                      description: '<ul><li><b>Sensitive to outliers</b>: If there are outiliers in the data, such us luxury homes in house price data, the square term can significantly amplify its impact.</li><li><b>Unit problem</b>: The value of the MSE depends on the unit of the data, ehich is not intuitive enough.</li></ul>',
                       position: 1
                     }
                   ],
@@ -494,8 +512,32 @@ export const mockData = {
                     {
                       id: 1,
                       type: 'text',
-                      description: 'In addition to MSE, there are other loss fuctions that can be used for linear regression:\n - <b>Root Mean Square Error (RMSE)</b>: \n <span style="text-align: center;">\\[RMSE = \\sqrt{ \\frac{ 1}{ n } \\sum_{ i=1 } ^ { n }(y_i - \\hat{ y }_i) ^ 2}\\]</span>\n The RMSE is the qquare root of the MSE, which is the same unit as the original data and is more intuitive.\n - <b>MEan Absolute Error (MAE)</b>: <span style="text-align: center;">\\[MAE = \\frac{ 1}{ n } \\sum_{ i=1 } ^ { n } |y_i - \\hat{ y }_i|\\]</span>\n MAE is not sensitive to outliers, but is not as smooth as MSE when optimized.\n - <b>Huber loss</b>: Combining the advantages of MSE and MAE, it uses the square for small errors and the absolute value for large errors, which is suiable for noisy data.\n The choice of which loss function to choose depends on the characteristics of the data and the needs of the task.',
+                      description: 'In addition to MSE, there are other loss fuctions that can be used for linear regression:',
                       position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'text',
+                      description: '- <b>Root Mean Square Error (RMSE)</b>: \n <span style="text-align: center;">b\\text{RMSE} = \\sqrt{ \\frac{ 1}{ n } \\sum_{ i=1 } ^ { n }(y_i - \\hat{ y }_i) ^ 2}</span>',
+                      position: 2
+                    },
+                    {
+                      id: 3,
+                      type: 'text',
+                      description: 'The RMSE is the qquare root of the MSE, which is the same unit as the original data and is more intuitive.',
+                      position: 3
+                    },
+                    {
+                      id: 4,
+                      type: 'text',
+                      description: '- <b>Mean Absolute Error (MAE)</b>: <span style="text-align: center;">b\\text{MAE} = \\frac{ 1}{ n } \\sum_{ i=1 } ^ { n } |y_i - \\hat{ y }_i|</span> MAE is not sensitive to outliers, but is not as smooth as MSE when optimized.',
+                      position: 4
+                    },
+                    {
+                      id: 5,
+                      type: 'text',
+                      description: '- <b>Huber loss</b>: Combining the advantages of MSE and MAE, it uses the square for small errors and the absolute value for large errors, which is suiable for noisy data.\n The choice of which loss function to choose depends on the characteristics of the data and the needs of the task.',
+                      position: 5
                     }
                   ]
                 }
@@ -537,7 +579,7 @@ export const mockData = {
                     {
                       id: 1,
                       type: 'text',
-                      description: 'The gradient is the partial derivative of the loss function to the parameters, indicating the direction in which the value of the function increases the fastest. When optimizing, we move in the opposite direction of the gradient to reduce losses. For MSE, the loss function (J(β)) is defined as:\n <span style="text-align: center;">b\\text{J}(\\beta) = \\frac{ 1}{ n } \\sum_{ i=1 } ^ { n } \\left(y_i - \\left(\\beta_0 + \\beta_1 x_{ i1 } + \\cdots + \\beta_p x_{ ip } \\right) \\right) ^ 2</span>\n The gradient is:\n <span style="text-align: center;">b\\nabla\\text{J}(\\beta) = \\left[\\frac{ \\partial J } { \\partial \\beta_0 }, \\frac{ \\partial J } { \\partial \\beta_1 }, \\dots, \\frac{ \\partial J } { \\partial \\beta_p } \\right]</span>',
+                      description: 'The gradient is the partial derivative of the loss function to the parameters, indicating the direction in which the value of the function increases the fastest. When optimizing, we move in the opposite direction of the gradient to reduce losses. For MSE, the loss function <span>i\\text{J}(\\beta)</span> is defined as:\n <span style="text-align: center;">b\\text{J}(\\beta) = \\frac{ 1}{ n } \\sum_{ i=1 } ^ { n } \\left(y_i - \\left(\\beta_0 + \\beta_1 x_{ i1 } + \\cdots + \\beta_p x_{ ip } \\right) \\right) ^ 2</span>\n The gradient is:\n <span style="text-align: center;">b\\nabla\\text{J}(\\beta) = \\left[\\frac{ \\partial J } { \\partial \\beta_0 }, \\frac{ \\partial J } { \\partial \\beta_1 }, \\dots, \\frac{ \\partial J } { \\partial \\beta_p } \\right]</span>',
                       position: 1
                     }
                   ],
@@ -552,8 +594,17 @@ export const mockData = {
                       type: 'text',
                       description: `Gradient descent updates parameters iteratively with the following formula:\n
                       <span style="text-align: center;">b\\beta_{j} = \\beta_{j} - \\alpha \\frac{ \\partial J } { \\partial \\beta_j }</span>\n
-                      where α: learning rate, control step size, \\(\\frac{ \\partial J } { \\partial \\beta_j }\\): The partial dericative of the loss function to \\(\\beta_j\\).`,
+                      where:`,
                       position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'mathList',
+                      mathList: [
+                        { latex: '\\alpha', description: 'learning rate, control step size' },
+                        { latex: '\\frac{ \\partial J } { \\partial \\beta_j }', description: 'The partial dericative of the loss function to <span>i\\beta_j</span>' }
+                      ],
+                      position: 2
                     }
                   ],
                   position: 2
@@ -565,7 +616,7 @@ export const mockData = {
                     {
                       id: 1,
                       type: 'text',
-                      description: `The learning rate (\\(\\alpha\\)) is a key parameter for gradient descent:\n
+                      description: `The learning rate (α) is a key parameter for gradient descent:\n
                       <ul><li><b>Too small</b>: Convergence is slow and can fall into a local minimum.</li><li><b>Too large</b>: may cross the optimal solution or even diverge.</li></ul>\n
                       The following diagram illustrates the effect of different learning rate:`,
                       position: 1
@@ -643,9 +694,18 @@ export const mockData = {
                     {
                       id: 1,
                       type: 'text',
-                      description: `Gradient descent usually stops when: \n
-                      <ul><li>Mazimum number of iterations. e.g. 1000.</li><li>The loss change is less than the threshold: as in (|\\Delta J| < 10^{-6}).</li><li>Gradient close to zero: Indicates that the optimal solution has been reached.</li></ul>`,
+                      description: 'Gradient descent usually stops when:',
                       position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'mathList',
+                      mathList: [
+                        { latex: '', description: 'Mazimum number of iterations. e.g. 1000.' },
+                        { latex: '', description: 'The loss change is less than the threshold: as in <span>i|\\Delta J| < 10^{-6}</span>.' },
+                        { latex: '', description: 'Gradient close to zero: Indicates that the optimal solution has been reached.' }
+                      ],
+                      position: 2
                     }
                   ]
                 },
@@ -656,10 +716,24 @@ export const mockData = {
                     {
                       id: 1,
                       type: 'text',
-                      description: `To accelerate convergence, the learning rate can be dynamically adjusted:\n
-                      <ul><li><b>Time decay</b>: (\\alpha = \frac{\\alpha_0}{1 + k \\cdot t}), t is the number of iterations.</li><li><b>Exponential decline</b>: (\\alpha = \\alpha_0 \\cdot e^{-kt})</li><li><b>Adaptive methods</b>: e.g. Adam, RMSProp, adjusted according to gradient history (\\alpha).</li></ul> \n
-                      These methods have signifivantly improved efficiency in practice.`,
+                      description: 'To accelerate convergence, the learning rate can be dynamically adjusted:',
                       position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'mathList',
+                      mathList: [
+                        { latex: '', description: 'Time decay: <span>i\\alpha = \\frac{\\alpha_0}{1 + k t}</span>, t is the number of iterations.' },
+                        { latex: '', description: 'Exponential decline: <span>i\\alpha = \\alpha_0 e^{-kt}</span>.' },
+                        { latex: '', description: 'Adaptive methods: e.g. Adam, RMSProp, adjusted according to gradient history<span>i\\alpha</span>.' }
+                      ],
+                      position: 2
+                    },
+                    {
+                      id: 3,
+                      type: 'text',
+                      description: 'These methods have signifivantly improved efficiency in practice.',
+                      position: 3
                     }
                   ]
                 }
@@ -719,7 +793,7 @@ export const mockData = {
                     {
                       id: 1,
                       type: 'text',
-                      description: 'The model outputs parameters such as (\\beta) and we can analyze the impact of each feature on house prices. For example, if (\\beta_{\\text{area}}) is larger, the area has a more signigicant impact on the house price.',
+                      description: 'The model outputs parameters such as <span>i\\beta</span> and we can analyze the impact of each feature on house prices. For example, if <span>i\\beta_{\\text{area}}</span> is larger, the area has a more signigicant impact on the house price.',
                       position: 1
                     }
                   ]
@@ -803,7 +877,7 @@ export const mockData = {
                       id: 1,
                       type: 'text',
                       description: `Regularization can be introduced when there are too many features or when the data is overfitted.
-                      <ul><li><b>Lasso (L1)</b>: Adds a penalty term to promote sparsity.</li><li><b>Ridge (L2)</b>: Adds a penalty term to prevent the parameter from being too large.</li></ul>`,
+                      <ul><li><b>Lasso (L1)</b>: Adds β penalty to promote sparsity.</li><li><b>Ridge (L2)</b>: Adds a penalty term to prevent the parameter from being too large.</li></ul>`,
                       position: 1
                     }
                   ]

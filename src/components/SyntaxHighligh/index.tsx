@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Highlight, themes } from 'prism-react-renderer'
+import downIcon from '/assets/icons/down.svg'
 import './style.scss'
 
 type HighlightCodeProps = {
@@ -11,8 +12,8 @@ const HighlightCode: React.FC<HighlightCodeProps> = ({ codeBlock, language }) =>
   const [showAll, setShowAll] = useState(false)
   const trimmedCodeBlock = codeBlock.trim()
   const lines = trimmedCodeBlock.split('\n')
-  const shouldShowButton = lines.length > 10
-  const displayedLines = showAll ? lines : lines.slice(0, 10)
+  const shouldShowButton = lines.length > 15
+  const displayedLines = showAll ? lines : lines.slice(0, 15)
 
   return (
     <div>
@@ -32,7 +33,11 @@ const HighlightCode: React.FC<HighlightCodeProps> = ({ codeBlock, language }) =>
               </div>
             ))}
             {shouldShowButton && !showAll && (
-              <button onClick={() => setShowAll(true)}>Show More</button>
+              <div className="code-block-show-more">
+                <button onClick={() => setShowAll(true)}>
+                  <img src={downIcon} alt="down" />
+                </button>
+              </div>
             )}
           </pre>
         )}
