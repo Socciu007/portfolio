@@ -1,4 +1,4 @@
-import { InlineMath } from 'react-katex'
+import { InlineMath, BlockMath } from 'react-katex'
 import { parseContent } from '../../utils'
 
 const MathList = ({ mathList }: { mathList: { latex: string; description: string }[] }) => {
@@ -9,6 +9,8 @@ const MathList = ({ mathList }: { mathList: { latex: string; description: string
           {item.latex && <><InlineMath math={item.latex} />:</>} {parseContent(item.description)?.map((item) => {
             if (item.startsWith('i')) {
               return <span key={item}> <InlineMath math={item.slice(1)} /> </span>
+            } else if (item.startsWith('b')) {
+              return <span key={item}> <BlockMath math={item.slice(1)} /> </span>
             } else {
               return <span key={item}>{item}</span>
             }
