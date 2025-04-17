@@ -67,11 +67,20 @@ const BlogDetailPage = () => {
                                           content?.mathList &&
                                           <MathList mathList={content?.mathList} />
                                         ) : (
-                                          'description' in content &&
+                                          content.type === 'image' ? (
+                                            'url_image' in content &&
+                                            content?.url_image &&
+                                            <div className="blog-item-subSection-subSection-content-image">
+                                              <img src={content?.url_image} alt={`image-${content?.id}`} />
+                                            </div>
+                                          ) : (
+                                            'description' in content &&
                                           content?.description &&
                                           <LatexMath content={content?.description} />
+                                          )
                                         )
-                                      )}
+                                      )
+                                    }
                                   </div>
                                 ))}
                             </div>
