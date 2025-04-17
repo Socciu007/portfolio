@@ -15,6 +15,7 @@ const BlogDetailPage = () => {
         <div className="wrapper">
           <div className="wrapper-title">
             <h1>{blog?.title}</h1>
+            {blog?.header && blog?.header?.split('\n').map((item, index) => <p key={index}>{item}</p>)}
           </div>
           <div className="wrapper-time">
             <span>{blog?.createdAt}</span>
@@ -26,7 +27,9 @@ const BlogDetailPage = () => {
                   <div className="blog-item-title">
                     <h2>{item?.title}</h2>
                   </div>
-                  {item?.description && <p>{item?.description}</p>}
+                  {'description' in item && item?.description && (
+                    <p>{item?.description}</p>
+                  )}
                   {item?.subSections &&
                     item?.subSections?.map((subSection) => (
                       <div
@@ -55,29 +58,30 @@ const BlogDetailPage = () => {
                                     className="blog-item-subSection-subSection-content"
                                   >
                                     {content?.type === 'code' &&
-                                      'description' in content &&
-                                      content?.description ? (
+                                    'description' in content &&
+                                    content?.description ? (
                                         <HighlightCode
                                           codeBlock={content?.description}
                                           language="python"
                                         />
+                                      ) : content.type === 'mathList' ? (
+                                        'mathList' in content &&
+                                      content?.mathList && (
+                                          <MathList
+                                            mathList={content?.mathList}
+                                          />
+                                        )
                                       ) : (
-                                        content.type === 'mathList' ? (
-                                          'mathList' in content &&
-                                          content?.mathList &&
-                                          <MathList mathList={content?.mathList} />
+                                        content.type === 'image' ? (
+                                          'url_image' in content &&
+                                          content?.url_image &&
+                                          <div className="blog-item-subSection-subSection-content-image">
+                                            <img src={content?.url_image} alt={`image-${content?.id}`} />
+                                          </div>
                                         ) : (
-                                          content.type === 'image' ? (
-                                            'url_image' in content &&
-                                            content?.url_image &&
-                                            <div className="blog-item-subSection-subSection-content-image">
-                                              <img src={content?.url_image} alt={`image-${content?.id}`} />
-                                            </div>
-                                          ) : (
-                                            'description' in content &&
-                                          content?.description &&
-                                          <LatexMath content={content?.description} />
-                                          )
+                                          'description' in content &&
+                                        content?.description &&
+                                        <LatexMath content={content?.description} />
                                         )
                                       )
                                     }

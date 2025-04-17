@@ -947,11 +947,620 @@ export const mockData = {
     },
     {
       id: 2,
-      title: 'How to use Linear Regression in Python',
-      header: 'Linear Regression is a simple yet powerful machine learning algorithm that is used to predict the relationship between a dependent variable and one or more independent variables. It is a type of supervised learning algorithm that is used to predict the output of a continuous variable based on the input variables.',
-      description: 'Linear Regression is a simple yet powerful machine learning algorithm that is used to predict the relationship between a dependent variable and one or more independent variables. It is a type of supervised learning algorithm that is used to predict the output of a continuous variable based on the input variables.',
       category: 'Machine Learning',
-      createdAt: '26 Mar 2025'
+      title: 'Logistic Regression vs. Linear Regression',
+      header: 'Classification problems play an important role in the vast field of machine learning - whether it\'s predicting whether a user will click on an ad or determining whether an email is spam. Among the many classification algorithms, Logistic Regression has come a common tool for beginners and professionals because of its simple, efficient, and easy-to-understand characteristics. \n This article will take you to explore the core knowledge of logistic regression from scratch: How does it work? How doed the Sigmoid function work? How does cross-entropy loss optimize the model? In addition, we will compare the differences between linear regression and logistic regression, and combine them with practical examples to help you quickly master this classic algorithm. Whether you\'re new to machine learing or want to brush up on the basics, this article will provide tou with clear and useful guidance.',
+      sections: [
+        {
+          id: 1,
+          title: '1. The principle of Logistic Regression',
+          subSections: [
+            {
+              id: 1,
+              title: '1.1 What is Logistic Regression?',
+              subSubSections: [
+                {
+                  id: 1,
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Logistic Regression is a machine learning algorithm that specializes in classification problems. Despite the word "regression" in the name, its goal is not to predict continous values, but to determine the likelihood that a sample will belong to a certain category, which is often used for dichotomous tasks such as "yes" or "no".',
+                      position: 1
+                    }
+                  ],
+                  position: 1
+                },
+                {
+                  id: 2,
+                  title: '1.1.1 The nature of the classification problem',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'In real life, many issues require us to make an "either/or" judgment. For example:\n <ul><li>Is a message spam or a normal message?</li><li>Will a user buy the product or not?</li></ul>\n The answers to these questions are usually discrete categories, not specific numeric values. Logistic regression helps us make categorical decisions by calculating the provability that a sample belongs to a certain category.',
+                      position: 1
+                    }
+                  ],
+                  position: 2
+                },
+                {
+                  id: 3,
+                  title: '1.1.2 Mathematical models of logistic regression',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'The core formula for logistic regression is as follows: <span>b\\ P(y = 1 \\mid x) = \\frac{1}{1 + e^{- (w \\cdot x + b)}}</span>',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'mathList',
+                      mathList: [
+                        { latex: 'P(y = 1 \\mid x)', description: 'The probability that the sample belongs to the positive class (class 1).' },
+                        { latex: 'w', description: 'The weight vector of the feature.' },
+                        { latex: 'x', description: 'Enter a feature vector.' },
+                        { latex: 'b', description: 'Offset term.' }
+                      ],
+                      position: 2
+                    },
+                    {
+                      id: 3,
+                      type: 'text',
+                      description: 'This formula may seem complex, but the core idea is simple: by weighting the features and then processing them with a special function (Sigmoid function), a probability value between 0 and 1 is output.',
+                      position: 3
+                    }
+                  ],
+                  position: 3
+                }
+              ],
+              position: 1
+            },
+            {
+              id: 2,
+              title: '1.2 The core idea of logistic regression',
+              subSubSections: [
+                {
+                  id: 1,
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'The essence of logistic regression is to solve classification problems by mapping the output of a linear model to a probability space.',
+                      position: 1
+                    }
+                  ],
+                  position: 1
+                },
+                {
+                  id: 2,
+                  title: '1.2.1 From linear to nonlinear',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'The basic of logistic regression is a linear combination: <span>b\\ z = wx + b</span> However, using this value directly does not represent probability, as it can range from arbitrary real numbers. To solve this problem, logistic regression introduces the Sigmoid function, which converts (z) to a value between 0 and 1.',
+                      position: 1
+                    }
+                  ],
+                  position: 2
+                },
+                {
+                  id: 3,
+                  title: '1.2.2 Desision rules',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Logistic regression typically uses 0.5 as the categorical threshold: <span>b\\ P(y = 1 \\mid x) > 0.5, (positive)</span> <span>b\\ P(y = 1 \\mid x) < 0.5, (negative)</span>',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'text',
+                      description: 'This rule is simple and intuitive, making it ideal for binary sorting tasks.',
+                      position: 2
+                    }
+                  ],
+                  position: 3
+                }
+              ],
+              position: 2
+            }
+          ],
+          position: 1
+        },
+        {
+          id: 2,
+          title: '2. Sigmoid function',
+          subSections: [
+            {
+              id: 1,
+              title: '2.1 Definition of Sigmoid function',
+              subSubSections: [
+                {
+                  id: 1,
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'The Sigmoid function is the "magic key" for logistic regression, and its mathetatical expression is: <span>b\\sigma(z) = \\frac{1}{1 + e^{-z}}</span> there into: (z) is the result of the linear combination (i.e., w*x + b).',
+                      position: 1
+                    }
+                  ],
+                  position: 1
+                },
+                {
+                  id: 2,
+                  title: '2.1.1 Image of the sigmoid function',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'The shape of the Sigmoid function is a smooth "S" curve: ',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'mathList',
+                      mathList: [
+                        { latex: '', description: 'When (z) is large, <span>i\\sigma(z) \\approx 1</span>' },
+                        { latex: '', description: 'When (z) is small, <span>i\\sigma(z) \\approx 0</span>' },
+                        { latex: '', description: 'When (z = 0), <span>i\\sigma(z) = 0.5</span>' }
+                      ],
+                      position: 2
+                    },
+                    {
+                      id: 3,
+                      type: 'text',
+                      description: 'Here\'s a simple visualization of the Sigmoid function:',
+                      position: 3
+                    },
+                    {
+                      id: 4,
+                      type: 'image',
+                      url_image: 'assets/images/logistic-regression-0.png',
+                      position: 4
+                    }
+                  ],
+                  position: 2
+                },
+                {
+                  id: 3,
+                  title: '2.1.2 Calculation Examples',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Assuming (z = 2), then: <span>b\\sigma(2) = \\frac{1}{1 + e^{-2}} \\approx 0.88</span>',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'text',
+                      description: 'If (z = -1), then: <span>b\\sigma(-1) = \\frac{1}{1 + e^{1}} \\approx 0.27</span>',
+                      position: 2
+                    },
+                    {
+                      id: 3,
+                      type: 'text',
+                      description: 'These results show that the Sigmoid function is capable of maping arbitrary real numbers to a probability range.',
+                      position: 3
+                    }
+                  ],
+                  position: 3
+                }
+              ],
+              position: 1
+            },
+            {
+              id: 2,
+              title: '2.2 The role of the Sigmoid function',
+              subSubSections: [
+                {
+                  id: 1,
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'The Sigmoid function has two key roles in logistic regression.',
+                      position: 1
+                    }
+                  ],
+                  position: 1
+                },
+                {
+                  id: 2,
+                  title: '2.2.1 Probability mapping',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'It converts the output of the linear model into probability values, allowing logistic regression to answer the question "How likely is it that the sample is in a positive class?"',
+                      position: 1
+                    }
+                  ],
+                  position: 2
+                },
+                {
+                  id: 3,
+                  title: '2.2.2 Introduce nonlinearity',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Although logistic regression is based on linear combinations, the nonlinear nature of the Sigmoid function allows the model to process some non-linearly separable data. enhancing its flexibility.',
+                      position: 1
+                    }
+                  ],
+                  position: 3
+                }
+              ],
+              position: 2
+            }
+          ],
+          position: 2
+        },
+        {
+          id: 3,
+          title: '3. Cross-entropy loss',
+          subSections: [
+            {
+              id: 1,
+              title: '3.1 What is cross-entropy loss?',
+              subSubSections: [
+                {
+                  id: 1,
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'When training a logistic regression model, we need a standard to measure the difference between the predicted results and the real labels, This criterion is Cross-Entropy Loss.',
+                      position: 1
+                    }
+                  ],
+                  position: 1
+                },
+                {
+                  id: 2,
+                  title: '3.1.1 Formula for cross-entropy loss',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: ' For a dichotomous problem, the expression for cross-entropy loss is: <span>b\\text{L} = -\\frac{1}{N} \\sum_{i=1}^{N} \\left[ y_i \\log(p_i) + (1 - y_i) \\log(1 - p_i) \\right]</span>',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'mathList',
+                      mathList: [
+                        { latex: 'N', description: 'Total number of samples.' },
+                        { latex: 'y_i', description: 'The true label (0 or 1) of the (i) sample.' },
+                        { latex: 'p_i', description: 'The probability that the model predicts that sample (i) is in the positive class.' }
+                      ],
+                      position: 2
+                    }
+                  ],
+                  position: 2
+                },
+                {
+                  id: 3,
+                  title: '3.1.2 Intuitive understanding',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'The purpose of cross-entrypy loss is to make the predicted probability as close to the real label as possible:',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'mathList',
+                      mathList: [
+                        { latex: '', description: 'If <span>i\\ y_i = 1</span>, you want <span>i\\ p_i</span> to be as close to 1 as possible, and the loss becomes smaller.' },
+                        { latex: '', description: 'If <span>i\\ y_i = 0</span>, you want <span>i\\ p_i</span> to be as close to 0 as possible, the loss becomes smaller.' }
+                      ],
+                      position: 2
+                    }
+                  ],
+                  position: 3
+                }
+              ],
+              position: 1
+            },
+            {
+              id: 2,
+              title: '3.2 Why cross-entropy loss?',
+              subSubSections: [
+                {
+                  id: 1,
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Cross-entropy loss has several unique advantages.',
+                      position: 1
+                    }
+                  ],
+                  position: 1
+                },
+                {
+                  id: 2,
+                  title: '3.2.1 Sensitivity to probability',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'When the predicted probability deviates from the true label, the cross-entropy loss increases significantly, "penalizing" the model and prompting it to quickly adjust parameters.',
+                      position: 1
+                    }
+                  ],
+                  position: 2
+                },
+                {
+                  id: 3,
+                  title: '3.2.2 Optimization Friendly',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Cross-entropy loss is a convex function, which can be combined with optimization methods such as gradient descent to find the optimal solution of the loss efficiently.',
+                      position: 1
+                    }
+                  ],
+                  position: 3
+                }
+              ],
+              position: 2
+            },
+            {
+              id: 3,
+              title: '3.3 Calculation Examples',
+              subSubSections: [
+                {
+                  id: 1,
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Suppose there is a sample:',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'mathList',
+                      mathList: [
+                        { latex: '', description: 'True label (y = 1), predicted probability (p = 0.9).' },
+                        { latex: '', description: 'The losses were: <span>b\\text{L} = -[1*\\log(0.9)] \\approx 0.105</span>' }
+                      ],
+                      position: 2
+                    },
+                    {
+                      id: 3,
+                      type: 'text',
+                      description: 'If the predicted probability becomes (p = 0.6), then:',
+                      position: 3
+                    },
+                    {
+                      id: 4,
+                      type: 'mathList',
+                      mathList: [
+                        { latex: '', description: 'The losses were: <span>b\\text{L} = -[1*\\log(0.6)] \\approx 0.511</span>' }
+                      ],
+                      position: 4
+                    },
+                    {
+                      id: 5,
+                      type: 'text',
+                      description: 'It can be seen that the more accurate the prediction, the smaller the loss.',
+                      position: 5
+                    }
+                  ]
+                }
+              ],
+              position: 3
+            }
+          ],
+          position: 3
+        },
+        {
+          id: 4,
+          title: '4. Comparison of linear regression and logistic regression',
+          subSections: [
+            {
+              id: 1,
+              title: '4.1 The essence difference between the two',
+              subSubSections: [
+                {
+                  id: 1,
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Linear regression and logistic regression, despite their similar names, serve very different purposes and principles.',
+                      position: 1
+                    }
+                  ],
+                  position: 1
+                },
+                {
+                  id: 2,
+                  title: '4.1.1 Application Scenarios',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: '<ul><li><b>Linear Regression:</b> Predicts continuous values such as house prices, temperature, etc.</li><li><b>Logistic Regression:</b> Predicts categorical probabilities, such as whether you have a disease, wether you buy a car, etc.</li></ul>',
+                      position: 1
+                    }
+                  ],
+                  position: 2
+                },
+                {
+                  id: 3,
+                  title: '4.1.2 Output type',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: '<ul><li><b>Linear Regression:</b> The output is an arbitrary real number.</li><li><b>Logistic Regression:</b> The output is a probability value of 0 to 1.</li></ul>',
+                      position: 1
+                    }
+                  ],
+                  position: 3
+                }
+              ],
+              position: 1
+            },
+            {
+              id: 2,
+              title: '4.2 Differences in Mathematical Models',
+              subSubSections: [
+                {
+                  id: 1,
+                  content: [
+                    {
+                      id: 1,
+                      type: 'mathList',
+                      mathList: [
+                        { latex: '', description: 'Linear regression: <span>b\\ y = w*x + b</span>' },
+                        { latex: '', description: 'Logistic regression: <span>b\\ P(y = 1 \\mid x) = \\sigma(w*x + b)</span>' }
+                      ],
+                      position: 1
+                    }
+                  ],
+                  position: 1
+                }
+              ]
+            },
+            {
+              id: 3,
+              title: '4.3 Differences in Loss Functions',
+              subSubSections: [
+                {
+                  id: 1,
+                  content: [
+                    {
+                      id: 1,
+                      type: 'mathList',
+                      mathList: [
+                        { latex: '', description: 'Linear regression: Using Mean Squared Error (MSE) <span>b\\ [\\text{MSE} = \\frac{1}{N} \\sum_{i=1}^{N} (y_i - \\hat{y}_i)^2]</span>' },
+                        { latex: '', description: 'Logistic regression: cross-entropy loss is used, which is suiable for probabilistic prediction.' }
+                      ],
+                      position: 1
+                    }
+                  ],
+                  position: 1
+                }
+              ],
+              position: 1
+            },
+            {
+              id: 4,
+              title: '4.4 Example: Predicting Test Scores vs. Passing',
+              subSubSections: [
+                {
+                  id: 1,
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Let\'s say we have a student\'s data: study time (hours).',
+                      position: 1
+                    }
+                  ],
+                  position: 1
+                },
+                {
+                  id: 2,
+                  title: '4.4.1 Linear regression predicts results',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Input: Study time = 5 hours',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'text',
+                      description: 'Model: <span>b\\hat{y} = 10*x + 20</span> Output: <span>b\\hat{y} = 10*5 + 20 = 70</span> (70 points for the predicted score)',
+                      position: 2
+                    }
+                  ],
+                  position: 2
+                },
+                {
+                  id: 3,
+                  title: '4.4.2 Logistic regression prediction passes',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Input: Study time = 5 hours',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'text',
+                      description: 'Model: <span>b\\ (z = 2*5 - 5), (\\text{P} = \\sigma(z))</span> Compute: <span>b\\ (z = 2*5 - 5 = 5), (\\text{P} = \\sigma(5) \\approx 0.993)</span> Result: probability 0.993 > 0.5, prediction "passing"',
+                      position: 2
+                    },
+                    {
+                      id: 3,
+                      type: 'text',
+                      description: 'Here\'s a code example (Python):',
+                      position: 3
+                    },
+                    {
+                      id: 4,
+                      type: 'code',
+                      description: 'import numpy as np\n\n# Sigmoid function\ndef sigmoid(z):\n   return 1 / (1 + np.exp(-z))\n\n# Linear regression model\nx = 5 # study time\ny_linear = 10 * x + 20\nprint(f"Linear regression prediction: {y_linear:.2f}")\n\n# Logistic regression model\nz = 2 * x - 5\np = sigmoid(z)\nprint(f"Logistic regression prediction: {probability:.3f}")',
+                      position: 4
+                    }
+                  ],
+                  position: 3
+                }
+              ]
+            }
+          ],
+          position: 4
+        },
+        {
+          id: 5,
+          title: '5. Summary',
+          subSections: [
+            {
+              id: 1,
+              subSubSections: [
+                {
+                  id: 1,
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'From the basics to the practice, this paper systematically introduces the core content of logistic regression and classification problems. Here are the key takeaways:',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'text',
+                      description: '<ul><li><b>Logistic regression principle: </b> Through linear combination and sigmoid function, features are mapped to probabilites for classifications tasks.</li><li><b>Sigmoid function:</b> converts any real number to a probability value of 0 to 1 and is at the heart of logistic regression.</li><li><b>Cross-entropy loss:</b> measures the difference between the predicted probability and the real label to drive model optimization.</li><li><b>Comparison with linear regression:</b> linear regression predicts the numerical value, and logistic regression predicts the probability, and the difference between the two is obvious in the goal, output, and loss function.</li></ul>',
+                      position: 2
+                    }
+                  ],
+                  position: 1
+                }
+              ],
+              position: 1
+            }
+          ],
+          position: 5
+        }
+      ],
+      createdAt: '16 Apr 2025'
     }
   ]
 }
