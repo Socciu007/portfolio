@@ -1561,6 +1561,83 @@ export const mockData = {
         }
       ],
       createdAt: '16 Apr 2025'
+    },
+    {
+      id: 3,
+      category: 'Machine Learning',
+      title: 'Decision Trees',
+      hearder: 'Have you ever wondered how machine learning can uncover hidden partterns in massive amounts of data? Or, how can a simple model help doctors diagnose diseases, banks assess credit, or even predict suevivors on the Titanic? The answer lies in the decision tree algorithm. As an "evergreen" tree in the field of machine learning, decision trees are loved by beginners and professionals alik for their intuitive and easy to understand and powerful practicability. I remember the excitement of my first encounter with decision trees - how many lines of code could make a computer "think" about a problem and make a step-by-step secision like a human. At that moment, I realized that it had more potential than I could have imagined.\nThis article will take you into the world of decision trees, from the zero-based construction process, to the mysteries of information gain and Gini index, to pruning optimization and real-world case drills.',
+      sections: [
+        {
+          id: 1,
+          title: '1. Introduction to Decision Trees.',
+          subSections: [
+            {
+              id: 1,
+              title: '1.1 What is a decision tree?',
+              subSubSections: [
+                {
+                  id: 1,
+                  title: '1.1.1 Definition of Decision Tree.',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'A decision tree is a tree-like supervised learning algorithm that divides a dataset into a series of "questions" (feature tests) to finally arrive at a prediction. Its structure includes:',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'text',
+                      description: '<ul><li><b>Root node:</b> The starting point of the entire dataset.</li><li><b>Internal node:</b> Represents the test condition of the feature.</li><li><b>Branch:</b> Different paths to test results.</li><li><b>Leaf node:</b> The final category label (classification) or nummeric value (regression).</li></ul> To use an analogy, a decision tree is like playing a game of "20 questions": by constantly asking questions such as "Are the petals longer than 3 centimeters?", gradually narrowing it down until you have an answer.',
+                      position: 2
+                    }
+                  ]
+                }
+              ],
+              position: 1
+            },
+            {
+              id: 2,
+              title: '1.2 Application Scenarios of Decision Trees.',
+              subSubSections: [],
+              position: 2
+            }
+          ],
+          position: 1
+        },
+        {
+          id: 2,
+          title: '2. The construction of the decision tree.',
+          subSections: [],
+          position: 2
+        },
+        {
+          id: 3,
+          title: '3. Optimization of decision trees: pruning techniques.',
+          subSections: [],
+          position: 3
+        },
+        {
+          id: 4,
+          title: '4. Visualization of decision trees: Let the model "Speak".',
+          subSections: [],
+          position: 4
+        },
+        {
+          id: 5,
+          title: '5. Application of decision tree in practical projects: Take Titanic survival prediction as an example.',
+          subSections: [],
+          position: 5
+        },
+        {
+          id: 6,
+          title: '6. Summary',
+          subSections: [],
+          position: 6
+        }
+      ],
+      createdAt: '19 Apr 2025'
     }
   ]
 }
