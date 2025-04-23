@@ -1593,6 +1593,17 @@ export const mockData = {
                       position: 2
                     }
                   ]
+                },
+                {
+                  id: 2,
+                  title: '1.1.2 How decision trees work',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Let\'s say we want to use a decision tree to determine whether a person likes to exercise or not. A decision tree might start by asking, "Is it younger than 30?" If so, move on to the next question: "Do you exercise more than 3 hours a week?" Final Result is "Yes" or "No". This step-by-step decision-making process is intuitive and easy to understand.'
+                    }
+                  ]
                 }
               ],
               position: 1
@@ -1600,7 +1611,34 @@ export const mockData = {
             {
               id: 2,
               title: '1.2 Application Scenarios of Decision Trees.',
-              subSubSections: [],
+              subSubSections: [
+                {
+                  id: 1,
+                  title: '1.2.1 Real-world cases',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Decision trees shine in a varitety  of areas: <ul><li>Finance: Determine whether a loan applicant will default.</li><li>Medical: Predict the type of disease based on symptoms.</li><li>E-commerce: Analyze user\'s purchase preferences.</li></ul>',
+                      position: 1
+                    }
+                  ],
+                  position: 1
+                },
+                {
+                  id: 2,
+                  title: '1.2.2 Why decision trees?',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'The biggest advantage of decision trees is that they are highly interpretable, so you can clearly see the basis for each decision. This is especially important inscenarios where transparency is required, such as medical diagnosis',
+                      position: 1
+                    }
+                  ],
+                  position: 2
+                }
+              ],
               position: 2
             }
           ],
@@ -1609,19 +1647,301 @@ export const mockData = {
         {
           id: 2,
           title: '2. The construction of the decision tree.',
-          subSections: [],
+          subSections: [
+            {
+              id: 1,
+              title: '2.1 Basic Principles of Decision Trees',
+              subSubSections: [
+                {
+                  id: 1,
+                  title: '2.1.1 The core idea of data division',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'The construction of a decision tree is a recursive process: starting from the root nodee, a "best feature" is selected to divide the dataset so that the subsets are more "pure" (i.e., more consistent in categories). This process continues intil the stopping condition is met, such as all samples belonging to the same class.',
+                      position: 1
+                    }
+                  ],
+                  position: 1
+                },
+                {
+                  id: 2,
+                  title: '2.1.2 What are the conditions for stopping',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: '<ul><li>All samples belong to the same class.</li><li>There are no remaining features to divide.</li><li>Reach the preset maximum depth.</li></ul>',
+                      position: 1
+                    }
+                  ],
+                  position: 2
+                }
+              ],
+              position: 1
+            },
+            {
+              id: 2,
+              title: '2.2 Feature Selection: How to find the best division ?',
+              subSubSections: [
+                {
+                  id: 1,
+                  title: '2.2.1 Information Gain: Entropy-based measurement',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Information gain is a measures the reduction of the "uncertainty" of the dataset after feature division. Uncertainty is expressed in entropy by the formula: <span>b\\ [Entropy(D) = -\\sum_{k=1}^{K} p_k \\log_2 p_k]</span>\n where <span>i\\ p_k</span> is the proportion of category k samples. The lower the entropy, the higher the purity. The calculation of the information gain is: <span>b\\ [\\text{Gain}(D, A) = Entropy(D) - \\sum_{v=1}^{V} \\frac{|D^v|}{|D|} \\cdot Entropy(D^v)]</span>\n Select the feature with the greatest information gain. For example, when determining whether it is raining, "humidity" may provide a greater information gain than "temperature".',
+                      position: 1
+                    }
+                  ],
+                  position: 1
+                },
+                {
+                  id: 2,
+                  title: '2.2.2 Gini Index: A simple and efficient choice',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'The Gini index is another purity indicator with the formula: <span>b\\ [Gini(D) = 1 - \\sum_{k=1}^{K} p_k^2]</span>\n The smaller the Gini index, the higher the prurity. The Gini index after feature division is the weighted averge, and the feature with the smallest Gini index is selected. Compared to information gain, the Gini exponent is faster to caculate and is often used is CART algorithms.',
+                      position: 1
+                    }
+                  ],
+                  position: 2
+                },
+                {
+                  id: 3,
+                  title: '2.2.3 Information Gain vs Gini Index.',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'table',
+                      description: '<table><tr><th>Index</th><th>Merit</th><th>Shortcoming</th></tr><tr><td>Information Gain</td><td>Gini Index</td><td>Strong theoretical basis and intuitive/td></tr><tr><td>The caculation is simple and works well with binary trees</td><td>There is preference for multi-valued features, and the calculation is complex</td><td>Slightly sensitive to noise</td></tr></table>',
+                      position: 1
+                    }
+                  ]
+                }
+              ],
+              position: 2
+            },
+            {
+              id: 3,
+              title: '2.3 Pruning: Optimizing the decision tree',
+              subSubSections: [
+                {
+                  id: 1,
+                  title: '2.3.1 ID3 algorithm',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'ID3 selects features with information gain, which is suiable for discrete data. The disadvantage is that it prefers features with many values and cannot handle continuous values.',
+                      position: 1
+                    }
+                  ],
+                  position: 1
+                },
+                {
+                  id: 2,
+                  title: '2.3.2 C4.5 algorithm',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'C4.5 improves ID3 by replacing information gain with an onformation gain ratio, and can also handle continuous features and missing values, which is more practical.',
+                      position: 1
+                    }
+                  ],
+                  position: 2
+                },
+                {
+                  id: 3,
+                  title: '2.3.3 CART algorithm',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'CART (Classification and Regression Trees) uses Gini indices to support classification and regression to generate binary trees, which has a wider range of applications.',
+                      position: 1
+                    }
+                  ],
+                  position: 3
+                }
+              ],
+              position: 3
+            }
+          ],
           position: 2
         },
         {
           id: 3,
           title: '3. Optimization of decision trees: pruning techniques.',
-          subSections: [],
+          subSections: [
+            {
+              id: 1,
+              title: '3.1 Why prune?',
+              subSubSections: [
+                {
+                  id: 1,
+                  title: '3.1.1 Risk of overfitting',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'An unpruned decision tree may "grow too deep" and fit the training data perfectly, but not well on the new data, which is called overfitting.',
+                      position: 1
+                    }
+                  ],
+                  position: 1
+                },
+                {
+                  id: 2,
+                  title: '3.1.2 Benefits of pruning',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Pruning improves generalization ability by simplifying the tree structure, reducing overfitting.',
+                      position: 1
+                    }
+                  ],
+                  position: 2
+                }
+              ],
+              position: 1
+            },
+            {
+              id: 2,
+              title: '3.2 Two methods of pruning',
+              subSubSections: [
+                {
+                  id: 1,
+                  title: '3.2.1 Pre-pruning: stop early',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Set restrictions when the tree grows: <ul><li>Maximum depth (e.g. 5 layers)</li><li>Minimum number of samples (e.g. at least 10 samples per leaf node)</li></ul>\n <b>Pros</b>: Simple and efficient.',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'text',
+                      description: '<b>Disadvantages</b>: Potentially important divisions may be missed.',
+                      position: 2
+                    }
+                  ],
+                  position: 1
+                },
+                {
+                  id: 2,
+                  title: '3.2.2 Post-pruning: prunning afterwards.',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Once the tree is fully grown, unnecessary branches are removed based in the validation set performance.',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'text',
+                      description: '<b>Pros</b>: More precise.',
+                      position: 2
+                    },
+                    {
+                      id: 3,
+                      type: 'text',
+                      description: '<b>Disadvantages</b>: High computational cost.',
+                      position: 3
+                    },
+                    {
+                      id: 4,
+                      type: 'text',
+                      description: 'Implementation steps of post-pruning: <ol><li>Build a full tree from all the training data.</li><li>From the bottom up, try removing each node.</li><li>Evaluate performance with a validation set and cut it off if it improves after removal.</li></ol>',
+                      position: 4
+                    }
+                  ],
+                  position: 2
+                }
+              ],
+              position: 2
+            }
+          ],
           position: 3
         },
         {
           id: 4,
           title: '4. Visualization of decision trees: Let the model "Speak".',
-          subSections: [],
+          subSections: [
+            {
+              id: 1,
+              title: '4.1 Why do you need visualization?',
+              subSubSections: [
+                {
+                  id: 1,
+                  title: '4.1.1 The value of visualization',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Visualization visualizes the decision-making process and helps us to: <ul><li>Understand the logic model.</li><li>Check the importance of features.</li><li>Identify potential problems.</li></ul>',
+                      position: 1
+                    }
+                  ],
+                  position: 1
+                }
+              ],
+              position: 1
+            },
+            {
+              id: 2,
+              title: '4.2 How to visualize a decision tree?',
+              subSubSections: [
+                {
+                  id: 1,
+                  title: '4.2.1 Python implementation',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'In Python, sklearn provides plot_tree functions. Here\'s the sample code:',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'code',
+                      description: 'from sklearn.tree import DecisionTreeClassifier, plot_tree\nfrom sklearn.datasets import load_iris\nimport matplotlib.pyplot as plt\n\n# Load data\niris = load_iris()\nX, y = iris.data, iris.target\n\n# Train the model\nclf = DecisionTreeClassifier(max_depth=3)\nclf.fit(X, y)\n\n# Visualize\nplt.figure(figsize=(15,10))\nplot_tree(\n  clf,\n  filled=True,\n  feature_names=iris.feature_names,\n  class_names=iris.target_names\n)\nplt.show()',
+                      position: 2
+                    },
+                    {
+                      id: 3,
+                      type: 'text',
+                      description: 'Key Code Explained: <ul><li>filter=True: Fills the node with a color, and the shade of color indicates the purity of the category.</li><li>feature_names: Displays the name of the features.</li><li>class_names: Displays the category name.</li></ul>\n Once you\'ve run it, you\'ll see a clear treemap showing the characteristics, thresholds, and predictions for each node.',
+                      position: 3
+                    }
+                  ],
+                  position: 1
+                },
+                {
+                  id: 2,
+                  title: '4.2.2 Interpretation of visualization results',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Suppose the image above shows that "Petal Length ≤ 2.45" is the root node, and the left branch is all "setosa" class, which shows that this feature distingguishes a category well.',
+                      position: 1
+                    }
+                  ],
+                  position: 2
+                }
+              ],
+              position: 2
+            }
+          ],
           position: 4
         },
         {
