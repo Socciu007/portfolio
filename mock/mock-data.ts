@@ -1947,13 +1947,308 @@ export const mockData = {
         {
           id: 5,
           title: '5. Application of decision tree in practical projects: Take Titanic survival prediction as an example.',
-          subSections: [],
+          subSections: [
+            {
+              id: 1,
+              title: '5.1 Introduction',
+              subSubSections: [
+                {
+                  id: 1,
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Decision trees are a simple but powerful machine learning algorithm that is widely used in classification and regression tasks. This chater shows how to use decision trees to solve problems in real projects through a classic case study, Titanic survival prediction. We\'ll cover the entire process of data preprocessing, model training, evaluation, and visualization, and provide rich code examples to help you turn theory into practice.',
+                      position: 1
+                    }
+                  ]
+
+                }
+              ],
+              position: 1
+            },
+            {
+              id: 2,
+              title: '5.2 Case Study: Titanic Survival Prediction',
+              subSubSections: [
+                {
+                  id: 1,
+                  title: '5.2.1 Introduction to Datasets',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'The Titanic dataset contains information about Titanic passsengers, such as age, gender, cabin class,... The goal is to predict whether the passenger will survive of not (survived column: 0 means not surviving, 1 means surviving).',
+                      position: 1
+                    }
+                  ],
+                  position: 1
+                },
+                {
+                  id: 2,
+                  title: '5.2.2 Obtaining a Dataset',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'We use the seaborn library to load the Titanic dataset.',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'code',
+                      description: 'import seaborn as sns\nimport pandas as pd\n\n# Load the dataset\ntitanic = sns.load_dataset("titanic")\ntitanic.head() # View the first few rows of the data',
+                      position: 2
+                    }
+                  ],
+                  position: 2
+                }
+              ],
+              position: 2
+            },
+            {
+              id: 3,
+              title: '5.3 Data Preprocessing',
+              subSubSections: [
+                {
+                  id: 1,
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Data preprocessing is an important step in machine learning to ensure that the input data is suitable for model training.',
+                      position: 1
+                    }
+                  ],
+                  position: 1
+                },
+                {
+                  id: 2,
+                  title: '5.3.1 Handling Missing Values',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'There are missing values in the age and embarked columns in the Titanic dataset. We fill age with the median and embarked with the mode:',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'code',
+                      description: '# Fill missing value in "age"\ntitanic["age"].fillna(titanic["age"].median(), inplace=True)\n\n# Fill missing value in "embarked"\ntitanic["embarked"].fillna(titanic["embarked"].mode()[0], inplace=True)\n\n# Check if all missing values have been handled\nprint(titanic.isnull().sum())',
+                      position: 2
+                    }
+                  ],
+                  position: 2
+                },
+                {
+                  id: 3,
+                  title: '5.3.2 Coding categorical variables',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'The decision tree requires the feature to be numeric in type, so convert sex and embarked to a numeric value:',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'code',
+                      description: '# Convert "sex" to 0 and 1\ntitanic["sex"] = titanic["sex"].map({"male": 0, "female": 1})\n\n# Convert "embarked" to one-hot encoding\ntitanic["embarked"] = pd.get_dummies(titanic, columns=["embarked"], drop_first=True)\n\n# View the processed data\nprint(titanic[["sex", "embarked_Q", "embarked_S", "embarked_C"]].head())',
+                      position: 2
+                    }
+                  ],
+                  position: 3
+                },
+                {
+                  id: 4,
+                  title: '5.3.3 Select Features and Target Variables',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'We select the following features for modeling: pclass, sex, age, sibsp, parch, fare, embarked_Q, embarked_S, and the target variable is survived.',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'code',
+                      description: '# Select geatures and target variable\nfeatures = ["pclass", "sex", "age", "sibsp", "parch", "fare", "embarked_Q", "embarked_S"]\nX = titanic[features]\ny = titanic["survived"]\n\n# View the selected feature data\nprint(X.head())',
+                      position: 2
+                    }
+                  ],
+                  position: 4
+                }
+              ],
+              position: 3
+            },
+            {
+              id: 4,
+              title: '5.4 Model Training',
+              subSubSections: [
+                {
+                  id: 1,
+                  title: '5.4.1 Divide the training set and the test set',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Divide the dataset into a training set (80%) and a test set (20%):',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'code',
+                      description: 'from sklearn.model_selection import train_test_split\n\n# Split the dataset\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)\n\nprint(f"Number of training samples: {X_train.shape[0]}\nNumber of testing samples: {X_test.shape[0]}")',
+                      position: 2
+                    }
+                  ],
+                  position: 1
+                },
+                {
+                  id: 2,
+                  title: '5.4.2 Training a decision tree model',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Use sklearn\'s DecisionTreeClassifier to train the model, set the max_depth=3 to control the model complexity:',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'code',
+                      description: 'from sklearn.tree import DecisionTreeClassifier\n\n# Train the model\nclf = DecisionTreeClassifier(max_depth=3, random_state=42)\nclf.fit(X_train, y_train)\n\nprint("Training complete! ")',
+                      position: 2
+                    }
+                  ],
+                  position: 2
+                }
+              ],
+              position: 4
+            },
+            {
+              id: 5,
+              title: '5.5 Model Evaluation',
+              subSubSections: [
+                {
+                  id: 1,
+                  title: '5.5.1 Calculation accuracy',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Use the test set to predict and calculate the accuracy:',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'code',
+                      description: 'from sklearn.metrics import accuracy_score\n\n# Prediction\ny_pred = clf.predict(X_test)\n\n# Calculate the accuracy\naccuracy = accuracy_score(y_test, y_pred)\nprint(f"Model accuracy: {accuracy:.2f}")',
+                      position: 2
+                    }
+                  ],
+                  position: 1
+                },
+                {
+                  id: 2,
+                  title: '5.5.2 Drawing the Confusion Matrix',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'The confusion matrix shows the classification performance of the model:',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'code',
+                      description: 'from sklearn.metrics import confusion_matrix\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Calcalate the confusion matrix\ncm = confusion_matrix(y_test, y_pred)\n\n# Plot the confusion matrix\nplt.figure(figsize=(6, 6))\nsns.heatmap(cm, annot=True, fmt="d", cmap="Blues")\nplt.xlabel("Predicted")\nplt.ylabel("Actual")\nplt.title("Confusion Matrix")\nplt.show()',
+                      position: 2
+                    }
+                  ],
+                  position: 2
+                }
+              ],
+              position: 5
+            },
+            {
+              id: 6,
+              title: '5.6 Visual Decision Tree',
+              subSubSections: [
+                {
+                  id: 1,
+                  title: '5.6.1 Using plot_tree visualization',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Visual Decision Tree Structure:',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'code',
+                      description: 'from sklearn.tree import plot_tree\n\n# Visualize the decision tree\nplt.figure(figsize=(15,10))\nplot_tree(clf, filled=True, feature_names=features, class_names=["Not Survived", "Survived"])\nplt.show()',
+                      position: 2
+                    }
+                  ],
+                  position: 1
+                },
+                {
+                  id: 2,
+                  title: '5.6.2 Feature Importance',
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'Analyze the contribution of each feature to the prediction:',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'code',
+                      description: '# Get feature importance\nimportance = clf.feature_importances_\nfeature_importance = pd.Series(importance, index=features).sort_values(ascending=False)\n\n# Plot the feature importance as a bar chart\nplt.figure(figsize=(10, 6))\nfeature_importance.plot(kind="bar")\nplt.xlabel("Features")\nplt.ylabel("Importance")\nplt.title("Feature Importance")\nplt.show()',
+                      position: 2
+                    }
+                  ],
+                  position: 2
+                }
+              ],
+              position: 6
+            }
+          ],
           position: 5
         },
         {
           id: 6,
           title: '6. Summary',
-          subSections: [],
+          subSections: [
+            {
+              id: 1,
+              subSubSections: [
+                {
+                  id: 1,
+                  content: [
+                    {
+                      id: 1,
+                      type: 'text',
+                      description: 'A decision tree is not just an algorithm, it\'s a way of thinking - it teaches us to find a clear path from complex problems. Whether it\'s an in-depth analysis of the theory or a hands-on practice of a Titanic case, this article is designed to help you not only "know what is", but also "know why".',
+                      position: 1
+                    },
+                    {
+                      id: 2,
+                      type: 'text',
+                      description: '<ul><li><b>Decision Tree Basics</b>: From the tree structure to the working principle, the algorthm is unveiled to be intuitive and easy to understand.</li><li><b>Construction process</b>: Recursively build an efficient tree by selecting the best features through information gain and Gini index.</li><li><b>Optimization skills</b>: Pre-pruning and post-pruning are used simultaneously to solve the problem of overfitting and improve the generalization ability of the model.</li><li><b>Visualization</b>: Use Python to draw decision trees and feature importance to intuitively understand the model decision-making process.</li><li><b>Practical application</b>: Taking Titanic survival prediction as an example, the whole process from data preprocessing to model evaluation is fully demonstrated.</li></ul>',
+                      position: 2
+                    }
+                  ],
+                  position: 1
+                }
+              ],
+              position: 1
+            }
+          ],
           position: 6
         }
       ],
