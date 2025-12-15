@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import './style.scss'
 import menu from '/assets/icons/menu.svg'
 import { useState, useEffect } from 'react'
@@ -9,6 +9,7 @@ import moon from '/assets/icons/moon-star.svg'
 const HeaderComponent = ({ isHidden }: { isHidden: boolean }) => {
   const [activeSection, setActiveSection] = useState('home')
   const { darkMode, toggleDarkMode } = useTheme()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,7 +35,7 @@ const HeaderComponent = ({ isHidden }: { isHidden: boolean }) => {
           </span>
           <span style={{ color: '#00a8cc' }}>/&gt;</span>
         </NavLink>
-        <div className='wrapper'>
+        <div className="wrapper">
           {!isHidden && (
             <div className="header__container-nav display-desktop">
               <a
@@ -72,14 +73,35 @@ const HeaderComponent = ({ isHidden }: { isHidden: boolean }) => {
               >
                 Blogs
               </a>
+              <a
+                href="#"
+                className={activeSection === 'gift' ? 'active' : ''}
+                onClick={() => navigate('/gift')}
+              >
+                Gift
+              </a>
             </div>
           )}
-          <div className='wrapper-mode'>
-            {darkMode ? <img onClick={toggleDarkMode} src={moon} loading='lazy' alt="moon" /> : <img onClick={toggleDarkMode} src={sun} loading='lazy' alt="sun" />}
+          <div className="wrapper-mode">
+            {darkMode ? (
+              <img
+                onClick={toggleDarkMode}
+                src={moon}
+                loading="lazy"
+                alt="moon"
+              />
+            ) : (
+              <img
+                onClick={toggleDarkMode}
+                src={sun}
+                loading="lazy"
+                alt="sun"
+              />
+            )}
           </div>
         </div>
         <div className="header__container-nav display-smartphone">
-          <img src={menu} loading='lazy' alt="img-menu" />
+          <img src={menu} loading="lazy" alt="img-menu" />
         </div>
       </div>
     </header>

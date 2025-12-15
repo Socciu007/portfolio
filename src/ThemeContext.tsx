@@ -3,6 +3,7 @@ import React, { createContext, useState, useContext } from 'react'
 interface ThemeContextType {
   darkMode: boolean;
   toggleDarkMode: () => void;
+  setDarkMode?: (value: boolean) => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
@@ -17,15 +18,22 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const toggleDarkMode = () => {
     setDarkMode((prevMode: boolean) => {
-      // Save the new mode to localStorage
       const newMode = !prevMode
       localStorage.setItem('dark-mode', JSON.stringify(newMode))
       return newMode
     })
   }
 
+  // 👇 expose setter
+  const updateDarkMode = (value: boolean) => {
+    setDarkMode(value)
+    localStorage.setItem('dark-mode', JSON.stringify(value))
+  }
+
   return (
-    <ThemeContext.Provider value={{ darkMode, toggleDarkMode }}>
+    <ThemeContext.Provider
+      value={{ darkMode, toggleDarkMode, setDarkMode: updateDarkMode }}
+    >
       {children}
     </ThemeContext.Provider>
   )
