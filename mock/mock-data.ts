@@ -1,6 +1,18 @@
 export const mockData = {
   projects: [
     {
+      id: 0,
+      name: 'Medical Services Management Website.',
+      description: 'Designed and developed a full-featured web application for a healthcare services company. The platform enables seamless management of patients, doctors, appointments, and clinical activities, improving both administrative efficiency and patient care quality.',
+      image: '/assets/images/medical-add.png',
+      responsibilities: [],
+      status: 'active',
+      link: 'https://medical-appointment-eta.vercel.app/',
+      linkGithub: 'https://github.com/Socciu007/medical-appointment.git',
+      technologies: ['Postgresql', 'FastAPI', 'ReactJS', 'TypeScript', 'Python'],
+      createdAt: '13 May 2025'
+    },
+    {
       id: 1,
       name: 'E-commerce website for electronic devices.',
       description: 'Designed and developed a scalable e-commerce system tailored for the electrical equipment industry, integrating product catalog management, secure payment processing, and real-time inventory tracking.',
