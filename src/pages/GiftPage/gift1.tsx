@@ -8,7 +8,6 @@ const Gift1 = () => {
   const pages = useMemo(
     () => [
       'Gửi em... 🎄❤️',
-      'Cô Hạnh,',
       'Giáng Sinh lại về, mang theo cái lạnh dễ thương của mùa đông…',
       'và cả những điều anh muốn nói với em từ lâu.',
       'Trong ánh đèn Noel lấp lánh,',
